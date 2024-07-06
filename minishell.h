@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:29:50 by ffidha            #+#    #+#             */
-/*   Updated: 2024/06/28 15:30:47 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/07/06 15:56:27 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 # define MINISHELL_H
 
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdbool.h>
 #endif
