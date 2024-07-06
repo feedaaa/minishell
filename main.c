@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:08:36 by ffidha            #+#    #+#             */
-/*   Updated: 2024/07/06 16:00:17 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/07/06 20:50:57 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,43 @@
 
 //build a basic shell and then add on
 
+// funtion to display prompt
 void display_prompt(void)
 {
 	printf("minishell_test %% ");
 }
 
-void read_command(char *command, size_t size) {
-    if (fgets(command, size, stdin) == NULL) {
-        if (feof(stdin)) {
-            printf("\n");
-            exit(EXIT_SUCCESS);
-        } else {
-            printf("Error while reading input.\n");
-            exit(EXIT_FAILURE);
-        }
+// function to read command from command line
+void read_command(char *command, size_t size) 
+{
+	// readline function is bascially getnextline on crack
+  char *line = readline("$> ");
+  if (line == NULL) {
+    if (feof(stdin)) {
+      printf("\n");
+      exit(EXIT_SUCCESS);
+    } else {
+      printf("Error reading input.\n");
+      exit(EXIT_FAILURE);
     }
-    command[strcspn(command, "\n")] = '\0'; // Remove newline
+  } else if (strcmp(line, "") == 0) {
+    free(line);
+    return;
+  }
+
+  if (strlen(line) >= size) {
+    printf("Error: Command too long.\n");
+    free(line);
+    return;
+  }
+  strcpy(command, line);
+  free(line);
 }
 
-void execute_command(const char *command) 
+// function to fork the process and execute the process
+void execute_command(const char *command, char **env) 
 {
-    pid_t child_pid = fork();
-
+    pid_t child_pid = fork(); // forks a child process
     if (child_pid == -1) 
 	{
         printf("Error forking process.\n");
@@ -46,14 +61,16 @@ void execute_command(const char *command)
         char *args[128];
         int arg_count = 0;
 
+		//strtok tokenizes(splits the command into smaller pieces) the command.
+		// we are not supposed to use this function but for understanding purposes huhu.
         char *token = strtok((char *)command, " ");
         while (token != NULL) {
             args[arg_count++] = token;
-            token = strtok(NULL, " ");
+            token = strtok(NULL, " "); 
         }
         args[arg_count] = NULL;
 
-        execvp(args[0], args);
+        execvp(args[0], args); // have to use execve instead
         printf("Error executing command.\n");
         exit(EXIT_FAILURE);
     } 
@@ -70,7 +87,7 @@ int main(int ac, char **av, char **env)
 	{
 		display_prompt();
 		read_command(command, sizeof(command));
-		execute_command(av[1]);
+		execute_command(av[1], env);
 	}
 	return (0);
 }
