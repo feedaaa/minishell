@@ -26,8 +26,8 @@ typedef enum e_operator {
 	RDR_OUT_REPLACE,        //> in shells
 	RDR_OUT_APPEND,        //>> in shells
 	RDR_INPUT,             //< in shells
-	RDR_INPUT_UNTIL,       //| in shells
-	PIPE,
+       RDR_INPUT_UNTIL,        //<< in shells
+	PIPE,                  //| in shells
 }				t_operator;
 
 typedef struct s_commandinput {
