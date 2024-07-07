@@ -91,7 +91,7 @@ int main(int ac, char **av, char **env)
 		 parsed_commands = parser(command);
 		// execute_command(parsed_commands, env);
 		execute_command(av[1], env);
-		clean_parsed(&statement_list, env); //to clear everything and handle the next command 
+		clean_parsed(parsed_commands, env); //to clear everything and handle the next command 
 	}
 	return (0);
 }
