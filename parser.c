@@ -92,7 +92,7 @@ static bool is_spaces(char c)
 }
 
 //The length of each token
-size_t get_token_len(char *input_at_i)
+size_t get_token_length(char *input_at_i)
 {
 
     size_t i;
