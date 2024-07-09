@@ -21,6 +21,9 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 
+# define OPERATORS "|<>"
+# define QUOTES "\"\'"
+
 typedef enum e_operator {
 	NONE,                   //No specific operator.
 	RDR_OUT_REPLACE,        //> in shells
