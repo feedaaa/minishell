@@ -83,12 +83,14 @@ int main(int ac, char **av, char **env)
 {
 	char command[120];
 	t_statement  parsed_commands;
+	int size;
+	size = 0;
 
 	while (true)
 	{
 		display_prompt();
 		read_command(command, sizeof(command));
-		 parsed_commands = parser(command);
+		 parsed_commands = parser(command, &size);
 		execute_command(parsed_commands, env);
 		// execute_command(av[1], env);
 		clean_parsed(parsed_commands, env); //to clear everything and handle the next command 
