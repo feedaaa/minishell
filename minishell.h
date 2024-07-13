@@ -31,12 +31,33 @@ typedef enum e_operator {
 	RDR_INPUT,             //< in shells
        RDR_INPUT_UNTIL,        //<< in shells
 	PIPE,                  //| in shells
-}				t_operator;
+}t_operator;
+
+typedef struct s_statement {
+    int                 argc;
+    char              **argv;
+    t_operator         operator;
+} t_statement;
 
 typedef struct s_commandinput {
     char *command;          // Command string
     t_operator operator;    // Operator associated with the command
-    struct s_commandinput *next; // Pointer to the next command(for example: cat file.txt | grep "anything") It will point to the command after the operator
 } t_commandinput;
+
+//Parsing Functions
+size_t get_token_length(char *input_at_i);
+char **tokenize_input(char *input) ;
+bool is_spaces(char c);
+bool	is_therechar(const char *str, int ch);
+size_t	count_tokens(char *input);
+int	ft_strcmp(const char *s1, const char *s2);
+t_operator	get_operator(char *operator);
+t_statement *parser(char *input, int *size);
+size_t	remove_quotes_size(char	*parsed);
+char	*remove_quotes(char	*parsed);
+size_t	get_argc(char **parsed);
+
+
+
 
 #endif
