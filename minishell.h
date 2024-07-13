@@ -34,15 +34,11 @@ typedef enum e_operator {
 }t_operator;
 
 typedef struct s_statement {
-    int                 argc;
-    char              **argv;
-    t_operator         operator;
+    int                 argc; //The number of commands
+    char              **argv; //The commnands between each operstor
+    t_operator         operator; 
 } t_statement;
 
-typedef struct s_commandinput {
-    char *command;          // Command string
-    t_operator operator;    // Operator associated with the command
-} t_commandinput;
 
 //Parsing Functions
 size_t get_token_length(char *input_at_i);
