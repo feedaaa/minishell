@@ -8,7 +8,7 @@
 //statements[1].argv = grep something
 //statements[1].operator = |
 //statements[2].argv = wc -l
-//statements[1].operator = NONE
+//statements[2].operator = NONE
 // I also made it pass the size of the command line which is the number of tokens just so if you needed to use it in your part!
 
 
