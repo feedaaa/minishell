@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:29:50 by ffidha            #+#    #+#             */
-/*   Updated: 2024/07/06 20:44:00 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/07/16 11:45:52 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <stdbool.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include "../libft/libft.h"
 
 # define OPERATORS "|<>"
 # define QUOTES "\"\'"
@@ -29,7 +30,7 @@ typedef enum e_operator {
 	RDR_OUT_REPLACE,        //> in shells
 	RDR_OUT_APPEND,        //>> in shells
 	RDR_INPUT,             //< in shells
-       RDR_INPUT_UNTIL,        //<< in shells
+    RDR_INPUT_UNTIL,        //<< in shells
 	PIPE,                  //| in shells
 }t_operator;
 
@@ -39,19 +40,47 @@ typedef struct s_statement {
     t_operator         operator; 
 } t_statement;
 
+//strut for commands
+typedef struct s_cmd
+{
+	char			**argv;
+	t_operator		*tokens;
+	// int				(*builtin)(struct s_info *, struct s_cmd *);
+	char			*hd_f_name;
+	struct s_cmd	*prev;
+	struct s_cmd	*next;
+}	t_cmd;
+
+//info/data struct
+typedef struct s_info
+{
+	char			**env;
+	char			**path;
+	char			*old_pwd;
+	char			*pwd;
+	int				*pid;
+	int				pip_n;
+	struct s_cmd	*cmd_table;
+	bool			reset;
+	bool			here_doc;
+	int				exit_status;
+}	t_info;
+
+//array functions
+char				**array_duplicate(char **array, size_t len);
+size_t				array_len(char **array);
 
 //Parsing Functions
-size_t get_token_length(char *input_at_i);
-char **tokenize_input(char *input) ;
-bool is_spaces(char c);
-bool	is_therechar(const char *str, int ch);
-size_t	count_tokens(char *input);
-int	ft_strcmp(const char *s1, const char *s2);
-t_operator	get_operator(char *operator);
-t_statement *parser(char *input, int *size);
-size_t	remove_quotes_size(char	*parsed);
-char	*remove_quotes(char	*parsed);
-size_t	get_argc(char **parsed);
+size_t				get_token_length(char *input_at_i);
+char				**tokenize_input(char *input) ;
+bool				is_therechar(const char *str, int ch);
+size_t				count_tokens(char *input);
+int					ft_strcmp(const char *s1, const char *s2);
+t_operator			get_operator(char *operator);
+t_statement			*parser(char *input, int *size);
+size_t				remove_quotes_size(char	*parsed);
+char				*remove_quotes(char	*parsed);
+size_t				get_argc(char **parsed);
 
 
 

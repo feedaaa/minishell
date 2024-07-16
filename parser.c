@@ -1,6 +1,6 @@
 
 //Still need to do the function that seperates the commands and the operator
-
+#include "./includes/minishell.h"
 
 char **tokenize_input(char *input)     // Bsaically it tokenizes the input
 {
@@ -69,7 +69,7 @@ size_t	count_tokens(char *input)
 			input += 2;
 		else if (is_therechar(QUOTES, *input))
 			quotes = !quotes;
-		if (*input != ' ' && !is_therestr(OPERATORS, *input) && !flag && !quotes)
+		if (*input != ' ' && !is_therechar(OPERATORS, *input) && !flag && !quotes)
 		{
 			flag = true;
 			count += 1;

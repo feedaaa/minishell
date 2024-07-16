@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "./includes/minishell.h"
 
 //Example:
 //ls -l | grep something | wc -l
@@ -21,7 +21,7 @@ t_statement *parser(char *input, int *size)
     size_t j;
     int k;
     size_t idx;
-    size_t idx2;
+    size_t idx2 = 0;
     int tokens_count;
 
     idx = 0;

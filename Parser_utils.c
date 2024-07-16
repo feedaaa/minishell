@@ -1,3 +1,6 @@
+
+#include "./includes/minishell.h"
+
 //represents the number of command-line arguments passed to the program.
 size_t	get_argc(char **parsed)
 {
