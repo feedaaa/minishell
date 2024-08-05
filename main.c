@@ -21,10 +21,11 @@ void display_prompt(void)
 // int main(int ac, char **av, char *const *env)
 // {
 // 	char command[120];
+	// t_data		data;
 // 	t_statement  *parsed_commands;
 // 	int size;
 // 	size = 0;
-
+	// setup_shell(envp, &data, &parsed_commands);
 // 	while (true)
 // 	{
 // 		display_prompt();
