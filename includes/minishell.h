@@ -34,6 +34,20 @@ typedef enum e_operator {
 	PIPE,                  //| in shells
 }t_operator;
 
+//Lets assume NAME=VALUE so Name is saved in var_name and Value is saved in var_value
+typedef struct s_vlst {
+	char			*var_name;
+	char			*var_value;
+	bool			is_exported;
+	struct s_vlst	*next;
+}				t_vlst;
+
+
+typedef struct s_data {
+	char		**envp; //  Array of environment variables as strings  
+	t_vlst		*envp_lst; //Pointer to the head of the linked list of environment variables
+	t_statement	*head;
+}				t_data;
 typedef struct s_statement {
     int                 argc; //The number of commands
     char              **argv; //The commnands between each operstor
