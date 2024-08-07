@@ -20,7 +20,7 @@ void display_prompt(void)
 
 // int main(int ac, char **av, char *const *env)
 // {
-// 	char command[120];
+// 	char *command;
 	// t_data		data;
 // 	t_statement  *parsed_commands;
 // 	int size;
@@ -30,6 +30,7 @@ void display_prompt(void)
 // 	{
 // 		display_prompt();
 // 		read_command(command, sizeof(command));
+		// command = expander(command, &data);
 // 		parsed_commands = parser(command, &size);
 // 		execute_command(parsed_commands, env);
 // 		// execute_command(av[1], env);
