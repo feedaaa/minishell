@@ -41,7 +41,7 @@ size_t	expand_variable(char *expanded_input_at_i, char *input,
 		return (1);
 	}
 	while (input[*i + size] && input[*i + size] != ' '
-		&& input[*i + size] != '\"' && !is_onstr(QUOTES, input[*i + size])
+		&& input[*i + size] != '\"' && !is_therechar(QUOTES, input[*i + size])
 		&& input[*i + size] != '$')
 		size += 1;
 	var_value = get_varvalue_fromvlst(ft_substr(input, *i, size), data);
@@ -67,7 +67,7 @@ size_t	expand_size(char *input_at_i, size_t *i, t_data *data)
 	var_size = 0;
 	while (input_at_i[var_size + 1]
 		&& input_at_i[var_size + 1] != ' '
-		&& !is_onstr(QUOTES, input_at_i[var_size + 1])
+		&& !is_therechar(QUOTES, input_at_i[var_size + 1])
 		&& input_at_i[var_size + 1] != '$')
 				var_size += 1;
 	if (var_size == 0)
