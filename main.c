@@ -12,6 +12,8 @@
 
 #include "./includes/minishell.h"
 
+long long	g_exit_status = 0;
+
 // funtion to display prompt
 void display_prompt(void)
 {
