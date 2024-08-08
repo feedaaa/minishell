@@ -16,6 +16,7 @@ char **tokenize_input(char *input)     // Bsaically it tokenizes the input
 	k = 0;
 	i = 0;
     token_count = count_tokens(input);
+	free(input)
     tokens = malloc((token_count + 1) * sizeof(char *));
 	if(!tokens)
 		return (NULL);
@@ -31,10 +32,10 @@ char **tokenize_input(char *input)     // Bsaically it tokenizes the input
         tokens[token_index] = malloc((token_length + 1) * sizeof(char));
 	    if(!tokens[token_index])
 	    {
-		while(k <token_index)
+		while(k < token_index)
 		{
 			free(tokens[k]);
-            k++;
+            		k++;
 		}
 		    free(tokens);
 		    return NULL;  
