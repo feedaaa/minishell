@@ -55,30 +55,30 @@ typedef struct s_statement {
 } t_statement;
 
 //strut for commands
-typedef struct s_cmd
-{
-	char			**argv;
-	t_operator		*tokens;
-	// int				(*builtin)(struct s_info *, struct s_cmd *);
-	char			*hd_f_name;
-	struct s_cmd	*prev;
-	struct s_cmd	*next;
-}	t_cmd;
+// typedef struct s_cmd
+// {
+// 	char			**argv;
+// 	t_operator		*tokens;
+// 	// int				(*builtin)(struct s_info *, struct s_cmd *);
+// 	char			*hd_f_name;
+// 	struct s_cmd	*prev;
+// 	struct s_cmd	*next;
+// }	t_cmd;
 
 //info/data struct
-typedef struct s_info
-{
-	char			**env;
-	char			**path;
-	char			*old_pwd;
-	char			*pwd;
-	int				*pid;
-	int				pip_n;
-	struct s_cmd	*cmd_table;
-	bool			reset;
-	bool			here_doc;
-	int				exit_status;
-}	t_info;
+// typedef struct s_info
+// {
+// 	char			**env;
+// 	char			**path;
+// 	char			*old_pwd;
+// 	char			*pwd;
+// 	int				*pid;
+// 	int				pip_n;
+// 	struct s_cmd	*cmd_table;
+// 	bool			reset;
+// 	bool			here_doc;
+// 	int				exit_status;
+// }	t_info;
 
 //array functions
 char				**array_duplicate(char **array, size_t len);
@@ -96,7 +96,23 @@ size_t				remove_quotes_size(char	*parsed);
 char				*remove_quotes(char	*parsed);
 size_t				get_argc(char **parsed);
 
+//expanding function
+size_t	expand_exit_status(char *expanded_input_at_i, size_t *i);
+size_t	expand_variable(char *expanded_input_at_i, char *input,
+	size_t *i, t_data *data);
+size_t	expand_size(char *input_at_i, size_t *i, t_data *data);
+int	expanded_size(char *input, t_data *data);
+char	*expander(char *input, t_data *data);
+char	*get_fromvlst(char *var_name, t_vlst **head);
+char	*get_varvalue_fromvlst(char *var_name, t_data *data);
+size_t	exit_status_size(void);
+void	init_vars(size_t *i, size_t *size, bool *in_quotes, bool *in_dquotes);
+bool	single_dollar(char *input_at_i);
 
-
+//setup functions
+void	setup_shell(char **envp, t_data *data, t_statement **statement_list);
+t_vlst	*init_envp_lst(char **envp);
+char	**split_envp(char *env);
+t_vlst	*v_new_node(char *var_name, char *var_value, bool is_exported);
 
 #endif
