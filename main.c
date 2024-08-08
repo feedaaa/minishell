@@ -84,11 +84,13 @@ int main(int ac, char **av, char **env)
 	{
 		command = get_command();
 		add_history(command);
+		
 		// display_prompt();
 		// read_command(command, sizeof(command));
 		command = expander(command, &data);
 		parsed_commands = parser(command, &size);
-		// execute_command(parsed_commands, env);
+		data.head = parsed_commands //to connect the data which has the linked list of the environment variables
+		execute_command(parsed_commands, &data);// taking parsed_commands and &data as parameters would be the easiest choice so you can manuipulate with everything easily
 		// execute_command(av[1], env);
 		clean_parsed(parsed_commands, env); //to clear everything and handle the next command 
 	}
