@@ -1,4 +1,5 @@
 
+#include "minishell.h"
 //function to caonnect as a linked list
 t_vlst	*v_new_node(char *var_name, char *var_value, bool is_exported)
 {
