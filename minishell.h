@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:29:50 by ffidha            #+#    #+#             */
-/*   Updated: 2024/07/16 11:45:52 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/12 18:10:57 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@
 #include <stdbool.h>
 #include <readline/readline.h>
 #include <readline/history.h>
-#include "../libft/libft.h"
+#include "libft/libft.h"
 
 # define OPERATORS "|<>"
 # define QUOTES "\"\'"
+
+extern int		g_exit_status;
+
 
 typedef enum e_operator {
 	NONE,                   //No specific operator.
@@ -42,47 +45,33 @@ typedef struct s_vlst {
 	struct s_vlst	*next;
 }				t_vlst;
 
+typedef struct s_statement {
+    int                 argc; //The number of commands
+    char              **argv; //The commnands between each operstor
+    t_operator         operator;
+} t_statement;
 
 typedef struct s_data {
 	char		**envp; //  Array of environment variables as strings  
 	t_vlst		*envp_lst; //Pointer to the head of the linked list of environment variables
 	t_statement	*head;
 }				t_data;
-typedef struct s_statement {
-    int                 argc; //The number of commands
-    char              **argv; //The commnands between each operstor
-    t_operator         operator; 
-} t_statement;
 
-//strut for commands
-// typedef struct s_cmd
-// {
-// 	char			**argv;
-// 	t_operator		*tokens;
-// 	// int				(*builtin)(struct s_info *, struct s_cmd *);
-// 	char			*hd_f_name;
-// 	struct s_cmd	*prev;
-// 	struct s_cmd	*next;
-// }	t_cmd;
+//shell struct
+typedef	struct s_shell {
+	
+	int			fd;
+	pid_t		child;
+	t_vlst		**env;
+	//executer
+	//environment
+}t_shell;
 
-//info/data struct
-// typedef struct s_info
-// {
-// 	char			**env;
-// 	char			**path;
-// 	char			*old_pwd;
-// 	char			*pwd;
-// 	int				*pid;
-// 	int				pip_n;
-// 	struct s_cmd	*cmd_table;
-// 	bool			reset;
-// 	bool			here_doc;
-// 	int				exit_status;
-// }	t_info;
-
-//array functions
-char				**array_duplicate(char **array, size_t len);
-size_t				array_len(char **array);
+// env struct
+typedef struct s_envrn {
+	t_shell		*shell;
+		
+}t_envrn;
 
 //Parsing Functions
 size_t				get_token_length(char *input_at_i);
