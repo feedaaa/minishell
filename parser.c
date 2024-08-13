@@ -1,6 +1,6 @@
 
 //Still need to do the function that seperates the commands and the operator
-#include "./includes/minishell.h"
+#include "minishell.h"
 
 char **tokenize_input(char *input)     // Bsaically it tokenizes the input
 {
