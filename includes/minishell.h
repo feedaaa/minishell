@@ -52,6 +52,7 @@ typedef struct s_statement {
     int                 argc; //The number of commands
     char              **argv; //The commnands between each operstor
     t_operator         operator; 
+    struct  s_statement  *next;
 } t_statement;
 
 //strut for commands
