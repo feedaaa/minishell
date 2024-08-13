@@ -1,4 +1,4 @@
-#include "./includes/minishell.h"
+#include "minishell.h"
 
 //Example:
 //ls -l | grep something | wc -l
