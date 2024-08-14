@@ -1,6 +1,4 @@
 
-#include "minishell.h"
-
 //this function to replace the name with the real value
 char	*get_fromvlst(char *var_name, t_vlst **head)
 {
@@ -15,7 +13,6 @@ char	*get_fromvlst(char *var_name, t_vlst **head)
 	}
 	return (NULL);
 }
-
 
 char	*get_varvalue_fromvlst(char *var_name, t_data *data)
 {
@@ -50,5 +47,3 @@ bool	single_dollar(char *input_at_i)
 			|| input_at_i[1] == ' '
 			|| input_at_i[1] == '\"'));
 }
-
-

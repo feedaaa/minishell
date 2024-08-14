@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:29:50 by ffidha            #+#    #+#             */
-/*   Updated: 2024/07/16 11:45:52 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/14 13:45:28 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_statement {
     int                 argc; //The number of commands
     char              **argv; //The commnands between each operstor
     t_operator         operator; 
-    struct  s_statement  *next;
 } t_statement;
 
 //strut for commands
