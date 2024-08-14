@@ -22,10 +22,16 @@
 #include <readline/history.h>
 #include "libft/libft.h"
 
+# define REDIRECTS "><"
 # define OPERATORS "|<>"
 # define QUOTES "\"\'"
 
-extern int		g_exit_status;
+# define NO_PIPE_PROMPT "minishell: no support for pipe prompt"
+# define UNCLOSED_QUOTES "minishell: unclosed quotes"
+# define UNEXPECTED_TOKEN "minishell: syntax error near unexpected token `"
+# define SYTX_ERR_RDR "minishell: syntax error near unexpected token `newline'"
+
+extern long long		g_exit_status;
 
 
 typedef enum e_operator {
@@ -90,6 +96,20 @@ t_statement			*parser(char *input);
 size_t				remove_quotes_size(char	*parsed);
 char				*remove_quotes(char	*parsed);
 size_t				get_argc(char **parsed);
+char				*ft_lltoa(long long n);
+bool				unexpected_token(char token);
+bool				has_operator(char *input);
+bool				invalid_syntax_on_operator(char *input);
+bool				invalid_syntax2(char *input);
+bool				invalid_syntax(char *input);
+void				destroy(t_data *data);
+bool				valid_input(char *input, t_data *data);
+int					unclosed_quotes(char *str);
+void				free_matrix(char **matrix);
+void				p_lstclear(t_statement **head);
+void				v_lstclear(t_vlst **head);
+
+
 
 //expanding function
 size_t	expand_exit_status(char *expanded_input_at_i, size_t *i);
@@ -103,6 +123,7 @@ char	*get_varvalue_fromvlst(char *var_name, t_data *data);
 size_t	exit_status_size(void);
 void	init_vars(size_t *i, size_t *size, bool *in_quotes, bool *in_dquotes);
 bool	single_dollar(char *input_at_i);
+bool	streq(char *str1, char *str2);
 
 //setup functions
 void		setup_shell(char **envp, t_data *data, t_statement **statement_list);
