@@ -75,7 +75,7 @@ int main(int ac, char **av, char **env)
 	while (true)
 	{
 		command = get_input();
-		if (!valid_input(command, &data))
+		if (!valid_input(command, &data))    //checks if there are any syntax errors
 			continue ;
 		add_history(command);
 		command = expander(command, &data);
