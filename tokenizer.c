@@ -1,53 +1,32 @@
 #include "minishell.h"
 
-char	**tokenize_input(char *input) // Bsaically it tokenizes the input
+char	**tokenize_input(char *input) 
 {
-	size_t i;
-	size_t token_index;
-	size_t token_count;
-	size_t token_length;
-	size_t j;
-	size_t k;
-	char **tokens;
-	token_index = 0;
-	k = 0;
+	size_t		i;
+	size_t		k;
+	char		**parsed;
+	size_t		len;
+	size_t		j;
+
 	i = 0;
-	token_count = count_tokens(input);
-	free(input);
-	tokens = malloc((token_count + 1) * sizeof(char *));
-	if (!tokens)
-		return (NULL);
+	k = 0;
+	parsed = malloc((count_tokens(input) + 1) * sizeof(char *));
 	while (input[i])
 	{
-		token_length = get_token_length(&input[i]);
-		if (!token_length)
-			// In case there is no input or total length =0 it moves to the next token by increasing i
+		len =  get_token_length(&input[i]);
+		if (!len)
 		{
-			i++;
+			i += 1;
 			continue ;
 		}
-
-		tokens[token_index] = malloc((token_length + 1) * sizeof(char));
-		if (!tokens[token_index])
-		{
-			while (k < token_index)
-			{
-				free(tokens[k]);
-				k++;
-			}
-			free(tokens);
-			return (NULL);
-		}
+		parsed[k] = malloc((len + 1) * sizeof(char));
 		j = 0;
-		while (input[i] && j < token_length)
-		{
-			tokens[token_index][j++] = input[i++];
-		}
-		tokens[token_index++][j] = '\0';
+		while (input[i] && j < len)
+			parsed[k][j++] = input[i++];
+		parsed[k++][j] = '\0';
 	}
-
-	tokens[token_index] = NULL;
-	return (tokens);
+	parsed[k] = NULL;
+	return (parsed);
 }
 
 // Counts how many tokens do we have
