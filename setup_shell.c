@@ -26,7 +26,7 @@ char	**split_envp(char *env)
 		// 3 because we have the 1-name variable and 2-the expanded value and 3-the null
 	if (!splitted)
 		return (NULL);
-	indexof_equal = ft_strchr(env, '=') - *env;
+	indexof_equal = ft_strchr(env, '=') - env;
 	splitted[0] = ft_substr(env, 0, indexof_equal); //"NAME"starting from 0 to where there was equal sign
 	splitted[1] = ft_substr(env, indexof_equal + 1, ft_strlen(&env[indexof_equal])); //"VALUE" starting from the equal sign and afterwards
 	splitted[2] = NULL; // To indicate the end of the first environment variable
@@ -68,3 +68,4 @@ void	setup_shell(char **envp, t_data *data, t_statement **statement_list)
 	*statement_list = NULL;
 	// config_signals(); //this function to update the shell depending on some signals such as ctrl+c ...
 }
+
