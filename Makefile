@@ -2,38 +2,41 @@ NAME: minishell
 
 CC		: cc
 
-FLAGS	: -Wall -Werror -Wextra -lreadline -g3
+FLAGS	: -Wall -Werror -Wextra
 
-LIBFT_PATH := libft
-LIBFT := $(LIBFT_PATH)/libft.a
-LIBFT_LINK := -I$(LIBFT_PATH) -L$(LIBFT_PATH) -lft
+RLFLAGS		=	-lreadline -lhistory
+RLDIR		=	-L/opt/vagrant/embedded/lib
+RLINC		=	-I/opt/vagrant/embedded/include/readline/readline.h
 
-SRC		:	minishell.c \
+LIBFT := libft/libft.a
+
+SRC		:	parser_utils.c \
 			tokenizer.c \
-			parser_utils.c \
-			parser2.c \
+			parser.c \
 			setup_shell.c \
-			expand.c		\
-			exp_utils.c		\
+			expand.c \
+			exp_utils.c \
+			minishell.c
 
+OBJ		:	$(SRC:.c=.o)
 
-OBJ		: $($(SRC:.c=.o))
+all		:	$(NAME)
 
 $(LIBFT):
-	make -C $(LIBFT_PATH)
-
-all		: $(NAME)
-
+	$(MAKE)	-C libft
+	
 $(NAME)	:	$(LIBFT) $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) $(LIBFT_LINK) -o $(NAME)
+	$(CC) $(FLAGS) $(RLDIR) $(RLINC) $(OBJ) $(LIBFT)  -o $@ $(RLFLAGS)
 	clear
-	@echo 'Compiled!'
+	echo 'Compiled!'
 
+%.o: %.c
+	$(CC) -I $(INC) $(FLAGS) -c $< -o $@
 
 RM		: rm -rf
 
 clean	:
-	@$(RM) $(OBJ) $(LIBFT_PATH)
+	$(RM) $(OBJ) $(LIBFT)
 
 fclean	:
 	clean $(NAME)

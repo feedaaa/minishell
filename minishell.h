@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:29:50 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/12 18:10:57 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/14 12:02:11 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_statement {
     int                 argc; //The number of commands
     char              **argv; //The commnands between each operstor
     t_operator         operator;
+	struct s_statement	*next;
 } t_statement;
 
 typedef struct s_data {
@@ -103,5 +104,6 @@ void	setup_shell(char **envp, t_data *data, t_statement **statement_list);
 t_vlst	*init_envp_lst(char **envp);
 char	**split_envp(char *env);
 t_vlst	*v_new_node(char *var_name, char *var_value, bool is_exported);
+t_statement	*p_new_node(int argc);
 
 #endif
