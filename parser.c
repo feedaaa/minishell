@@ -2,7 +2,6 @@
 //Still need to do the function that seperates the commands and the operator
 #include "minishell.h"
 
-
 t_statement			*parser(char *input)
 {
 	char		**parsed;
@@ -12,7 +11,7 @@ t_statement			*parser(char *input)
     size_t      j;
 
 	parsed = tokenize_input(input);
-	free(input);
+	// free(input);
 	temp = p_new_node(get_argc(&parsed[0]));//create a new node for the first argument
 	head = temp;
 	i = 0;
@@ -29,7 +28,7 @@ t_statement			*parser(char *input)
 		temp = temp->next;
 	}
 	temp->next = NULL;
-	free(parsed);
+	// free(parsed);
 	return (head);
 }
 
@@ -44,3 +43,4 @@ t_statement	*p_new_node(int argc)
 	new_node->next = NULL;
 	return (new_node);
 }
+
