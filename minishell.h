@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:29:50 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/14 12:02:11 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/14 13:19:00 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ bool				is_therechar(const char *str, int ch);
 size_t				count_tokens(char *input);
 int					ft_strcmp(const char *s1, const char *s2);
 t_operator			get_operator(char *operator);
-t_statement			*parser(char *input, int *size);
+t_statement			*parser(char *input);
 size_t				remove_quotes_size(char	*parsed);
 char				*remove_quotes(char	*parsed);
 size_t				get_argc(char **parsed);

@@ -1,26 +1,26 @@
-NAME: minishell
+NAME	=	minishell
 
-CC		: cc
+CC		=	cc
 
-FLAGS	: -Wall -Werror -Wextra
+FLAGS	=	-Wall -Werror -Wextra
 
-RLFLAGS		=	-lreadline -lhistory
-RLDIR		=	-L/opt/vagrant/embedded/lib
-RLINC		=	-I/opt/vagrant/embedded/include/readline/readline.h
+RLFLAGS	=	-lreadline -lhistory
+RLDIR	=	-L/opt/vagrant/embedded/lib
+RLINC	=	-I/opt/vagrant/embedded/include/readline/readline.h
 
-LIBFT := libft/libft.a
+LIBFT	=	libft/libft.a
 
-SRC		:	parser_utils.c \
-			tokenizer.c \
-			parser.c \
-			setup_shell.c \
-			expand.c \
-			exp_utils.c \
-			minishell.c
+SRC	=			parser_utils.c \
+				tokenizer.c \
+				parser.c \
+				setup_shell.c \
+				expand.c \
+				exp_utils.c \
+				minishell.c
 
-OBJ		:	$(SRC:.c=.o)
+OBJ	=	$(SRC:.c=.o)
 
-all		:	$(NAME)
+all	:	$(NAME)
 
 $(LIBFT):
 	$(MAKE)	-C libft
@@ -33,14 +33,14 @@ $(NAME)	:	$(LIBFT) $(OBJ)
 %.o: %.c
 	$(CC) -I $(INC) $(FLAGS) -c $< -o $@
 
-RM		: rm -rf
+RM	:	rm -rf
 
-clean	:
+clean		:
 	$(RM) $(OBJ) $(LIBFT)
 
-fclean	:
+fclean		:
 	clean $(NAME)
 
-re: fclean all
+re	: 	fclean all
 
-.PHONY	: all clean fclean re
+.PHONY	:	all	clean	fclean	re
