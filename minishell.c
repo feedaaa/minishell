@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "minishell.h"
+long long	g_exit_status = 0;
 
 static char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
