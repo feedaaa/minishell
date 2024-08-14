@@ -6,9 +6,9 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:31:23 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/12 14:13:01 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/14 13:48:06 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "minishell.h"
 

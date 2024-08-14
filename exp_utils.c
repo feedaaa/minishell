@@ -1,3 +1,4 @@
+#include "minishell.h"
 
 //this function to replace the name with the real value
 char	*get_fromvlst(char *var_name, t_vlst **head)

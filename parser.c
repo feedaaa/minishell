@@ -1,6 +1,7 @@
 
 //Still need to do the function that seperates the commands and the operator
-#include "./includes/minishell.h"
+#include "minishell.h"
+
 
 t_statement			*parser(char *input)
 {

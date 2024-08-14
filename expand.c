@@ -1,8 +1,4 @@
 
-/*aysha header*/
-
-#include "minishell.h"
-
 #include "minishell.h"
 //update the expanded_input_at_i variable to the real value and count & returns the size of it
 size_t	expand_exit_status(char *expanded_input_at_i, size_t *i)

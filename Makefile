@@ -36,7 +36,7 @@ $(NAME)	:	$(LIBFT) $(OBJ)
 RM	:	rm -rf
 
 clean		:
-	$(RM) $(OBJ) $(LIBFT)
+	$(RM)
 
 fclean		:
 	clean $(NAME)
