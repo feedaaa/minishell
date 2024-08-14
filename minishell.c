@@ -12,35 +12,60 @@
 
 #include "minishell.h"
 
-void read_command(char *command, size_t size) 
+static char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-  char *line = readline("$> ");
-  if (line == NULL) {
-    if (feof(stdin)) {
-      printf("\n");
-      exit(EXIT_SUCCESS);
-    } else {
-      printf("Error reading input.\n");
-      exit(EXIT_FAILURE);
-    }
-    command[strcspn(command, "\n")] = '\0'; // Remove newline
-  } else if (strcmp(line, "") == 0) {
-    free(line);
-    return;
-  }
+	size_t	i;
 
-  if (strlen(line) >= size) {
-    printf("Error: Command too long.\n");
-    free(line);
-    return;
-  }
-  strcpy(command, line);
-  free(line);
+	i = 0;
+	while (src[i] && i < n)
+	{
+		dest[i] = src[i];
+		i += 1;
+	}
+	if (src[i] && i < n)
+	{
+		while (i < n)
+			dest[i++] = '\0';
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+static char	*trim_free(char *s1, char const *set)
+{
+	size_t	beg;
+	size_t	end;
+	char	*trimmed_str;
+
+	if (!s1 || !set)
+		return (NULL);
+	beg = 0;
+	while (s1[beg] != '\0' && ft_strchr(set, s1[beg]) != NULL)
+		beg += 1;
+	end = ft_strlen(s1 + beg);
+	while (end > beg && ft_strchr(set, s1[(beg + end) - 1]) != NULL)
+		end -= 1;
+	trimmed_str = malloc((end + 1) * sizeof(char));
+	if (!trimmed_str)
+		return (NULL);
+	ft_strncpy(trimmed_str, (s1 + beg), end);
+	free(s1);
+	return (trimmed_str);
+}
+
+static char	*get_input(void)
+{
+	char	*raw_input;
+	char	*input;
+
+	raw_input = readline("minishell$ ");
+	input = trim_free(raw_input, " \t");
+	return (input);
 }
 
 int main(int ac, char **av, char **env)
 {
-	char command[120];
+	char *command;
 	t_data		data;
 	t_statement  *parsed_commands;
 	int size;
@@ -48,11 +73,21 @@ int main(int ac, char **av, char **env)
 	setup_shell(env, &data, &parsed_commands);
 	while (true)
 	{
-		read_command(command, sizeof(command));
-		parsed_commands = parser(command);
+		command = get_input();
+		if (!valid_input(command, &data))
+			continue ;
+		add_history(command);
+		command = expander(command, &data);
+    if (!command[0])
+		{
+			free(command);
+			continue ;
+		}
+    parsed_commands = parser(command);
 		// execute_command(parsed_commands, env); //to do
 		// execute_command(av[1], env); //to do
 		// clean_parsed(parsed_commands, env); //to clear everything and handle the next command 
 	}
 	return (0);
 }
+
