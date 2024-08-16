@@ -19,6 +19,7 @@ SRC	=			parser_utils.c \
 				valid_input.c\
 				input_utils.c \
 				invalid_syntax.c\
+				old_Pwd.c\
 				minishell.c 
 
 OBJ	=	$(SRC:.c=.o)
