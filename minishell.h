@@ -84,6 +84,14 @@ typedef struct s_envrn {
 //array functions
 char				**array_duplicate(char **array, size_t len);
 size_t				array_len(char **array);
+void				init_oldpwd(t_vlst **head) ;
+int				unset_var(char *var_name, t_vlst **head);
+void				invalid_identifer(char *var_name);
+int				save_user_vars(char *statement, t_vlst **head, bool to_export);
+bool				get_exported_state(char *var_name, t_vlst **head);
+int				unset_var(char *var_name, t_vlst **head);
+void				v_lstadd_back(t_vlst **head, t_vlst *new);
+t_vlst				*v_lstlast(t_vlst *node);
 
 //Parsing Functions
 size_t				get_token_length(char *input_at_i);
