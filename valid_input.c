@@ -2,7 +2,7 @@
 
 void	destroy(t_data *data)
 {
-	rl_clear_history();
+	// rl_clear_history();
 	if (data->envp_lst)
 		v_lstclear(&data->envp_lst);
 	if (data->head)

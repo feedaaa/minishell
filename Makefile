@@ -13,15 +13,15 @@ RLINC		=	-I/opt/vagrant/embedded/include/readline/readline.h
 # RLINC += -I/usr/local/opt/readline/include
 # RLFLAGS = -lreadline -lhistory
 
-// LIBFT		=	libft/libft.a
-// INC			=	shell/includes
-// SRCSPATH	=	shell/srcs
-// BUILT		=	$(SRCSPATH)/builtins
-// EXEC		=	$(SRCSPATH)/execution
-// LEX			=	$(SRCSPATH)/lex
-// SIG			=	$(SRCSPATH)/signals
-// UTILS		=	$(SRCSPATH)/utils
-// ENV			=	$(SRCSPATH)/environ
+LIBFT		=	libft/libft.a
+# INC			=	shell/includes
+# SRCSPATH	=	shell/srcs
+# BUILT		=	$(SRCSPATH)/builtins
+# EXEC		=	$(SRCSPATH)/execution
+# LEX			=	$(SRCSPATH)/lex
+# SIG			=	$(SRCSPATH)/signals
+# UTILS		=	$(SRCSPATH)/utils
+# ENV			=	$(SRCSPATH)/environ
 
 SRCS	=		parser_utils.c \
 				tokenizer.c \
@@ -32,7 +32,7 @@ SRCS	=		parser_utils.c \
 				valid_input.c\
 				input_utils.c \
 				invalid_syntax.c\
-				old_Pwd.c\
+				old_pwd.c \
 				minishell.c 
 
 

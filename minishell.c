@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:08:36 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/14 13:18:07 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/17 20:14:36 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,28 @@ static char	*get_input(void)
 	return (input);
 }
 
+void	print_tokens(t_statement *list)
+{
+	t_statement	*temp = list;
+
+	while (temp)
+	{
+		int i = -1;
+		if (temp->argv)
+		{
+			while (temp->argv[++i])
+				printf("%s ", temp->argv[i]);
+			printf("\n");
+		}
+		temp = temp->next;
+	}
+}
+
 int main(int ac, char **av, char **env)
 {
 	char *command;
+	(void)av;
+	(void)ac;
 	t_data		data;
 	t_statement  *parsed_commands;
 	int size;
@@ -85,6 +104,7 @@ int main(int ac, char **av, char **env)
 			continue ;
 		}
     parsed_commands = parser(command);
+	print_tokens(parsed_commands);
 		// execute_command(parsed_commands, env); //to do
 		// execute_command(av[1], env); //to do
 		// clean_parsed(parsed_commands, env); //to clear everything and handle the next command 
