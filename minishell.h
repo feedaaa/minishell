@@ -145,4 +145,7 @@ t_statement	*p_new_node(int argc);
 //execution functions
 void    ft_execute(t_statement *parsed_commands, char **env);
 void execute_command(char *command, char **args, char **env);
+
+//clean-free function
+void	clean_parsed(t_statement **statement_list, t_data *data);
 #endif
