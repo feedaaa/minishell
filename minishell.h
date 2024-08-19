@@ -92,6 +92,8 @@ bool				get_exported_state(char *var_name, t_vlst **head);
 int				unset_var(char *var_name, t_vlst **head);
 void				v_lstadd_back(t_vlst **head, t_vlst *new);
 t_vlst				*v_lstlast(t_vlst *node);
+void				dismiss_signal(int signum);
+void				config_signals(void);
 
 //Parsing Functions
 size_t				get_token_length(char *input_at_i);
