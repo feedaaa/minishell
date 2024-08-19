@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:29:50 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/14 13:50:48 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/19 20:49:11 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,4 +140,7 @@ char		**split_envp(char *env);
 t_vlst		*v_new_node(char *var_name, char *var_value, bool is_exported);
 t_statement	*p_new_node(int argc);
 
+//execution functions
+void    ft_execute(t_statement *parsed_commands, char **env);
+void execute_command(char *command, char **args, char **env);
 #endif

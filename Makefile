@@ -33,6 +33,7 @@ SRCS	=		parser_utils.c \
 				input_utils.c \
 				invalid_syntax.c\
 				old_pwd.c \
+				execution.c \
 				minishell.c 
 
 
@@ -46,6 +47,8 @@ $(LIBFT):
 	
 $(NAME)	:	$(LIBFT) $(OBJS)
 	@$(CC) $(CFLAGS) $(RLDIR) $(RLINC) $(OBJS) $(LIBFT)  -o $@ $(RLFLAGS)
+	clear
+	@echo "minishell compiled !"
 
 %.o: %.c
 	@$(CC) -I$(INC) $(CFLAGS) -c $< -o $@
@@ -53,10 +56,14 @@ $(NAME)	:	$(LIBFT) $(OBJS)
 clean	:
 	@$(MAKE)	-C libft clean
 	@rm -rf		$(OBJS)
+	clear
+	@echo "minishell cleaned !"
 
 fclean	:	clean
 	@$(MAKE)	-C libft fclean
 	@rm -rf		$(NAME)
+	clear
+	@echo "minishell cleaned !"
 
 re		:	fclean	all
 
