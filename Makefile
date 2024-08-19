@@ -34,6 +34,8 @@ SRCS	=		parser_utils.c \
 				invalid_syntax.c\
 				old_pwd.c \
 				execution.c \
+				clean_parsed.c\
+				config_signals.c\
 				minishell.c 
 
 
