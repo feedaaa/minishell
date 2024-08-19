@@ -25,3 +25,5 @@ void	config_signals(void)
 	sigaction(SIGINT, &sa, NULL);  // Applies the configured signal action for SIGINT
 	signal(SIGQUIT, SIG_IGN);   //Sets the action for SIGQUIT = 'ctrl /' to be ignored
 }
+
+//ctrl +D is not considered as a signal cause when you input something in the command line and click on ctrl+D nothing would happen so you will have to add it in the builtins
