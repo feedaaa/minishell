@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:29:50 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/19 20:49:11 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/20 12:29:21 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ t_vlst		*init_envp_lst(char **envp);
 char		**split_envp(char *env);
 t_vlst		*v_new_node(char *var_name, char *var_value, bool is_exported);
 t_statement	*p_new_node(int argc);
+void		rl_replace_line(const char *s, int c);
 
 //execution functions
 void    ft_execute(t_statement *parsed_commands, char **env);
@@ -149,4 +150,8 @@ void execute_command(char *command, char **args, char **env);
 
 //clean-free function
 void	clean_parsed(t_statement **statement_list, t_data *data);
+
+//builtin functions
+int msh_pwd(char *command);
+
 #endif

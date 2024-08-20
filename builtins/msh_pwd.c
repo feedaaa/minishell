@@ -6,14 +6,15 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 11:38:01 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/19 13:59:00 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/20 12:54:10 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int msh_pwd(t_statement *command)
+int msh_pwd(char *command)
 {
+	(void)command;
 	char cwd[1024];
 	
 	if(getcwd(cwd, 1024))

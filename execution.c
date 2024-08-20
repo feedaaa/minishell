@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:31:23 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/19 20:48:40 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/20 12:28:56 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,35 +17,29 @@ int is_builtin(char *command) {
 
     for (int i = 0; builtins[i] != NULL; i++) {
         if (strcmp(command, builtins[i]) == 0) {
-            return 1; // Command is a built-in
+            return 1;
         }
     }
 
-    return 0; // Command is not a built-in
+    return 0;
 }
 
-void execute_builtin(char *command, char **args)
+void execute_builtin(char *command)
 {
-    if (strcmp(command, "cd") == 0) {
-        if (args[1] == NULL) {
-            // Change to home directory
-            chdir(getenv("HOME"));
-        } else {
-            // Change to specified directory
-            chdir(args[1]);
-        }
-    } else if (strcmp(command, "pwd") == 0) {
-        // Print current working directory
-        char cwd[1024];
-        getcwd(cwd, sizeof(cwd));
-        printf("%s\n", cwd);
-    } else if (strcmp(command, "echo") == 0) {
-        // Print arguments
-        for (int i = 1; args[i] != NULL; i++) {
-            printf("%s ", args[i]);
-        }
-        printf("\n");
-    } else if (strcmp(command, "exit") == 0) {
+    if (strcmp(command, "cd") == 0)
+	{
+		// msh_cd()
+    }
+	else if (strcmp(command, "pwd") == 0)
+	{
+		msh_pwd(command);
+    }
+	else if (strcmp(command, "echo") == 0)
+	{
+		// msh_echo()
+    }
+	else if (strcmp(command, "exit") == 0)
+	{
         // Exit the shell
         exit(0);
     }
@@ -58,7 +52,7 @@ void    ft_execute(t_statement *parsed_commands, char **env)
     // to do: is_builtin and execute_builtin
     if(is_builtin(parsed_commands->argv[0]))
     {
-        execute_builtin(parsed_commands->argv[0], parsed_commands->argv);
+        execute_builtin(parsed_commands->argv[0]);
         return ;
     }
     pid = fork();
@@ -66,9 +60,9 @@ void    ft_execute(t_statement *parsed_commands, char **env)
         return (perror("fork()"));
     if (pid == 0)
         execute_command(parsed_commands->argv[0], parsed_commands->argv, env);
-	// waitpid(pid, &status, 0);
-	// if	(WIFEXITED(status))
-	// 	g_exit_status = WEXITSTATUS(status);
+	waitpid(pid, &status, 0);
+	if	(WIFEXITED(status))
+		g_exit_status = WEXITSTATUS(status);
 }
 
 
