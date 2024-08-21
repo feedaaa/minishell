@@ -6,47 +6,42 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 12:07:38 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/19 14:03:36 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/21 12:41:48 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int msh_cd(t_shell *shell, int i, int args)
+void msh_cd(t_statement *command)
 {
     char *path;
+    char **env;
 
-    if (args == 1)
+    if (!command->argv[1])
     {
-        // Change to home directory
         path = getenv("HOME");
-        if (path == NULL)
-        {
-            ft_putstr_fd("msh: cd: HOME not set\n", 2);
-            return (1);
-        }
+        if (!path)
+            perror("getenv");
     }
     else
-    {
-        // Change to specified directory
-        path = shell->cmd[i].args[1];
-    }
+        path = command->argv[1];
 
     if (chdir(path) == -1)
+        perror("chdir");
+    else
     {
-        ft_putstr_fd("msh: cd: ", 2);
-        return (1);
+        char cwd[PATH_MAX];
+        getcwd(cwd, PATH_MAX);
+        setenv("PWD", cwd, 1);
+        for (int i = 0; env[i]; i++)
+        {
+            if (strcmp(env[i], "PWD=*") == 0)
+            {
+                free(env[i]);
+                env[i] = malloc(strlen("PWD=") + strlen(cwd) + 1);
+                sprintf(env[i], "PWD=%s", cwd);
+                break;
+            }
+        }
     }
-    update_pwd(shell);
-    return (0);
-}
-
-void update_pwd(t_shell *shell)
-{
-    char cwd[1024];
-
-    getcwd(cwd, sizeof(cwd));
-    setenv("PWD", cwd, 1);
-    setenv("OLDPWD", shell->pwd, 1);
-    shell->pwd = ft_strdup(cwd);
 }

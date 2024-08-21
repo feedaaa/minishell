@@ -34,9 +34,16 @@ SRCS	=		parser_utils.c \
 				invalid_syntax.c\
 				old_pwd.c \
 				execution.c \
+				exec_utils.c \
+				pipe.c \
+				heredoc.c \
 				clean_parsed.c\
 				config_signals.c \
 				$(BUILT)/msh_pwd.c \
+				$(BUILT)/msh_echo.c \
+				$(BUILT)/msh_env.c \
+				$(BUILT)/msh_cd.c \
+				$(BUILT)/builtin.c \
 				minishell.c \
 
 

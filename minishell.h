@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:29:50 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/20 12:29:21 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/21 18:41:16 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,26 +65,24 @@ typedef struct s_data {
 	t_statement	*head;
 }				t_data;
 
-//shell struct
-typedef	struct s_shell {
-	
-	int			fd;
-	pid_t		child;
-	t_vlst		**env;
-	//executer
-	//environment
-}t_shell;
-
-// env struct
-typedef struct s_envrn {
-	t_shell		*shell;
-		
-}t_envrn;
-
+//Main struct
+typedef struct s_main
+{
+	t_vlst		*env;
+	char		*input;
+	t_statement	*tokens;
+	char		**instructions;
+	int			*in_fds;
+	int			*out_fds;
+	pid_t		*pids;
+	int			cmd_count;
+	int			exit_status;
+	int			pipe_fds[2];
+	int			prev_pipe_fd;
+	int			open_fail;
+}	t_main;
 
 //array functions
-char				**array_duplicate(char **array, size_t len);
-size_t				array_len(char **array);
 void				init_oldpwd(t_vlst **head) ;
 int				unset_var(char *var_name, t_vlst **head);
 void				invalid_identifer(char *var_name);
@@ -95,6 +93,7 @@ void				v_lstadd_back(t_vlst **head, t_vlst *new);
 t_vlst				*v_lstlast(t_vlst *node);
 void				dismiss_signal(int signum);
 void				config_signals(void);
+
 
 //Parsing Functions
 size_t				get_token_length(char *input_at_i);
@@ -121,20 +120,20 @@ void				p_lstclear(t_statement **head);
 void				v_lstclear(t_vlst **head);
 
 
-
 //expanding function
-size_t	expand_exit_status(char *expanded_input_at_i, size_t *i);
-size_t	expand_variable(char *expanded_input_at_i, char *input,
+size_t		expand_exit_status(char *expanded_input_at_i, size_t *i);
+size_t		expand_variable(char *expanded_input_at_i, char *input,
 	size_t *i, t_data *data);
-size_t	expand_size(char *input_at_i, size_t *i, t_data *data);
-int	expanded_size(char *input, t_data *data);
-char	*expander(char *input, t_data *data);
-char	*get_fromvlst(char *var_name, t_vlst **head);
-char	*get_varvalue_fromvlst(char *var_name, t_data *data);
-size_t	exit_status_size(void);
-void	init_vars(size_t *i, size_t *size, bool *in_quotes, bool *in_dquotes);
-bool	single_dollar(char *input_at_i);
-bool	streq(char *str1, char *str2);
+size_t		expand_size(char *input_at_i, size_t *i, t_data *data);
+int			expanded_size(char *input, t_data *data);
+char		*expander(char *input, t_data *data);
+char		*get_fromvlst(char *var_name, t_vlst **head);
+char		*get_varvalue_fromvlst(char *var_name, t_data *data);
+size_t		exit_status_size(void);
+void		init_vars(size_t *i, size_t *size, bool *in_quotes, bool *in_dquotes);
+bool		single_dollar(char *input_at_i);
+bool		streq(char *str1, char *str2);
+
 
 //setup functions
 void		setup_shell(char **envp, t_data *data, t_statement **statement_list);
@@ -144,14 +143,30 @@ t_vlst		*v_new_node(char *var_name, char *var_value, bool is_exported);
 t_statement	*p_new_node(int argc);
 void		rl_replace_line(const char *s, int c);
 
+
 //execution functions
-void    ft_execute(t_statement *parsed_commands, char **env);
-void execute_command(char *command, char **args, char **env);
+void    	execution(t_statement *parsed_commands, char **env);
+void 		execute_command(char *command, char **args, char **env);
+int			is_builtin(char *command);
+void		execute_builtin(t_statement *command);
+void 		exec_one_cmd(t_statement *parsed_command, char **env);
+void		execute_pipe(t_statement *parsed_commands, char **env);
+
+
+//execution utils
+char    	*ft_strcpy(char *dst, const char *src);
+t_vlst		*msh_lstnew(char *var_name, char *var_value);
+void		msh_lstadd_back(t_vlst **lst, t_vlst *new);
+void		msh_lstdelone(t_vlst *lst, void (*del)(void*));
 
 //clean-free function
-void	clean_parsed(t_statement **statement_list, t_data *data);
+void		clean_parsed(t_statement **statement_list, t_data *data);
+
 
 //builtin functions
-int msh_pwd(char *command);
+int			msh_pwd(t_statement *command);
+void		msh_echo(t_statement *command);
+void		msh_env(t_vlst *env);
+void		msh_cd(t_statement *command);
 
 #endif
