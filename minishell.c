@@ -81,6 +81,14 @@ void	print_tokens(t_statement *list)
 	}
 }
 
+static void	panic(t_data *data, char *error_msg, int exit_status)
+{
+	if (data)
+		destroy(data);
+	ft_putendl_fd(error_msg, STDERR_FILENO);
+	exit(exit_status);
+}
+
 int main(int ac, char **av, char **env)
 {
 	char *command;
@@ -88,8 +96,8 @@ int main(int ac, char **av, char **env)
 	(void)ac;
 	t_data		data;
 	t_statement  *parsed_commands;
-	int size;
-	size = 0;
+	if (av && ac > 1)
+		panic(NULL, CL_ARGUMENTS_ERR, EXIT_FAILURE);
 	setup_shell(env, &data, &parsed_commands);
 	while (true)
 	{
