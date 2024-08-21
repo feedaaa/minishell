@@ -27,6 +27,7 @@
 # define OPERATORS "|<>"
 # define QUOTES "\"\'"
 
+# define CL_ARGUMENTS_ERR "minishell: no support for command-line arguments"
 # define NO_PIPE_PROMPT "minishell: no support for pipe prompt"
 # define UNCLOSED_QUOTES "minishell: unclosed quotes"
 # define UNEXPECTED_TOKEN "minishell: syntax error near unexpected token `"
