@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:08:36 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/21 18:41:46 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/22 13:53:28 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,9 @@ int main(int ac, char **av, char **env)
 		}
     parsed_commands = parser(command);
 	print_tokens(parsed_commands);
-		execution(parsed_commands, env);
-		// execute_command(av[1], env); //to do
-		clean_parsed(&parsed_commands, &data); //to clear/free everything and handle the next command 
+	execute_command(parsed_commands);
+	// execution(parsed_commands, env);
+	clean_parsed(&parsed_commands, &data); //to clear/free everything and handle the next command 
 	}
 	return (0);
 }

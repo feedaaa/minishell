@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:29:50 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/21 18:41:16 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/22 14:00:03 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 #include <readline/history.h>
 #include <signal.h>
 #include "libft/libft.h"
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 # define REDIRECTS "><"
 # define OPERATORS "|<>"
@@ -44,6 +47,14 @@ typedef enum e_operator {
 	PIPE,                  //| in shells
 }t_operator;
 
+typedef struct s_statement {
+    int                 argc; //The number of commands
+    char              **argv; //The commnands between each operstor
+    t_operator         operator;
+	struct s_statement	*next;
+} t_statement;
+
+
 //Lets assume NAME=VALUE so Name is saved in var_name and Value is saved in var_value
 typedef struct s_vlst {
 	char			*var_name;
@@ -51,13 +62,6 @@ typedef struct s_vlst {
 	bool			is_exported;
 	struct s_vlst	*next;
 }				t_vlst;
-
-typedef struct s_statement {
-    int                 argc; //The number of commands
-    char              **argv; //The commnands between each operstor
-    t_operator         operator;
-	struct s_statement	*next;
-} t_statement;
 
 typedef struct s_data {
 	char		**envp; //  Array of environment variables as strings  
@@ -71,15 +75,9 @@ typedef struct s_main
 	t_vlst		*env;
 	char		*input;
 	t_statement	*tokens;
-	char		**instructions;
-	int			*in_fds;
-	int			*out_fds;
-	pid_t		*pids;
-	int			cmd_count;
+	t_operator	operator;
 	int			exit_status;
 	int			pipe_fds[2];
-	int			prev_pipe_fd;
-	int			open_fail;
 }	t_main;
 
 //array functions
@@ -144,20 +142,21 @@ t_statement	*p_new_node(int argc);
 void		rl_replace_line(const char *s, int c);
 
 
-//execution functions
-void    	execution(t_statement *parsed_commands, char **env);
-void 		execute_command(char *command, char **args, char **env);
-int			is_builtin(char *command);
-void		execute_builtin(t_statement *command);
-void 		exec_one_cmd(t_statement *parsed_command, char **env);
-void		execute_pipe(t_statement *parsed_commands, char **env);
+// //execution functions
+// void    	execution(t_statement *parsed_commands, char **env);
+// void 		execute_command(char *command, char **args, char **env);
+// int			is_builtin(char *command);
+// void		execute_builtin(t_statement *command);
+// void 		exec_one_cmd(t_statement *parsed_command, char **env);
+// void		execute_pipe(t_statement *parsed_commands, char **env);
 
 
-//execution utils
-char    	*ft_strcpy(char *dst, const char *src);
-t_vlst		*msh_lstnew(char *var_name, char *var_value);
-void		msh_lstadd_back(t_vlst **lst, t_vlst *new);
-void		msh_lstdelone(t_vlst *lst, void (*del)(void*));
+// //execution utils
+void execute_command(t_statement *command);
+// char    	*ft_strcpy(char *dst, const char *src);
+// t_vlst		*msh_lstnew(char *var_name, char *var_value);
+// void		msh_lstadd_back(t_vlst **lst, t_vlst *new);
+// void		msh_lstdelone(t_vlst *lst, void (*del)(void*));
 
 //clean-free function
 void		clean_parsed(t_statement **statement_list, t_data *data);
@@ -166,7 +165,13 @@ void		clean_parsed(t_statement **statement_list, t_data *data);
 //builtin functions
 int			msh_pwd(t_statement *command);
 void		msh_echo(t_statement *command);
-void		msh_env(t_vlst *env);
+int			msh_env(t_vlst *head);
 void		msh_cd(t_statement *command);
+int			msh_export(char *var_name, char *var_value, t_vlst **head);
+int 		msh_unset(char *var_name, t_vlst **head);
+
+// //heredoc functions
+// int 		hd_child(t_statement *node, int fd);
+// int 		here_doc(t_statement *node);
 
 #endif

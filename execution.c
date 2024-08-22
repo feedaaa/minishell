@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 15:31:23 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/21 18:40:56 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/22 12:27:44 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,20 @@ void exec_one_cmd(t_statement *parsed_command, char **env)
         g_exit_status = WEXITSTATUS(status);
 }
 
+void execution(t_statement *parsed_commands, char **env)
+{
+    if (is_builtin(parsed_commands->argv[0]))
+        execute_builtin(parsed_commands);
+
+    if (parsed_commands->next != NULL)
+    {
+        execute_pipe(parsed_commands, env);
+        execution(parsed_commands->next, env);
+    }
+    else
+        exec_one_cmd(parsed_commands, env);
+}
+
 void execute_command(char *command, char **args, char **env)
 {
     char *path = malloc(strlen(command) + 1);
@@ -48,18 +62,4 @@ void execute_command(char *command, char **args, char **env)
         free(path);
         exit(EXIT_FAILURE);
     }
-}
-
-void execution(t_statement *parsed_commands, char **env)
-{
-    if (is_builtin(parsed_commands->argv[0]))
-        execute_builtin(parsed_commands);
-
-    if (parsed_commands->next != NULL)
-    {
-        execute_pipe(parsed_commands, env);
-        execution(parsed_commands->next, env);
-    }
-    else
-        exec_one_cmd(parsed_commands, env);
 }

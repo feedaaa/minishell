@@ -6,31 +6,34 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:27:21 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/21 14:28:05 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/22 11:20:53 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	msh_unsetenv(const char *name)
+int msh_unset(char *var_name, t_vlst **head)
 {
-	extern char **environ;
-	char **envp;
-	char *var_name;
-	size_t len;
-
-	len = ft_strlen(name);
-	envp = environ;
-	while (*envp)
+    t_vlst		*current;
+    t_vlst		*previous;
+	
+	current = *head;
+	previous = NULL;
+    while (current)
 	{
-		var_name = ft_substr(*envp, 0, ft_strchr(*envp, '=') - *envp);
-		if (ft_strcmp(var_name, name) == 0)
+        if (ft_strcmp(current->var_name, var_name) == 0)
 		{
-			free(var_name);
-			*envp = NULL;
-			return ;
-		}
-		free(var_name);
-		envp++;
-	}
+            if (previous)
+                previous->next = current->next;
+            else
+                *head = current->next;
+            free(current->var_name);
+            free(current->var_value);
+            free(current);
+            return (0);
+        }
+        previous = current;
+        current = current->next;
+    }
+    return (-1);
 }
