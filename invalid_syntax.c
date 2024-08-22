@@ -22,6 +22,7 @@ bool	has_operator(char *input)
 	return (false);
 }
 
+//when operators like >, <, | etc., are used together improperly in a command
 bool	invalid_syntax_on_operator(char *input)
 {
 	size_t	i;
