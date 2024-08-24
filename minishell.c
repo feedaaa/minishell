@@ -12,6 +12,14 @@
 #include "minishell.h"
 long long	g_exit_status = 0;
 
+void	clean_parsed(t_statement **statement_list, t_data *data)
+{
+	p_lstclear(statement_list);
+	*statement_list = NULL;
+	data->head = NULL;
+}
+
+
 static char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
 	size_t	i;
