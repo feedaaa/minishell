@@ -66,6 +66,6 @@ void	setup_shell(char **envp, t_data *data, t_statement **statement_list)
 	data->envp_lst = init_envp_lst(envp);
 	data->head = NULL;
 	*statement_list = NULL;
-	// config_signals(); //this function to update the shell depending on some signals such as ctrl+c ...
+	config_signals(); //this function to update the shell depending on some signals such as ctrl+c ...
 }
 
