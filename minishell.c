@@ -9,7 +9,6 @@
 /*   Updated: 2024/08/22 13:53:28 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "minishell.h"
 long long	g_exit_status = 0;
 
@@ -81,13 +80,6 @@ void	print_tokens(t_statement *list)
 	}
 }
 
-static void	panic(t_data *data, char *error_msg, int exit_status)
-{
-	if (data)
-		destroy(data);
-	ft_putendl_fd(error_msg, STDERR_FILENO);
-	exit(exit_status);
-}
 
 int main(int ac, char **av, char **env)
 {
@@ -96,6 +88,9 @@ int main(int ac, char **av, char **env)
 	(void)ac;
 	t_data		data;
 	t_statement  *parsed_commands;
+	// int size;
+	// size = 0;
+	
 	if (av && ac > 1)
 		panic(NULL, CL_ARGUMENTS_ERR, EXIT_FAILURE);
 	setup_shell(env, &data, &parsed_commands);
@@ -112,10 +107,12 @@ int main(int ac, char **av, char **env)
 			continue ;
 		}
     parsed_commands = parser(command);
-	print_tokens(parsed_commands);
-	execute_command(parsed_commands);
-	// execution(parsed_commands, env);
-	clean_parsed(&parsed_commands, &data); //to clear/free everything and handle the next command 
+	// print_tokens(parsed_commands);
+		// ft_execute(parsed_commands, env);
+		data.head = parsed_commands;
+		exec_type(parsed_commands, &data);
+		// execute_command(av[1], env); //to do
+		clean_parsed(&parsed_commands, &data); //to clear everything and handle the next command 
 	}
 	return (0);
 }
