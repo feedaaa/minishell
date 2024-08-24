@@ -16,7 +16,7 @@ RLINC		=	-I/opt/vagrant/embedded/include/readline/readline.h
 LIBFT		=	libft/libft.a
 # INC			=	shell/includes
 # SRCSPATH	=	shell/srcs
-BUILT		=	builtins
+# BUILT		=	$(SRCSPATH)/builtins
 # EXEC		=	$(SRCSPATH)/execution
 # LEX			=	$(SRCSPATH)/lex
 # SIG			=	$(SRCSPATH)/signals
@@ -33,18 +33,22 @@ SRCS	=		parser_utils.c \
 				input_utils.c \
 				invalid_syntax.c\
 				old_pwd.c \
+				execution.c \
+				config_signals.c\
 				clean_parsed.c\
-				config_signals.c \
-				minishell.c \
-				$(BUILT)/msh_pwd.c \
-				$(BUILT)/msh_echo.c \
-				$(BUILT)/msh_env.c \
-				$(BUILT)/msh_cd.c \
-				$(BUILT)/builtin.c \
-				# execution.c \
-				# exec_utils.c \
-				# pipe.c \
-				# heredoc.c \
+				cd.c\
+				echo.c\
+				env.c\
+				exit.c\
+				export.c\
+				pwd.c\
+				unset.c\
+				binaries.c\
+				pipe.c\
+				Redirects.c\
+				exec_type.c\
+				builtins_cmd.c\
+				minishell.c 
 
 
 OBJS		=	$(SRCS:.c=.o)
@@ -78,7 +82,6 @@ fclean	:	clean
 re		:	fclean	all
 
 .PHONY:	all clean fclean re
-
 # $(BUILT)/msh_echo.c \
 # $(BUILT)/msh_env.c \
 # $(BUILT)/msh_exit.c \
