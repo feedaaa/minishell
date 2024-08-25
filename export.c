@@ -75,21 +75,21 @@ int	cmd_export(t_statement *statement, t_data *data)
 	int		exit_status;
 	size_t	i;
 
-	if (statement->argc == 1)
+	if (statement->argc == 1)  //"export" as a command line
 		return (single_export(data));
 	exit_status = EXIT_SUCCESS;
 	i = 0;
 	while (statement->argv[++i])
 	{	
-		if (!is_valid_id(statement->argv[i]))
+		if (!is_valid_id(statement->argv[i])) //check if its a valid env variable
 			exit_status = export_bad_identifier(statement->argv[i]);
 		else if (is_therechar(statement->argv[i], '='))
 		{
-			save_user_vars(statement->argv[i], &data->envp_lst, true);
+			save_user_vars(statement->argv[i], &data->envp_lst, true); //save the variable inside the environment
 			continue ;
 		}
 		else
-			loop_and_export(statement->argv[i], data);
+			loop_and_export(statement->argv[i], data); //exporting the variable without assigning a value.
 	}
 	return (exit_status);
 }
