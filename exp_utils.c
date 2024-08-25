@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-//this function to replace the name with the real value
+// this function to replace the name with the real value
 char	*get_fromvlst(char *var_name, t_vlst **head)
 {
 	t_vlst	*temp;
@@ -8,9 +8,10 @@ char	*get_fromvlst(char *var_name, t_vlst **head)
 	temp = *head;
 	while (temp != NULL)
 	{
-		if (streq(var_name, temp->var_name))//check if var_name is the same as temp->var_name in this case it return the value of it
+		if (streq(var_name, temp->var_name))
+			// check if var_name is the same as temp->var_name in this case it return the value of it
 			return (temp->var_value);
-		temp = temp->next;   //checks the next name that is saved in the env
+		temp = temp->next; // checks the next name that is saved in the env
 	}
 	return (NULL);
 }
@@ -44,9 +45,7 @@ void	init_vars(size_t *i, size_t *size, bool *in_quotes, bool *in_dquotes)
 
 bool	single_dollar(char *input_at_i)
 {
-	return ((!input_at_i[1]
-			|| input_at_i[1] == ' '
-			|| input_at_i[1] == '\"'));
+	return ((!input_at_i[1] || input_at_i[1] == ' ' || input_at_i[1] == '\"'));
 }
 
 bool	streq(char *str1, char *str2)
@@ -106,4 +105,3 @@ char	*ft_lltoa(long long n)
 	}
 	return (result);
 }
-

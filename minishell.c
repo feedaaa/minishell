@@ -6,19 +6,13 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:08:36 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/22 13:53:28 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/25 14:38:13 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "minishell.h"
+
 long long	g_exit_status = 0;
-
-void	clean_parsed(t_statement **statement_list, t_data *data)
-{
-	p_lstclear(statement_list);
-	*statement_list = NULL;
-	data->head = NULL;
-}
-
 
 static char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
@@ -71,57 +65,33 @@ static char	*get_input(void)
 	return (input);
 }
 
-void	print_tokens(t_statement *list)
+int	main(int ac, char **av, char **env)
 {
-	t_statement	*temp = list;
+	char		*command;
+	t_data		data;
+	t_statement	*parsed_commands;
 
-	while (temp)
-	{
-		int i = -1;
-		if (temp->argv)
-		{
-			while (temp->argv[++i])
-				printf("%s ", temp->argv[i]);
-			printf("\n");
-		}
-		temp = temp->next;
-	}
-}
-
-
-int main(int ac, char **av, char **env)
-{
-	char *command;
 	(void)av;
 	(void)ac;
-	t_data		data;
-	t_statement  *parsed_commands;
-	// int size;
-	// size = 0;
-	
 	if (av && ac > 1)
 		panic(NULL, CL_ARGUMENTS_ERR, EXIT_FAILURE);
 	setup_shell(env, &data, &parsed_commands);
 	while (true)
 	{
 		command = get_input();
-		if (!valid_input(command, &data))    //checks if there are any syntax errors
+		if (!valid_input(command, &data)) // checks if there are any syntax errors
 			continue ;
 		add_history(command);
 		command = expander(command, &data);
-    if (!command[0])
+		if (!command[0])
 		{
 			free(command);
 			continue ;
 		}
-    parsed_commands = parser(command);
-	// print_tokens(parsed_commands);
-		// ft_execute(parsed_commands, env);
+		parsed_commands = parser(command);
 		data.head = parsed_commands;
 		exec_type(parsed_commands, &data);
-		// execute_command(av[1], env); //to do
-		clean_parsed(&parsed_commands, &data); //to clear everything and handle the next command 
+		clean_parsed(&parsed_commands, &data);// to clear everything and handle the next command
 	}
 	return (0);
 }
-

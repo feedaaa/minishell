@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-//represents the number of command-line arguments passed to the program.
+// represents the number of command-line arguments passed to the program.
 size_t	get_argc(char **parsed)
 {
 	size_t	i;
@@ -43,8 +43,7 @@ t_operator	get_operator(char *operator)
 	return (op);
 }
 
-
-size_t	remove_quotes_size(char	*parsed)
+size_t	remove_quotes_size(char *parsed)
 {
 	size_t	i;
 	size_t	size;
@@ -72,7 +71,7 @@ size_t	remove_quotes_size(char	*parsed)
 	return (size);
 }
 
-char	*remove_quotes(char	*parsed)
+char	*remove_quotes(char *parsed)
 {
 	size_t	i;
 	size_t	j;
@@ -99,4 +98,3 @@ char	*remove_quotes(char	*parsed)
 	free(parsed);
 	return (unquoted_parsed);
 }
-

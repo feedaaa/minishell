@@ -22,7 +22,7 @@ bool	has_operator(char *input)
 	return (false);
 }
 
-//when operators like >, <, | etc., are used together improperly in a command
+// when operators like >, <, | etc., are used together improperly in a command
 bool	invalid_syntax_on_operator(char *input)
 {
 	size_t	i;
@@ -66,13 +66,12 @@ bool	invalid_syntax2(char *input)
 	{
 		if (is_therechar(QUOTES, input[i]))
 			in_quotes = !in_quotes;
-		if (((input[i] == '>' && input[i + 1] == '<')
-				|| (input[i] == '<' && input[i + 1] == '>')
-				|| (input[i] == '|' && input[i + 1] == '|')) && !in_quotes)
+		if (((input[i] == '>' && input[i + 1] == '<') || (input[i] == '<'
+					&& input[i + 1] == '>') || (input[i] == '|' && input[i
+					+ 1] == '|')) && !in_quotes)
 			return (unexpected_token(input[i + 1]));
-		else if ((input[i] == '{' || input[i] == '}'
-				|| input[i] == '(' || input[i] == ')'
-				|| input[i] == '[' || input[i] == ']'
+		else if ((input[i] == '{' || input[i] == '}' || input[i] == '('
+				|| input[i] == ')' || input[i] == '[' || input[i] == ']'
 				|| input[i] == ';' || input[i] == '&' || input[i] == '*')
 			&& !in_quotes)
 			return (unexpected_token(input[i]));

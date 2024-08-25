@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-/* 0 as length parameter lets getcwd() copy the entire 
+/* 0 as length parameter lets getcwd() copy the entire
 / absolute path without length restrictions */
 
 int	cmd_pwd(void)

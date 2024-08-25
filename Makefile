@@ -14,8 +14,6 @@ RLINC		=	-I/opt/vagrant/embedded/include/readline/readline.h
 # RLFLAGS = -lreadline -lhistory
 
 LIBFT		=	libft/libft.a
-# INC			=	shell/includes
-# SRCSPATH	=	shell/srcs
 # BUILT		=	$(SRCSPATH)/builtins
 # EXEC		=	$(SRCSPATH)/execution
 # LEX			=	$(SRCSPATH)/lex
@@ -24,31 +22,30 @@ LIBFT		=	libft/libft.a
 # ENV			=	$(SRCSPATH)/environ
 
 SRCS	=		parser_utils.c \
-				tokenizer.c \
-				parser.c \
-				setup_shell.c \
-				expand.c \
+				binaries.c \
+				builtins_cmd.c \
+				cd.c \
+				clean_parsed.c \
+				config_signals.c \
+				echo.c \
+				env.c \
+				exec_type.c \
+				exit.c \
 				exp_utils.c \
-				valid_input.c\
+				expand.c \
+				export.c \
 				input_utils.c \
 				invalid_syntax.c\
+				minishell.c \
 				old_pwd.c \
-				execution.c \
-				config_signals.c\
-				clean_parsed.c\
-				cd.c\
-				echo.c\
-				env.c\
-				exit.c\
-				export.c\
-				pwd.c\
-				unset.c\
-				binaries.c\
-				pipe.c\
-				Redirects.c\
-				exec_type.c\
-				builtins_cmd.c\
-				minishell.c 
+				parser.c \
+				pipe.c \
+				pwd.c \
+				redirects.c \
+				setup_shell.c \
+				tokenizer.c \
+				unset.c \
+				valid_input.c \
 
 
 OBJS		=	$(SRCS:.c=.o)
@@ -82,7 +79,3 @@ fclean	:	clean
 re		:	fclean	all
 
 .PHONY:	all clean fclean re
-# $(BUILT)/msh_echo.c \
-# $(BUILT)/msh_env.c \
-# $(BUILT)/msh_exit.c \
-# $(BUILT)/msh_export.c \

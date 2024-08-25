@@ -23,20 +23,20 @@ bool	valid_input(char *input, t_data *data)
 	bool	valid;
 
 	valid = true;
-	if (input == NULL)     //when the pointer  itself is NULL
+	if (input == NULL) // when the pointer  itself is NULL
 	{
 		free(input);
 		exit_shell(EXIT_SUCCESS, data);
 	}
-	if (input[0] == '\0')  //when the string or the command line is empty
+	if (input[0] == '\0') // when the string or the command line is empty
 		valid = false;
-	else if (unclosed_quotes(input)) //when there is an open quote ina command line
+	else if (unclosed_quotes(input))
+		// when there is an open quote ina command line
 	{
 		ft_putendl_fd(UNCLOSED_QUOTES, STDERR_FILENO);
 		valid = false;
 	}
-	else if (invalid_syntax(input)
-		|| invalid_syntax2(input)
+	else if (invalid_syntax(input) || invalid_syntax2(input)
 		|| invalid_syntax_on_operator(input))
 		valid = false;
 	if (!valid)

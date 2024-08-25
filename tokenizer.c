@@ -1,19 +1,19 @@
 #include "minishell.h"
 
-char	**tokenize_input(char *input) 
+char	**tokenize_input(char *input)
 {
-	size_t		i;
-	size_t		k;
-	char		**parsed;
-	size_t		len;
-	size_t		j;
+	size_t	i;
+	size_t	k;
+	char	**parsed;
+	size_t	len;
+	size_t	j;
 
 	i = 0;
 	k = 0;
 	parsed = malloc((count_tokens(input) + 1) * sizeof(char *));
 	while (input[i])
 	{
-		len =  get_token_length(&input[i]);
+		len = get_token_length(&input[i]);
 		if (!len)
 		{
 			i += 1;
@@ -43,8 +43,7 @@ size_t	count_tokens(char *input)
 	{
 		if (is_therechar(OPERATORS, *input)) // Counts the operators
 			count += 1;
-		if (is_therechar(QUOTES, *input) && *input == *(input + 1))
-			// In case there is a double quotation just move 2 steps to skip them
+		if (is_therechar(QUOTES, *input) && *input == *(input + 1)) // In case there is a double quotation just move 2 steps to skip them
 			input += 2;
 		else if (is_therechar(QUOTES, *input))
 			quotes = !quotes;
@@ -54,8 +53,7 @@ size_t	count_tokens(char *input)
 			flag = true;
 			count += 1;
 		}
-		else if (*input == ' ' || is_therechar(OPERATORS, *input))
-			// Counts nthe tokens that are seperated by spaces and operators
+		else if (*input == ' ' || is_therechar(OPERATORS, *input)) // Counts nthe tokens that are seperated by spaces and operators
 			flag = false;
 		input += 1;
 	}
@@ -79,7 +77,7 @@ bool	is_therechar(const char *str, int ch)
 	return (false);
 }
 
-static bool	is_spaces(char c)
+bool	is_spaces(char c)
 {
 	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
 		|| c == ' ')
@@ -98,8 +96,9 @@ size_t	get_token_length(char *input_at_i)
 	if (is_therechar(OPERATORS, input_at_i[i]))
 	{
 		// If the current character is an operator,
-		//check if it's a double-character operator example: && || >>
-		if (input_at_i[i] == input_at_i[i + 1]) // If it's a double-character operator, return a length of 2
+		// check if it's a double-character operator example: && || >>
+		if (input_at_i[i] == input_at_i[i + 1])
+			// If it's a double-character operator, return a length of 2
 			return (2);
 		// If it's a single-character operator, return a length of 1
 		return (1);

@@ -2,7 +2,6 @@
 
 extern long long	g_exit_status;
 
-
 long long	ft_atoll(const char *str)
 {
 	long long	res;
@@ -80,13 +79,14 @@ void	cmd_exit(t_statement *s, t_data *data)
 	{
 		if (is_all_digits_or_signals(s->argv[1]))
 		{
-			if (!fits_in_longlong(s->argv[1])) //if it is in the range of long long int
+			if (!fits_in_longlong(s->argv[1]))
+				// if it is in the range of long long int
 				exit_non_numeric_arg();
 			else
 				g_exit_status = ft_atoll(s->argv[1]);
 		}
 		else
-			exit_non_numeric_arg(); //if its not a number
+			exit_non_numeric_arg(); // if its not a number
 	}
 	else if (s->argc > 2)
 	{

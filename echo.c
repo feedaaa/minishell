@@ -19,15 +19,18 @@ static void	print(char *str)
 
 int	cmd_echo(t_statement *statement, bool has_n)
 {
-	int		i;
+	int	i;
 
 	i = 1;
 	if (has_n)
-		i += 1;
+	{
+		statement->argv[i+1];
+	}
+	i += 1;
 	while (statement->argv[i] && i != statement->argc)
 	{
 		print(statement->argv[i]);
-		if (!statement->argv[i + 1] && statement->operator != RDR_INPUT)
+		if (!statement->argv[i + 1] && statement->operator!= RDR_INPUT)
 			break ;
 		ft_putchar_fd(' ', STDOUT_FILENO);
 		i += 1;

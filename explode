@@ -1,0 +1,2894 @@
+==425== Memcheck, a memory error detector
+==425== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==425== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==425== Command: ./minishell
+==425== 
+minishell: syntax error near unexpected token `{'
+minishell: unclosed quotes
+minishell: syntax error near unexpected token `{'
+==425== Conditional jump or move depends on uninitialised value(s)
+==425==    at 0x4874D06: _rl_isearch_dispatch (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.0)
+==425==    by 0x48759B2: ??? (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.0)
+==425==    by 0x4864706: _rl_dispatch_subseq (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.0)
+==425==    by 0x4864CC4: readline_internal_char (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.0)
+==425==    by 0x48654EC: readline (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.0)
+==425==    by 0x10C377: get_input (minishell.c:63)
+==425==    by 0x10C49B: main (minishell.c:100)
+==425==  Uninitialised value was created by a heap allocation
+==425==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==425==    by 0x488B00C: xmalloc (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.0)
+==425==    by 0x4874875: _rl_scxt_alloc (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.0)
+==425==    by 0x4875845: ??? (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.0)
+==425==    by 0x4864706: _rl_dispatch_subseq (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.0)
+==425==    by 0x4864CC4: readline_internal_char (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.0)
+==425==    by 0x48654EC: readline (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.0)
+==425==    by 0x10C377: get_input (minishell.c:63)
+==425==    by 0x10C49B: main (minishell.c:100)
+==425== 
+minishell: unclosed quotes
+minishell: syntax error near unexpected token `)'
+minishell: syntax error near unexpected token `)'
+minishell: unclosed quotes
+minishell: unclosed quotes
+EK≥y˝pgdS∑8: command not found
+==426== 
+==426== FILE DESCRIPTORS: 3 open at exit.
+==426== Open file descriptor 2: /home/vscode/src/explode
+==426==    <inherited from parent>
+==426== 
+==426== Open file descriptor 1: /dev/pts/0
+==426==    <inherited from parent>
+==426== 
+==426== Open file descriptor 0:
+==426==    <inherited from parent>
+==426== 
+==426== 
+==426== HEAP SUMMARY:
+==426==     in use at exit: 208,175 bytes in 294 blocks
+==426==   total heap usage: 896 allocs, 602 frees, 696,192 bytes allocated
+==426== 
+==426== 6 bytes in 1 blocks are still reachable in loss record 1 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==426==    by 0x10D196: split_envp (setup_shell.c:32)
+==426==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==426==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==426==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==426==    by 0x10D306: setup_shell (setup_shell.c:70)
+==426==    by 0x10C496: main (minishell.c:97)
+==426== 
+==426== 7 bytes in 1 blocks are still reachable in loss record 4 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==426==    by 0x10D15C: split_envp (setup_shell.c:29)
+==426==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==426==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==426==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==426==    by 0x10D306: setup_shell (setup_shell.c:70)
+==426==    by 0x10C496: main (minishell.c:97)
+==426== 
+==426== 9 bytes in 1 blocks are still reachable in loss record 7 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==426==    by 0x10D196: split_envp (setup_shell.c:32)
+==426==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==426==    by 0x10D306: setup_shell (setup_shell.c:70)
+==426==    by 0x10C496: main (minishell.c:97)
+==426== 
+==426== 12 bytes in 1 blocks are still reachable in loss record 11 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x109757: remove_quotes (parser_utils.c:84)
+==426==    by 0x10C90D: parser (parser.c:23)
+==426==    by 0x10C501: main (minishell.c:110)
+==426== 
+==426== 13 bytes in 1 blocks are still reachable in loss record 14 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x10B55E: expander (expand.c:128)
+==426==    by 0x10C4D8: main (minishell.c:104)
+==426== 
+==426== 16 bytes in 1 blocks are still reachable in loss record 16 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x10CA6F: p_new_node (parser.c:44)
+==426==    by 0x10C8A8: parser (parser.c:15)
+==426==    by 0x10C501: main (minishell.c:110)
+==426== 
+==426== 16 bytes in 1 blocks are definitely lost in loss record 17 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==426==    by 0x10C891: parser (parser.c:13)
+==426==    by 0x10C501: main (minishell.c:110)
+==426== 
+==426== 32 bytes in 1 blocks are still reachable in loss record 22 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==426==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==426==    by 0x10D306: setup_shell (setup_shell.c:70)
+==426==    by 0x10C496: main (minishell.c:97)
+==426== 
+==426== 32 bytes in 1 blocks are still reachable in loss record 23 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==426==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==426==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==426==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==426==    by 0x10D306: setup_shell (setup_shell.c:70)
+==426==    by 0x10C496: main (minishell.c:97)
+==426== 
+==426== 32 bytes in 1 blocks are still reachable in loss record 25 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x10CA4E: p_new_node (parser.c:42)
+==426==    by 0x10C8A8: parser (parser.c:15)
+==426==    by 0x10C501: main (minishell.c:110)
+==426== 
+==426== 37 bytes in 1 blocks are still reachable in loss record 26 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==426==    by 0x10D15C: split_envp (setup_shell.c:29)
+==426==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==426==    by 0x10D306: setup_shell (setup_shell.c:70)
+==426==    by 0x10C496: main (minishell.c:97)
+==426== 
+==426== 167 bytes in 18 blocks are still reachable in loss record 39 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==426==    by 0x10D15C: split_envp (setup_shell.c:29)
+==426==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==426==    by 0x10D306: setup_shell (setup_shell.c:70)
+==426==    by 0x10C496: main (minishell.c:97)
+==426== 
+==426== 576 bytes in 18 blocks are still reachable in loss record 44 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==426==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==426==    by 0x10D306: setup_shell (setup_shell.c:70)
+==426==    by 0x10C496: main (minishell.c:97)
+==426== 
+==426== 1,855 bytes in 18 blocks are still reachable in loss record 54 of 81
+==426==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==426==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==426==    by 0x10D196: split_envp (setup_shell.c:32)
+==426==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==426==    by 0x10D306: setup_shell (setup_shell.c:70)
+==426==    by 0x10C496: main (minishell.c:97)
+==426== 
+==426== LEAK SUMMARY:
+==426==    definitely lost: 16 bytes in 1 blocks
+==426==    indirectly lost: 0 bytes in 0 blocks
+==426==      possibly lost: 0 bytes in 0 blocks
+==426==    still reachable: 2,794 bytes in 64 blocks
+==426==         suppressed: 205,365 bytes in 229 blocks
+==426== 
+==426== For lists of detected and suppressed errors, rerun with: -s
+==426== ERROR SUMMARY: 6 errors from 2 contexts (suppressed: 0 from 0)
+minishell: syntax error near unexpected token `['
+minishell: syntax error near unexpected token `;'
+minishell: syntax error near unexpected token `}'
+minishell: unclosed quotes
+minishell: syntax error near unexpected token `]'
+minishell: syntax error near unexpected token `('
+minishell: unclosed quotes
+minishell: syntax error near unexpected token `{'
+minishell: syntax error near unexpected token `)'
+minishell: unclosed quotes
+y˜7pÏyÿäu«: command not found
+==427== 
+==427== FILE DESCRIPTORS: 3 open at exit.
+==427== Open file descriptor 2: /home/vscode/src/explode
+==427==    <inherited from parent>
+==427== 
+==427== Open file descriptor 1: /dev/pts/0
+==427==    <inherited from parent>
+==427== 
+==427== Open file descriptor 0:
+==427==    <inherited from parent>
+==427== 
+==427== 
+==427== HEAP SUMMARY:
+==427==     in use at exit: 209,315 bytes in 347 blocks
+==427==   total heap usage: 1,482 allocs, 1,135 frees, 1,176,282 bytes allocated
+==427== 
+==427== 6 bytes in 1 blocks are still reachable in loss record 3 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==427==    by 0x10D196: split_envp (setup_shell.c:32)
+==427==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==427==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==427==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==427==    by 0x10D306: setup_shell (setup_shell.c:70)
+==427==    by 0x10C496: main (minishell.c:97)
+==427== 
+==427== 7 bytes in 1 blocks are still reachable in loss record 6 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==427==    by 0x10D15C: split_envp (setup_shell.c:29)
+==427==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==427==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==427==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==427==    by 0x10D306: setup_shell (setup_shell.c:70)
+==427==    by 0x10C496: main (minishell.c:97)
+==427== 
+==427== 9 bytes in 1 blocks are still reachable in loss record 9 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==427==    by 0x10D196: split_envp (setup_shell.c:32)
+==427==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==427==    by 0x10D306: setup_shell (setup_shell.c:70)
+==427==    by 0x10C496: main (minishell.c:97)
+==427== 
+==427== 13 bytes in 1 blocks are still reachable in loss record 14 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10B55E: expander (expand.c:128)
+==427==    by 0x10C4D8: main (minishell.c:104)
+==427== 
+==427== 13 bytes in 1 blocks are still reachable in loss record 15 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x109757: remove_quotes (parser_utils.c:84)
+==427==    by 0x10C90D: parser (parser.c:23)
+==427==    by 0x10C501: main (minishell.c:110)
+==427== 
+==427== 13 bytes in 1 blocks are definitely lost in loss record 16 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10B55E: expander (expand.c:128)
+==427==    by 0x10C4D8: main (minishell.c:104)
+==427== 
+==427== 16 bytes in 1 blocks are still reachable in loss record 18 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10CA6F: p_new_node (parser.c:44)
+==427==    by 0x10C8A8: parser (parser.c:15)
+==427==    by 0x10C501: main (minishell.c:110)
+==427== 
+==427== 32 bytes in 1 blocks are still reachable in loss record 23 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==427==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==427==    by 0x10D306: setup_shell (setup_shell.c:70)
+==427==    by 0x10C496: main (minishell.c:97)
+==427== 
+==427== 32 bytes in 1 blocks are still reachable in loss record 24 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==427==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==427==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==427==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==427==    by 0x10D306: setup_shell (setup_shell.c:70)
+==427==    by 0x10C496: main (minishell.c:97)
+==427== 
+==427== 32 bytes in 1 blocks are still reachable in loss record 26 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10CA4E: p_new_node (parser.c:42)
+==427==    by 0x10C8A8: parser (parser.c:15)
+==427==    by 0x10C501: main (minishell.c:110)
+==427== 
+==427== 32 bytes in 2 blocks are definitely lost in loss record 27 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==427==    by 0x10C891: parser (parser.c:13)
+==427==    by 0x10C501: main (minishell.c:110)
+==427== 
+==427== 37 bytes in 1 blocks are still reachable in loss record 28 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==427==    by 0x10D15C: split_envp (setup_shell.c:29)
+==427==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==427==    by 0x10D306: setup_shell (setup_shell.c:70)
+==427==    by 0x10C496: main (minishell.c:97)
+==427== 
+==427== 167 bytes in 18 blocks are still reachable in loss record 41 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==427==    by 0x10D15C: split_envp (setup_shell.c:29)
+==427==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==427==    by 0x10D306: setup_shell (setup_shell.c:70)
+==427==    by 0x10C496: main (minishell.c:97)
+==427== 
+==427== 576 bytes in 18 blocks are still reachable in loss record 49 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==427==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==427==    by 0x10D306: setup_shell (setup_shell.c:70)
+==427==    by 0x10C496: main (minishell.c:97)
+==427== 
+==427== 1,855 bytes in 18 blocks are still reachable in loss record 59 of 86
+==427==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==427==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==427==    by 0x10D196: split_envp (setup_shell.c:32)
+==427==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==427==    by 0x10D306: setup_shell (setup_shell.c:70)
+==427==    by 0x10C496: main (minishell.c:97)
+==427== 
+==427== LEAK SUMMARY:
+==427==    definitely lost: 45 bytes in 3 blocks
+==427==    indirectly lost: 0 bytes in 0 blocks
+==427==      possibly lost: 0 bytes in 0 blocks
+==427==    still reachable: 2,795 bytes in 64 blocks
+==427==         suppressed: 206,475 bytes in 280 blocks
+==427== 
+==427== For lists of detected and suppressed errors, rerun with: -s
+==427== ERROR SUMMARY: 21 errors from 3 contexts (suppressed: 0 from 0)
+minishell: syntax error near unexpected token `('
+I0FyD: command not found
+==428== 
+==428== FILE DESCRIPTORS: 3 open at exit.
+==428== Open file descriptor 2: /home/vscode/src/explode
+==428==    <inherited from parent>
+==428== 
+==428== Open file descriptor 1: /dev/pts/0
+==428==    <inherited from parent>
+==428== 
+==428== Open file descriptor 0:
+==428==    <inherited from parent>
+==428== 
+==428== 
+==428== HEAP SUMMARY:
+==428==     in use at exit: 213,010 bytes in 308 blocks
+==428==   total heap usage: 1,568 allocs, 1,260 frees, 1,249,749 bytes allocated
+==428== 
+==428== 6 bytes in 1 blocks are still reachable in loss record 1 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==428==    by 0x10D196: split_envp (setup_shell.c:32)
+==428==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==428==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==428==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==428==    by 0x10D306: setup_shell (setup_shell.c:70)
+==428==    by 0x10C496: main (minishell.c:97)
+==428== 
+==428== 7 bytes in 1 blocks are still reachable in loss record 4 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==428==    by 0x10D15C: split_envp (setup_shell.c:29)
+==428==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==428==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==428==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==428==    by 0x10D306: setup_shell (setup_shell.c:70)
+==428==    by 0x10C496: main (minishell.c:97)
+==428== 
+==428== 7 bytes in 1 blocks are still reachable in loss record 5 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10B55E: expander (expand.c:128)
+==428==    by 0x10C4D8: main (minishell.c:104)
+==428== 
+==428== 7 bytes in 1 blocks are still reachable in loss record 6 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x109757: remove_quotes (parser_utils.c:84)
+==428==    by 0x10C90D: parser (parser.c:23)
+==428==    by 0x10C501: main (minishell.c:110)
+==428== 
+==428== 9 bytes in 1 blocks are still reachable in loss record 9 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==428==    by 0x10D196: split_envp (setup_shell.c:32)
+==428==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==428==    by 0x10D306: setup_shell (setup_shell.c:70)
+==428==    by 0x10C496: main (minishell.c:97)
+==428== 
+==428== 16 bytes in 1 blocks are still reachable in loss record 15 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10CA6F: p_new_node (parser.c:44)
+==428==    by 0x10C8A8: parser (parser.c:15)
+==428==    by 0x10C501: main (minishell.c:110)
+==428== 
+==428== 26 bytes in 2 blocks are definitely lost in loss record 18 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10B55E: expander (expand.c:128)
+==428==    by 0x10C4D8: main (minishell.c:104)
+==428== 
+==428== 32 bytes in 1 blocks are still reachable in loss record 19 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==428==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==428==    by 0x10D306: setup_shell (setup_shell.c:70)
+==428==    by 0x10C496: main (minishell.c:97)
+==428== 
+==428== 32 bytes in 1 blocks are still reachable in loss record 20 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==428==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==428==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==428==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==428==    by 0x10D306: setup_shell (setup_shell.c:70)
+==428==    by 0x10C496: main (minishell.c:97)
+==428== 
+==428== 32 bytes in 1 blocks are still reachable in loss record 22 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10CA4E: p_new_node (parser.c:42)
+==428==    by 0x10C8A8: parser (parser.c:15)
+==428==    by 0x10C501: main (minishell.c:110)
+==428== 
+==428== 37 bytes in 1 blocks are still reachable in loss record 25 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==428==    by 0x10D15C: split_envp (setup_shell.c:29)
+==428==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==428==    by 0x10D306: setup_shell (setup_shell.c:70)
+==428==    by 0x10C496: main (minishell.c:97)
+==428== 
+==428== 48 bytes in 3 blocks are definitely lost in loss record 29 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==428==    by 0x10C891: parser (parser.c:13)
+==428==    by 0x10C501: main (minishell.c:110)
+==428== 
+==428== 167 bytes in 18 blocks are still reachable in loss record 39 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==428==    by 0x10D15C: split_envp (setup_shell.c:29)
+==428==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==428==    by 0x10D306: setup_shell (setup_shell.c:70)
+==428==    by 0x10C496: main (minishell.c:97)
+==428== 
+==428== 576 bytes in 18 blocks are still reachable in loss record 44 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==428==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==428==    by 0x10D306: setup_shell (setup_shell.c:70)
+==428==    by 0x10C496: main (minishell.c:97)
+==428== 
+==428== 1,855 bytes in 18 blocks are still reachable in loss record 55 of 83
+==428==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==428==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==428==    by 0x10D196: split_envp (setup_shell.c:32)
+==428==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==428==    by 0x10D306: setup_shell (setup_shell.c:70)
+==428==    by 0x10C496: main (minishell.c:97)
+==428== 
+==428== LEAK SUMMARY:
+==428==    definitely lost: 74 bytes in 5 blocks
+==428==    indirectly lost: 0 bytes in 0 blocks
+==428==      possibly lost: 0 bytes in 0 blocks
+==428==    still reachable: 2,783 bytes in 64 blocks
+==428==         suppressed: 210,153 bytes in 239 blocks
+==428== 
+==428== For lists of detected and suppressed errors, rerun with: -s
+==428== ERROR SUMMARY: 21 errors from 3 contexts (suppressed: 0 from 0)
+minishell: unclosed quotes
+9QAM: command not found
+==429== 
+==429== FILE DESCRIPTORS: 3 open at exit.
+==429== Open file descriptor 2: /home/vscode/src/explode
+==429==    <inherited from parent>
+==429== 
+==429== Open file descriptor 1: /dev/pts/0
+==429==    <inherited from parent>
+==429== 
+==429== Open file descriptor 0:
+==429==    <inherited from parent>
+==429== 
+==429== 
+==429== HEAP SUMMARY:
+==429==     in use at exit: 213,076 bytes in 313 blocks
+==429==   total heap usage: 1,603 allocs, 1,290 frees, 1,283,131 bytes allocated
+==429== 
+==429== 6 bytes in 1 blocks are still reachable in loss record 1 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==429==    by 0x10D196: split_envp (setup_shell.c:32)
+==429==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==429==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==429==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==429==    by 0x10D306: setup_shell (setup_shell.c:70)
+==429==    by 0x10C496: main (minishell.c:97)
+==429== 
+==429== 7 bytes in 1 blocks are still reachable in loss record 4 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==429==    by 0x10D15C: split_envp (setup_shell.c:29)
+==429==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==429==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==429==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==429==    by 0x10D306: setup_shell (setup_shell.c:70)
+==429==    by 0x10C496: main (minishell.c:97)
+==429== 
+==429== 7 bytes in 1 blocks are still reachable in loss record 5 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10B55E: expander (expand.c:128)
+==429==    by 0x10C4D8: main (minishell.c:104)
+==429== 
+==429== 7 bytes in 1 blocks are still reachable in loss record 6 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x109757: remove_quotes (parser_utils.c:84)
+==429==    by 0x10C90D: parser (parser.c:23)
+==429==    by 0x10C501: main (minishell.c:110)
+==429== 
+==429== 9 bytes in 1 blocks are still reachable in loss record 9 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==429==    by 0x10D196: split_envp (setup_shell.c:32)
+==429==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==429==    by 0x10D306: setup_shell (setup_shell.c:70)
+==429==    by 0x10C496: main (minishell.c:97)
+==429== 
+==429== 16 bytes in 1 blocks are still reachable in loss record 15 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10CA6F: p_new_node (parser.c:44)
+==429==    by 0x10C8A8: parser (parser.c:15)
+==429==    by 0x10C501: main (minishell.c:110)
+==429== 
+==429== 32 bytes in 1 blocks are still reachable in loss record 18 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==429==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==429==    by 0x10D306: setup_shell (setup_shell.c:70)
+==429==    by 0x10C496: main (minishell.c:97)
+==429== 
+==429== 32 bytes in 1 blocks are still reachable in loss record 19 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==429==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==429==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==429==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==429==    by 0x10D306: setup_shell (setup_shell.c:70)
+==429==    by 0x10C496: main (minishell.c:97)
+==429== 
+==429== 32 bytes in 1 blocks are still reachable in loss record 21 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10CA4E: p_new_node (parser.c:42)
+==429==    by 0x10C8A8: parser (parser.c:15)
+==429==    by 0x10C501: main (minishell.c:110)
+==429== 
+==429== 33 bytes in 3 blocks are definitely lost in loss record 22 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10B55E: expander (expand.c:128)
+==429==    by 0x10C4D8: main (minishell.c:104)
+==429== 
+==429== 37 bytes in 1 blocks are still reachable in loss record 23 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==429==    by 0x10D15C: split_envp (setup_shell.c:29)
+==429==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==429==    by 0x10D306: setup_shell (setup_shell.c:70)
+==429==    by 0x10C496: main (minishell.c:97)
+==429== 
+==429== 64 bytes in 4 blocks are definitely lost in loss record 29 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==429==    by 0x10C891: parser (parser.c:13)
+==429==    by 0x10C501: main (minishell.c:110)
+==429== 
+==429== 167 bytes in 18 blocks are still reachable in loss record 39 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==429==    by 0x10D15C: split_envp (setup_shell.c:29)
+==429==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==429==    by 0x10D306: setup_shell (setup_shell.c:70)
+==429==    by 0x10C496: main (minishell.c:97)
+==429== 
+==429== 576 bytes in 18 blocks are still reachable in loss record 44 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==429==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==429==    by 0x10D306: setup_shell (setup_shell.c:70)
+==429==    by 0x10C496: main (minishell.c:97)
+==429== 
+==429== 1,855 bytes in 18 blocks are still reachable in loss record 55 of 83
+==429==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==429==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==429==    by 0x10D196: split_envp (setup_shell.c:32)
+==429==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==429==    by 0x10D306: setup_shell (setup_shell.c:70)
+==429==    by 0x10C496: main (minishell.c:97)
+==429== 
+==429== LEAK SUMMARY:
+==429==    definitely lost: 97 bytes in 7 blocks
+==429==    indirectly lost: 0 bytes in 0 blocks
+==429==      possibly lost: 0 bytes in 0 blocks
+==429==    still reachable: 2,783 bytes in 64 blocks
+==429==         suppressed: 210,196 bytes in 242 blocks
+==429== 
+==429== For lists of detected and suppressed errors, rerun with: -s
+==429== ERROR SUMMARY: 21 errors from 3 contexts (suppressed: 0 from 0)
+minishell: syntax error near unexpected token `('
+t√ˆgÔ,deIâ®°y0ãñOêHºMCFj_ÇÏD#≤Yñçó¨G0vó÷i·,˘\Ç‚ÜóØ˜óå‘ñf78“GO¯NS@HOÉi2n©Üø3R∆%µ: command not found
+==430== 
+==430== FILE DESCRIPTORS: 3 open at exit.
+==430== Open file descriptor 2: /home/vscode/src/explode
+==430==    <inherited from parent>
+==430== 
+==430== Open file descriptor 1: /dev/pts/0
+==430==    <inherited from parent>
+==430== 
+==430== Open file descriptor 0:
+==430==    <inherited from parent>
+==430== 
+==430== 
+==430== HEAP SUMMARY:
+==430==     in use at exit: 214,114 bytes in 318 blocks
+==430==   total heap usage: 1,863 allocs, 1,545 frees, 1,563,064 bytes allocated
+==430== 
+==430== 6 bytes in 1 blocks are still reachable in loss record 1 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==430==    by 0x10D196: split_envp (setup_shell.c:32)
+==430==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==430==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==430==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==430==    by 0x10D306: setup_shell (setup_shell.c:70)
+==430==    by 0x10C496: main (minishell.c:97)
+==430== 
+==430== 7 bytes in 1 blocks are still reachable in loss record 4 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==430==    by 0x10D15C: split_envp (setup_shell.c:29)
+==430==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==430==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==430==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==430==    by 0x10D306: setup_shell (setup_shell.c:70)
+==430==    by 0x10C496: main (minishell.c:97)
+==430== 
+==430== 9 bytes in 1 blocks are still reachable in loss record 7 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==430==    by 0x10D196: split_envp (setup_shell.c:32)
+==430==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==430==    by 0x10D306: setup_shell (setup_shell.c:70)
+==430==    by 0x10C496: main (minishell.c:97)
+==430== 
+==430== 16 bytes in 1 blocks are still reachable in loss record 13 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10CA6F: p_new_node (parser.c:44)
+==430==    by 0x10C8A8: parser (parser.c:15)
+==430==    by 0x10C501: main (minishell.c:110)
+==430== 
+==430== 32 bytes in 1 blocks are still reachable in loss record 16 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==430==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==430==    by 0x10D306: setup_shell (setup_shell.c:70)
+==430==    by 0x10C496: main (minishell.c:97)
+==430== 
+==430== 32 bytes in 1 blocks are still reachable in loss record 17 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==430==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==430==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==430==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==430==    by 0x10D306: setup_shell (setup_shell.c:70)
+==430==    by 0x10C496: main (minishell.c:97)
+==430== 
+==430== 32 bytes in 1 blocks are still reachable in loss record 19 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10CA4E: p_new_node (parser.c:42)
+==430==    by 0x10C8A8: parser (parser.c:15)
+==430==    by 0x10C501: main (minishell.c:110)
+==430== 
+==430== 37 bytes in 1 blocks are still reachable in loss record 20 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==430==    by 0x10D15C: split_envp (setup_shell.c:29)
+==430==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==430==    by 0x10D306: setup_shell (setup_shell.c:70)
+==430==    by 0x10C496: main (minishell.c:97)
+==430== 
+==430== 40 bytes in 4 blocks are definitely lost in loss record 21 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10B55E: expander (expand.c:128)
+==430==    by 0x10C4D8: main (minishell.c:104)
+==430== 
+==430== 80 bytes in 5 blocks are definitely lost in loss record 28 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==430==    by 0x10C891: parser (parser.c:13)
+==430==    by 0x10C501: main (minishell.c:110)
+==430== 
+==430== 85 bytes in 1 blocks are still reachable in loss record 29 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10B55E: expander (expand.c:128)
+==430==    by 0x10C4D8: main (minishell.c:104)
+==430== 
+==430== 85 bytes in 1 blocks are still reachable in loss record 30 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x109757: remove_quotes (parser_utils.c:84)
+==430==    by 0x10C90D: parser (parser.c:23)
+==430==    by 0x10C501: main (minishell.c:110)
+==430== 
+==430== 167 bytes in 18 blocks are still reachable in loss record 39 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==430==    by 0x10D15C: split_envp (setup_shell.c:29)
+==430==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==430==    by 0x10D306: setup_shell (setup_shell.c:70)
+==430==    by 0x10C496: main (minishell.c:97)
+==430== 
+==430== 576 bytes in 18 blocks are still reachable in loss record 43 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==430==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==430==    by 0x10D306: setup_shell (setup_shell.c:70)
+==430==    by 0x10C496: main (minishell.c:97)
+==430== 
+==430== 1,855 bytes in 18 blocks are still reachable in loss record 55 of 83
+==430==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==430==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==430==    by 0x10D196: split_envp (setup_shell.c:32)
+==430==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==430==    by 0x10D306: setup_shell (setup_shell.c:70)
+==430==    by 0x10C496: main (minishell.c:97)
+==430== 
+==430== LEAK SUMMARY:
+==430==    definitely lost: 120 bytes in 9 blocks
+==430==    indirectly lost: 0 bytes in 0 blocks
+==430==      possibly lost: 0 bytes in 0 blocks
+==430==    still reachable: 2,939 bytes in 64 blocks
+==430==         suppressed: 211,055 bytes in 245 blocks
+==430== 
+==430== For lists of detected and suppressed errors, rerun with: -s
+==430== ERROR SUMMARY: 21 errors from 3 contexts (suppressed: 0 from 0)
+QØÕJ˝!,˘≠ZDFKÙQ: command not found
+==431== 
+==431== FILE DESCRIPTORS: 3 open at exit.
+==431== Open file descriptor 2: /home/vscode/src/explode
+==431==    <inherited from parent>
+==431== 
+==431== Open file descriptor 1: /dev/pts/0
+==431==    <inherited from parent>
+==431== 
+==431== Open file descriptor 0:
+==431==    <inherited from parent>
+==431== 
+==431== 
+==431== HEAP SUMMARY:
+==431==     in use at exit: 214,132 bytes in 323 blocks
+==431==   total heap usage: 1,885 allocs, 1,562 frees, 1,563,371 bytes allocated
+==431== 
+==431== 6 bytes in 1 blocks are still reachable in loss record 1 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==431==    by 0x10D196: split_envp (setup_shell.c:32)
+==431==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==431==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==431==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==431==    by 0x10D306: setup_shell (setup_shell.c:70)
+==431==    by 0x10C496: main (minishell.c:97)
+==431== 
+==431== 7 bytes in 1 blocks are still reachable in loss record 4 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==431==    by 0x10D15C: split_envp (setup_shell.c:29)
+==431==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==431==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==431==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==431==    by 0x10D306: setup_shell (setup_shell.c:70)
+==431==    by 0x10C496: main (minishell.c:97)
+==431== 
+==431== 9 bytes in 1 blocks are still reachable in loss record 7 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==431==    by 0x10D196: split_envp (setup_shell.c:32)
+==431==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==431==    by 0x10D306: setup_shell (setup_shell.c:70)
+==431==    by 0x10C496: main (minishell.c:97)
+==431== 
+==431== 16 bytes in 1 blocks are still reachable in loss record 13 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10CA6F: p_new_node (parser.c:44)
+==431==    by 0x10C8A8: parser (parser.c:15)
+==431==    by 0x10C501: main (minishell.c:110)
+==431== 
+==431== 17 bytes in 1 blocks are still reachable in loss record 14 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10B55E: expander (expand.c:128)
+==431==    by 0x10C4D8: main (minishell.c:104)
+==431== 
+==431== 17 bytes in 1 blocks are still reachable in loss record 15 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x109757: remove_quotes (parser_utils.c:84)
+==431==    by 0x10C90D: parser (parser.c:23)
+==431==    by 0x10C501: main (minishell.c:110)
+==431== 
+==431== 32 bytes in 1 blocks are still reachable in loss record 18 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==431==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==431==    by 0x10D306: setup_shell (setup_shell.c:70)
+==431==    by 0x10C496: main (minishell.c:97)
+==431== 
+==431== 32 bytes in 1 blocks are still reachable in loss record 19 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==431==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==431==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==431==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==431==    by 0x10D306: setup_shell (setup_shell.c:70)
+==431==    by 0x10C496: main (minishell.c:97)
+==431== 
+==431== 32 bytes in 1 blocks are still reachable in loss record 21 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10CA4E: p_new_node (parser.c:42)
+==431==    by 0x10C8A8: parser (parser.c:15)
+==431==    by 0x10C501: main (minishell.c:110)
+==431== 
+==431== 37 bytes in 1 blocks are still reachable in loss record 22 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==431==    by 0x10D15C: split_envp (setup_shell.c:29)
+==431==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==431==    by 0x10D306: setup_shell (setup_shell.c:70)
+==431==    by 0x10C496: main (minishell.c:97)
+==431== 
+==431== 96 bytes in 6 blocks are definitely lost in loss record 32 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==431==    by 0x10C891: parser (parser.c:13)
+==431==    by 0x10C501: main (minishell.c:110)
+==431== 
+==431== 125 bytes in 5 blocks are definitely lost in loss record 33 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10B55E: expander (expand.c:128)
+==431==    by 0x10C4D8: main (minishell.c:104)
+==431== 
+==431== 167 bytes in 18 blocks are still reachable in loss record 39 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==431==    by 0x10D15C: split_envp (setup_shell.c:29)
+==431==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==431==    by 0x10D306: setup_shell (setup_shell.c:70)
+==431==    by 0x10C496: main (minishell.c:97)
+==431== 
+==431== 576 bytes in 18 blocks are still reachable in loss record 43 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==431==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==431==    by 0x10D306: setup_shell (setup_shell.c:70)
+==431==    by 0x10C496: main (minishell.c:97)
+==431== 
+==431== 1,855 bytes in 18 blocks are still reachable in loss record 55 of 83
+==431==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==431==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==431==    by 0x10D196: split_envp (setup_shell.c:32)
+==431==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==431==    by 0x10D306: setup_shell (setup_shell.c:70)
+==431==    by 0x10C496: main (minishell.c:97)
+==431== 
+==431== LEAK SUMMARY:
+==431==    definitely lost: 221 bytes in 11 blocks
+==431==    indirectly lost: 0 bytes in 0 blocks
+==431==      possibly lost: 0 bytes in 0 blocks
+==431==    still reachable: 2,803 bytes in 64 blocks
+==431==         suppressed: 211,108 bytes in 248 blocks
+==431== 
+==431== For lists of detected and suppressed errors, rerun with: -s
+==431== ERROR SUMMARY: 21 errors from 3 contexts (suppressed: 0 from 0)
+vA/œ: No such file or directory
+==432== 
+==432== FILE DESCRIPTORS: 3 open at exit.
+==432== Open file descriptor 2: /home/vscode/src/explode
+==432==    <inherited from parent>
+==432== 
+==432== Open file descriptor 1: /dev/pts/0
+==432==    <inherited from parent>
+==432== 
+==432== Open file descriptor 0:
+==432==    <inherited from parent>
+==432== 
+==432== 
+==432== HEAP SUMMARY:
+==432==     in use at exit: 214,219 bytes in 329 blocks
+==432==   total heap usage: 1,895 allocs, 1,566 frees, 1,563,427 bytes allocated
+==432== 
+==432== 6 bytes in 1 blocks are still reachable in loss record 1 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==432==    by 0x10D196: split_envp (setup_shell.c:32)
+==432==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==432==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==432==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==432==    by 0x10D306: setup_shell (setup_shell.c:70)
+==432==    by 0x10C496: main (minishell.c:97)
+==432== 
+==432== 7 bytes in 1 blocks are still reachable in loss record 4 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==432==    by 0x10D15C: split_envp (setup_shell.c:29)
+==432==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==432==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==432==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==432==    by 0x10D306: setup_shell (setup_shell.c:70)
+==432==    by 0x10C496: main (minishell.c:97)
+==432== 
+==432== 9 bytes in 1 blocks are still reachable in loss record 7 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==432==    by 0x10D196: split_envp (setup_shell.c:32)
+==432==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==432==    by 0x10D306: setup_shell (setup_shell.c:70)
+==432==    by 0x10C496: main (minishell.c:97)
+==432== 
+==432== 12 bytes in 1 blocks are still reachable in loss record 10 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10B55E: expander (expand.c:128)
+==432==    by 0x10C4D8: main (minishell.c:104)
+==432== 
+==432== 12 bytes in 2 blocks are still reachable in loss record 11 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x109757: remove_quotes (parser_utils.c:84)
+==432==    by 0x10C90D: parser (parser.c:23)
+==432==    by 0x10C501: main (minishell.c:110)
+==432== 
+==432== 24 bytes in 1 blocks are still reachable in loss record 17 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10CA6F: p_new_node (parser.c:44)
+==432==    by 0x10C8A8: parser (parser.c:15)
+==432==    by 0x10C501: main (minishell.c:110)
+==432== 
+==432== 32 bytes in 1 blocks are still reachable in loss record 18 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==432==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==432==    by 0x10D306: setup_shell (setup_shell.c:70)
+==432==    by 0x10C496: main (minishell.c:97)
+==432== 
+==432== 32 bytes in 1 blocks are still reachable in loss record 19 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==432==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==432==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==432==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==432==    by 0x10D306: setup_shell (setup_shell.c:70)
+==432==    by 0x10C496: main (minishell.c:97)
+==432== 
+==432== 32 bytes in 1 blocks are still reachable in loss record 21 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10CA4E: p_new_node (parser.c:42)
+==432==    by 0x10C8A8: parser (parser.c:15)
+==432==    by 0x10C501: main (minishell.c:110)
+==432== 
+==432== 37 bytes in 1 blocks are still reachable in loss record 22 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==432==    by 0x10D15C: split_envp (setup_shell.c:29)
+==432==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==432==    by 0x10D306: setup_shell (setup_shell.c:70)
+==432==    by 0x10C496: main (minishell.c:97)
+==432== 
+==432== 120 bytes in 7 blocks are definitely lost in loss record 32 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==432==    by 0x10C891: parser (parser.c:13)
+==432==    by 0x10C501: main (minishell.c:110)
+==432== 
+==432== 142 bytes in 6 blocks are definitely lost in loss record 35 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10B55E: expander (expand.c:128)
+==432==    by 0x10C4D8: main (minishell.c:104)
+==432== 
+==432== 167 bytes in 18 blocks are still reachable in loss record 38 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==432==    by 0x10D15C: split_envp (setup_shell.c:29)
+==432==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==432==    by 0x10D306: setup_shell (setup_shell.c:70)
+==432==    by 0x10C496: main (minishell.c:97)
+==432== 
+==432== 576 bytes in 18 blocks are still reachable in loss record 43 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==432==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==432==    by 0x10D306: setup_shell (setup_shell.c:70)
+==432==    by 0x10C496: main (minishell.c:97)
+==432== 
+==432== 1,855 bytes in 18 blocks are still reachable in loss record 55 of 83
+==432==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==432==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==432==    by 0x10D196: split_envp (setup_shell.c:32)
+==432==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==432==    by 0x10D306: setup_shell (setup_shell.c:70)
+==432==    by 0x10C496: main (minishell.c:97)
+==432== 
+==432== LEAK SUMMARY:
+==432==    definitely lost: 262 bytes in 13 blocks
+==432==    indirectly lost: 0 bytes in 0 blocks
+==432==      possibly lost: 0 bytes in 0 blocks
+==432==    still reachable: 2,801 bytes in 65 blocks
+==432==         suppressed: 211,156 bytes in 251 blocks
+==432== 
+==432== For lists of detected and suppressed errors, rerun with: -s
+==432== ERROR SUMMARY: 21 errors from 3 contexts (suppressed: 0 from 0)
+minishell: syntax error near unexpected token `{'
+minishell: syntax error near unexpected token `&'
+minishell: syntax error near unexpected token `]'
+minishell: syntax error near unexpected token `('
+minishell: unclosed quotes
+: command not found
+==433== 
+==433== FILE DESCRIPTORS: 3 open at exit.
+==433== Open file descriptor 2: /home/vscode/src/explode
+==433==    <inherited from parent>
+==433== 
+==433== Open file descriptor 1: /dev/pts/0
+==433==    <inherited from parent>
+==433== 
+==433== Open file descriptor 0:
+==433==    <inherited from parent>
+==433== 
+==433== 
+==433== HEAP SUMMARY:
+==433==     in use at exit: 214,810 bytes in 334 blocks
+==433==   total heap usage: 2,091 allocs, 1,757 frees, 1,800,463 bytes allocated
+==433== 
+==433== 6 bytes in 1 blocks are still reachable in loss record 1 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==433==    by 0x10D196: split_envp (setup_shell.c:32)
+==433==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==433==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==433==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==433==    by 0x10D306: setup_shell (setup_shell.c:70)
+==433==    by 0x10C496: main (minishell.c:97)
+==433== 
+==433== 6 bytes in 1 blocks are still reachable in loss record 4 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10B55E: expander (expand.c:128)
+==433==    by 0x10C4D8: main (minishell.c:104)
+==433== 
+==433== 6 bytes in 2 blocks are still reachable in loss record 5 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x109757: remove_quotes (parser_utils.c:84)
+==433==    by 0x10C90D: parser (parser.c:23)
+==433==    by 0x10C501: main (minishell.c:110)
+==433== 
+==433== 7 bytes in 1 blocks are still reachable in loss record 6 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==433==    by 0x10D15C: split_envp (setup_shell.c:29)
+==433==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==433==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==433==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==433==    by 0x10D306: setup_shell (setup_shell.c:70)
+==433==    by 0x10C496: main (minishell.c:97)
+==433== 
+==433== 9 bytes in 1 blocks are still reachable in loss record 9 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==433==    by 0x10D196: split_envp (setup_shell.c:32)
+==433==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==433==    by 0x10D306: setup_shell (setup_shell.c:70)
+==433==    by 0x10C496: main (minishell.c:97)
+==433== 
+==433== 24 bytes in 1 blocks are still reachable in loss record 16 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10CA6F: p_new_node (parser.c:44)
+==433==    by 0x10C8A8: parser (parser.c:15)
+==433==    by 0x10C501: main (minishell.c:110)
+==433== 
+==433== 32 bytes in 1 blocks are still reachable in loss record 18 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==433==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==433==    by 0x10D306: setup_shell (setup_shell.c:70)
+==433==    by 0x10C496: main (minishell.c:97)
+==433== 
+==433== 32 bytes in 1 blocks are still reachable in loss record 19 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==433==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==433==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==433==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==433==    by 0x10D306: setup_shell (setup_shell.c:70)
+==433==    by 0x10C496: main (minishell.c:97)
+==433== 
+==433== 32 bytes in 1 blocks are still reachable in loss record 21 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10CA4E: p_new_node (parser.c:42)
+==433==    by 0x10C8A8: parser (parser.c:15)
+==433==    by 0x10C501: main (minishell.c:110)
+==433== 
+==433== 37 bytes in 1 blocks are still reachable in loss record 22 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==433==    by 0x10D15C: split_envp (setup_shell.c:29)
+==433==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==433==    by 0x10D306: setup_shell (setup_shell.c:70)
+==433==    by 0x10C496: main (minishell.c:97)
+==433== 
+==433== 144 bytes in 8 blocks are definitely lost in loss record 34 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==433==    by 0x10C891: parser (parser.c:13)
+==433==    by 0x10C501: main (minishell.c:110)
+==433== 
+==433== 154 bytes in 7 blocks are definitely lost in loss record 35 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10B55E: expander (expand.c:128)
+==433==    by 0x10C4D8: main (minishell.c:104)
+==433== 
+==433== 167 bytes in 18 blocks are still reachable in loss record 38 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==433==    by 0x10D15C: split_envp (setup_shell.c:29)
+==433==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==433==    by 0x10D306: setup_shell (setup_shell.c:70)
+==433==    by 0x10C496: main (minishell.c:97)
+==433== 
+==433== 576 bytes in 18 blocks are still reachable in loss record 43 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==433==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==433==    by 0x10D306: setup_shell (setup_shell.c:70)
+==433==    by 0x10C496: main (minishell.c:97)
+==433== 
+==433== 1,855 bytes in 18 blocks are still reachable in loss record 55 of 83
+==433==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==433==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==433==    by 0x10D196: split_envp (setup_shell.c:32)
+==433==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==433==    by 0x10D306: setup_shell (setup_shell.c:70)
+==433==    by 0x10C496: main (minishell.c:97)
+==433== 
+==433== LEAK SUMMARY:
+==433==    definitely lost: 298 bytes in 15 blocks
+==433==    indirectly lost: 0 bytes in 0 blocks
+==433==      possibly lost: 0 bytes in 0 blocks
+==433==    still reachable: 2,789 bytes in 65 blocks
+==433==         suppressed: 211,723 bytes in 254 blocks
+==433== 
+==433== For lists of detected and suppressed errors, rerun with: -s
+==433== ERROR SUMMARY: 22 errors from 3 contexts (suppressed: 0 from 0)
+∂πÔ#¿Jh˚8+–sûò›º›≤”†ï: command not found
+==434== 
+==434== FILE DESCRIPTORS: 3 open at exit.
+==434== Open file descriptor 2: /home/vscode/src/explode
+==434==    <inherited from parent>
+==434== 
+==434== Open file descriptor 1: /dev/pts/0
+==434==    <inherited from parent>
+==434== 
+==434== Open file descriptor 0:
+==434==    <inherited from parent>
+==434== 
+==434== 
+==434== HEAP SUMMARY:
+==434==     in use at exit: 214,917 bytes in 338 blocks
+==434==   total heap usage: 2,107 allocs, 1,769 frees, 1,800,923 bytes allocated
+==434== 
+==434== 6 bytes in 1 blocks are still reachable in loss record 1 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==434==    by 0x10D196: split_envp (setup_shell.c:32)
+==434==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==434==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==434==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==434==    by 0x10D306: setup_shell (setup_shell.c:70)
+==434==    by 0x10C496: main (minishell.c:97)
+==434== 
+==434== 7 bytes in 1 blocks are still reachable in loss record 4 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==434==    by 0x10D15C: split_envp (setup_shell.c:29)
+==434==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==434==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==434==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==434==    by 0x10D306: setup_shell (setup_shell.c:70)
+==434==    by 0x10C496: main (minishell.c:97)
+==434== 
+==434== 9 bytes in 1 blocks are still reachable in loss record 7 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==434==    by 0x10D196: split_envp (setup_shell.c:32)
+==434==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==434==    by 0x10D306: setup_shell (setup_shell.c:70)
+==434==    by 0x10C496: main (minishell.c:97)
+==434== 
+==434== 16 bytes in 1 blocks are still reachable in loss record 12 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10CA6F: p_new_node (parser.c:44)
+==434==    by 0x10C8A8: parser (parser.c:15)
+==434==    by 0x10C501: main (minishell.c:110)
+==434== 
+==434== 23 bytes in 1 blocks are still reachable in loss record 15 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10B55E: expander (expand.c:128)
+==434==    by 0x10C4D8: main (minishell.c:104)
+==434== 
+==434== 23 bytes in 1 blocks are still reachable in loss record 16 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x109757: remove_quotes (parser_utils.c:84)
+==434==    by 0x10C90D: parser (parser.c:23)
+==434==    by 0x10C501: main (minishell.c:110)
+==434== 
+==434== 32 bytes in 1 blocks are still reachable in loss record 18 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==434==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==434==    by 0x10D306: setup_shell (setup_shell.c:70)
+==434==    by 0x10C496: main (minishell.c:97)
+==434== 
+==434== 32 bytes in 1 blocks are still reachable in loss record 19 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==434==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==434==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==434==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==434==    by 0x10D306: setup_shell (setup_shell.c:70)
+==434==    by 0x10C496: main (minishell.c:97)
+==434== 
+==434== 32 bytes in 1 blocks are still reachable in loss record 21 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10CA4E: p_new_node (parser.c:42)
+==434==    by 0x10C8A8: parser (parser.c:15)
+==434==    by 0x10C501: main (minishell.c:110)
+==434== 
+==434== 37 bytes in 1 blocks are still reachable in loss record 22 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==434==    by 0x10D15C: split_envp (setup_shell.c:29)
+==434==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==434==    by 0x10D306: setup_shell (setup_shell.c:70)
+==434==    by 0x10C496: main (minishell.c:97)
+==434== 
+==434== 160 bytes in 8 blocks are definitely lost in loss record 35 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10B55E: expander (expand.c:128)
+==434==    by 0x10C4D8: main (minishell.c:104)
+==434== 
+==434== 160 bytes in 9 blocks are definitely lost in loss record 36 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==434==    by 0x10C891: parser (parser.c:13)
+==434==    by 0x10C501: main (minishell.c:110)
+==434== 
+==434== 167 bytes in 18 blocks are still reachable in loss record 37 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==434==    by 0x10D15C: split_envp (setup_shell.c:29)
+==434==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==434==    by 0x10D306: setup_shell (setup_shell.c:70)
+==434==    by 0x10C496: main (minishell.c:97)
+==434== 
+==434== 576 bytes in 18 blocks are still reachable in loss record 43 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==434==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==434==    by 0x10D306: setup_shell (setup_shell.c:70)
+==434==    by 0x10C496: main (minishell.c:97)
+==434== 
+==434== 1,855 bytes in 18 blocks are still reachable in loss record 55 of 83
+==434==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==434==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==434==    by 0x10D196: split_envp (setup_shell.c:32)
+==434==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==434==    by 0x10D306: setup_shell (setup_shell.c:70)
+==434==    by 0x10C496: main (minishell.c:97)
+==434== 
+==434== LEAK SUMMARY:
+==434==    definitely lost: 320 bytes in 17 blocks
+==434==    indirectly lost: 0 bytes in 0 blocks
+==434==      possibly lost: 0 bytes in 0 blocks
+==434==    still reachable: 2,815 bytes in 64 blocks
+==434==         suppressed: 211,782 bytes in 257 blocks
+==434== 
+==434== For lists of detected and suppressed errors, rerun with: -s
+==434== ERROR SUMMARY: 22 errors from 3 contexts (suppressed: 0 from 0)
+rQ¸: command not found
+==435== 
+==435== FILE DESCRIPTORS: 3 open at exit.
+==435== Open file descriptor 2: /home/vscode/src/explode
+==435==    <inherited from parent>
+==435== 
+==435== Open file descriptor 1: /dev/pts/0
+==435==    <inherited from parent>
+==435== 
+==435== Open file descriptor 0:
+==435==    <inherited from parent>
+==435== 
+==435== 
+==435== HEAP SUMMARY:
+==435==     in use at exit: 214,958 bytes in 343 blocks
+==435==   total heap usage: 2,122 allocs, 1,779 frees, 1,800,997 bytes allocated
+==435== 
+==435== 4 bytes in 1 blocks are still reachable in loss record 1 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10B55E: expander (expand.c:128)
+==435==    by 0x10C4D8: main (minishell.c:104)
+==435== 
+==435== 4 bytes in 1 blocks are still reachable in loss record 2 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x109757: remove_quotes (parser_utils.c:84)
+==435==    by 0x10C90D: parser (parser.c:23)
+==435==    by 0x10C501: main (minishell.c:110)
+==435== 
+==435== 6 bytes in 1 blocks are still reachable in loss record 3 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==435==    by 0x10D196: split_envp (setup_shell.c:32)
+==435==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==435==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==435==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==435==    by 0x10D306: setup_shell (setup_shell.c:70)
+==435==    by 0x10C496: main (minishell.c:97)
+==435== 
+==435== 7 bytes in 1 blocks are still reachable in loss record 6 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==435==    by 0x10D15C: split_envp (setup_shell.c:29)
+==435==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==435==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==435==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==435==    by 0x10D306: setup_shell (setup_shell.c:70)
+==435==    by 0x10C496: main (minishell.c:97)
+==435== 
+==435== 9 bytes in 1 blocks are still reachable in loss record 9 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==435==    by 0x10D196: split_envp (setup_shell.c:32)
+==435==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==435==    by 0x10D306: setup_shell (setup_shell.c:70)
+==435==    by 0x10C496: main (minishell.c:97)
+==435== 
+==435== 16 bytes in 1 blocks are still reachable in loss record 14 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10CA6F: p_new_node (parser.c:44)
+==435==    by 0x10C8A8: parser (parser.c:15)
+==435==    by 0x10C501: main (minishell.c:110)
+==435== 
+==435== 32 bytes in 1 blocks are still reachable in loss record 18 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==435==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==435==    by 0x10D306: setup_shell (setup_shell.c:70)
+==435==    by 0x10C496: main (minishell.c:97)
+==435== 
+==435== 32 bytes in 1 blocks are still reachable in loss record 19 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==435==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==435==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==435==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==435==    by 0x10D306: setup_shell (setup_shell.c:70)
+==435==    by 0x10C496: main (minishell.c:97)
+==435== 
+==435== 32 bytes in 1 blocks are still reachable in loss record 21 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10CA4E: p_new_node (parser.c:42)
+==435==    by 0x10C8A8: parser (parser.c:15)
+==435==    by 0x10C501: main (minishell.c:110)
+==435== 
+==435== 37 bytes in 1 blocks are still reachable in loss record 22 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==435==    by 0x10D15C: split_envp (setup_shell.c:29)
+==435==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==435==    by 0x10D306: setup_shell (setup_shell.c:70)
+==435==    by 0x10C496: main (minishell.c:97)
+==435== 
+==435== 167 bytes in 18 blocks are still reachable in loss record 35 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==435==    by 0x10D15C: split_envp (setup_shell.c:29)
+==435==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==435==    by 0x10D306: setup_shell (setup_shell.c:70)
+==435==    by 0x10C496: main (minishell.c:97)
+==435== 
+==435== 176 bytes in 10 blocks are definitely lost in loss record 36 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==435==    by 0x10C891: parser (parser.c:13)
+==435==    by 0x10C501: main (minishell.c:110)
+==435== 
+==435== 183 bytes in 9 blocks are definitely lost in loss record 37 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10B55E: expander (expand.c:128)
+==435==    by 0x10C4D8: main (minishell.c:104)
+==435== 
+==435== 576 bytes in 18 blocks are still reachable in loss record 43 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==435==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==435==    by 0x10D306: setup_shell (setup_shell.c:70)
+==435==    by 0x10C496: main (minishell.c:97)
+==435== 
+==435== 1,855 bytes in 18 blocks are still reachable in loss record 55 of 83
+==435==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==435==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==435==    by 0x10D196: split_envp (setup_shell.c:32)
+==435==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==435==    by 0x10D306: setup_shell (setup_shell.c:70)
+==435==    by 0x10C496: main (minishell.c:97)
+==435== 
+==435== LEAK SUMMARY:
+==435==    definitely lost: 359 bytes in 19 blocks
+==435==    indirectly lost: 0 bytes in 0 blocks
+==435==      possibly lost: 0 bytes in 0 blocks
+==435==    still reachable: 2,777 bytes in 64 blocks
+==435==         suppressed: 211,822 bytes in 260 blocks
+==435== 
+==435== For lists of detected and suppressed errors, rerun with: -s
+==435== ERROR SUMMARY: 22 errors from 3 contexts (suppressed: 0 from 0)
+.DS_Store: command not found
+==436== 
+==436== FILE DESCRIPTORS: 3 open at exit.
+==436== Open file descriptor 2: /home/vscode/src/explode
+==436==    <inherited from parent>
+==436== 
+==436== Open file descriptor 1: /dev/pts/0
+==436==    <inherited from parent>
+==436== 
+==436== Open file descriptor 0:
+==436==    <inherited from parent>
+==436== 
+==436== 
+==436== HEAP SUMMARY:
+==436==     in use at exit: 215,871 bytes in 394 blocks
+==436==   total heap usage: 2,200 allocs, 1,806 frees, 1,836,280 bytes allocated
+==436== 
+==436== 6 bytes in 1 blocks are still reachable in loss record 3 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==436==    by 0x10D196: split_envp (setup_shell.c:32)
+==436==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==436==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==436==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==436==    by 0x10D306: setup_shell (setup_shell.c:70)
+==436==    by 0x10C496: main (minishell.c:97)
+==436== 
+==436== 7 bytes in 1 blocks are still reachable in loss record 6 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==436==    by 0x10D15C: split_envp (setup_shell.c:29)
+==436==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==436==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==436==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==436==    by 0x10D306: setup_shell (setup_shell.c:70)
+==436==    by 0x10C496: main (minishell.c:97)
+==436== 
+==436== 9 bytes in 1 blocks are still reachable in loss record 9 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==436==    by 0x10D196: split_envp (setup_shell.c:32)
+==436==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==436==    by 0x10D306: setup_shell (setup_shell.c:70)
+==436==    by 0x10C496: main (minishell.c:97)
+==436== 
+==436== 16 bytes in 1 blocks are still reachable in loss record 14 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10B55E: expander (expand.c:128)
+==436==    by 0x10C4D8: main (minishell.c:104)
+==436== 
+==436== 16 bytes in 2 blocks are still reachable in loss record 15 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x109757: remove_quotes (parser_utils.c:84)
+==436==    by 0x10C90D: parser (parser.c:23)
+==436==    by 0x10C501: main (minishell.c:110)
+==436== 
+==436== 24 bytes in 1 blocks are still reachable in loss record 18 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10CA6F: p_new_node (parser.c:44)
+==436==    by 0x10C8A8: parser (parser.c:15)
+==436==    by 0x10C501: main (minishell.c:110)
+==436== 
+==436== 32 bytes in 1 blocks are still reachable in loss record 20 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==436==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==436==    by 0x10D306: setup_shell (setup_shell.c:70)
+==436==    by 0x10C496: main (minishell.c:97)
+==436== 
+==436== 32 bytes in 1 blocks are still reachable in loss record 21 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==436==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==436==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==436==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==436==    by 0x10D306: setup_shell (setup_shell.c:70)
+==436==    by 0x10C496: main (minishell.c:97)
+==436== 
+==436== 32 bytes in 1 blocks are still reachable in loss record 23 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10CA4E: p_new_node (parser.c:42)
+==436==    by 0x10C8A8: parser (parser.c:15)
+==436==    by 0x10C501: main (minishell.c:110)
+==436== 
+==436== 37 bytes in 1 blocks are still reachable in loss record 24 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==436==    by 0x10D15C: split_envp (setup_shell.c:29)
+==436==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==436==    by 0x10D306: setup_shell (setup_shell.c:70)
+==436==    by 0x10C496: main (minishell.c:97)
+==436== 
+==436== 167 bytes in 18 blocks are still reachable in loss record 37 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==436==    by 0x10D15C: split_envp (setup_shell.c:29)
+==436==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==436==    by 0x10D306: setup_shell (setup_shell.c:70)
+==436==    by 0x10C496: main (minishell.c:97)
+==436== 
+==436== 187 bytes in 10 blocks are definitely lost in loss record 38 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10B55E: expander (expand.c:128)
+==436==    by 0x10C4D8: main (minishell.c:104)
+==436== 
+==436== 200 bytes in 11 blocks are definitely lost in loss record 39 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==436==    by 0x10C891: parser (parser.c:13)
+==436==    by 0x10C501: main (minishell.c:110)
+==436== 
+==436== 576 bytes in 18 blocks are still reachable in loss record 47 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==436==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==436==    by 0x10D306: setup_shell (setup_shell.c:70)
+==436==    by 0x10C496: main (minishell.c:97)
+==436== 
+==436== 1,855 bytes in 18 blocks are still reachable in loss record 59 of 87
+==436==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==436==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==436==    by 0x10D196: split_envp (setup_shell.c:32)
+==436==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==436==    by 0x10D306: setup_shell (setup_shell.c:70)
+==436==    by 0x10C496: main (minishell.c:97)
+==436== 
+==436== LEAK SUMMARY:
+==436==    definitely lost: 387 bytes in 21 blocks
+==436==    indirectly lost: 0 bytes in 0 blocks
+==436==      possibly lost: 0 bytes in 0 blocks
+==436==    still reachable: 2,809 bytes in 65 blocks
+==436==         suppressed: 212,675 bytes in 308 blocks
+==436== 
+==436== For lists of detected and suppressed errors, rerun with: -s
+==436== ERROR SUMMARY: 22 errors from 3 contexts (suppressed: 0 from 0)
+AWóÛù: command not found
+==437== 
+==437== FILE DESCRIPTORS: 3 open at exit.
+==437== Open file descriptor 2: /home/vscode/src/explode
+==437==    <inherited from parent>
+==437== 
+==437== Open file descriptor 1: /dev/pts/0
+==437==    <inherited from parent>
+==437== 
+==437== Open file descriptor 0:
+==437==    <inherited from parent>
+==437== 
+==437== 
+==437== HEAP SUMMARY:
+==437==     in use at exit: 215,917 bytes in 398 blocks
+==437==   total heap usage: 2,217 allocs, 1,819 frees, 1,836,501 bytes allocated
+==437== 
+==437== 6 bytes in 1 blocks are still reachable in loss record 3 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==437==    by 0x10D196: split_envp (setup_shell.c:32)
+==437==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==437==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==437==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==437==    by 0x10D306: setup_shell (setup_shell.c:70)
+==437==    by 0x10C496: main (minishell.c:97)
+==437== 
+==437== 6 bytes in 1 blocks are still reachable in loss record 6 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10B55E: expander (expand.c:128)
+==437==    by 0x10C4D8: main (minishell.c:104)
+==437== 
+==437== 6 bytes in 1 blocks are still reachable in loss record 7 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x109757: remove_quotes (parser_utils.c:84)
+==437==    by 0x10C90D: parser (parser.c:23)
+==437==    by 0x10C501: main (minishell.c:110)
+==437== 
+==437== 7 bytes in 1 blocks are still reachable in loss record 8 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==437==    by 0x10D15C: split_envp (setup_shell.c:29)
+==437==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==437==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==437==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==437==    by 0x10D306: setup_shell (setup_shell.c:70)
+==437==    by 0x10C496: main (minishell.c:97)
+==437== 
+==437== 9 bytes in 1 blocks are still reachable in loss record 11 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==437==    by 0x10D196: split_envp (setup_shell.c:32)
+==437==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==437==    by 0x10D306: setup_shell (setup_shell.c:70)
+==437==    by 0x10C496: main (minishell.c:97)
+==437== 
+==437== 16 bytes in 1 blocks are still reachable in loss record 16 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10CA6F: p_new_node (parser.c:44)
+==437==    by 0x10C8A8: parser (parser.c:15)
+==437==    by 0x10C501: main (minishell.c:110)
+==437== 
+==437== 32 bytes in 1 blocks are still reachable in loss record 20 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==437==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==437==    by 0x10D306: setup_shell (setup_shell.c:70)
+==437==    by 0x10C496: main (minishell.c:97)
+==437== 
+==437== 32 bytes in 1 blocks are still reachable in loss record 21 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==437==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==437==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==437==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==437==    by 0x10D306: setup_shell (setup_shell.c:70)
+==437==    by 0x10C496: main (minishell.c:97)
+==437== 
+==437== 32 bytes in 1 blocks are still reachable in loss record 23 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10CA4E: p_new_node (parser.c:42)
+==437==    by 0x10C8A8: parser (parser.c:15)
+==437==    by 0x10C501: main (minishell.c:110)
+==437== 
+==437== 37 bytes in 1 blocks are still reachable in loss record 24 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==437==    by 0x10D15C: split_envp (setup_shell.c:29)
+==437==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==437==    by 0x10D306: setup_shell (setup_shell.c:70)
+==437==    by 0x10C496: main (minishell.c:97)
+==437== 
+==437== 167 bytes in 18 blocks are still reachable in loss record 37 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==437==    by 0x10D15C: split_envp (setup_shell.c:29)
+==437==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==437==    by 0x10D306: setup_shell (setup_shell.c:70)
+==437==    by 0x10C496: main (minishell.c:97)
+==437== 
+==437== 203 bytes in 11 blocks are definitely lost in loss record 38 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10B55E: expander (expand.c:128)
+==437==    by 0x10C4D8: main (minishell.c:104)
+==437== 
+==437== 216 bytes in 12 blocks are definitely lost in loss record 40 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==437==    by 0x10C891: parser (parser.c:13)
+==437==    by 0x10C501: main (minishell.c:110)
+==437== 
+==437== 576 bytes in 18 blocks are still reachable in loss record 47 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==437==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==437==    by 0x10D306: setup_shell (setup_shell.c:70)
+==437==    by 0x10C496: main (minishell.c:97)
+==437== 
+==437== 1,855 bytes in 18 blocks are still reachable in loss record 59 of 87
+==437==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==437==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==437==    by 0x10D196: split_envp (setup_shell.c:32)
+==437==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==437==    by 0x10D306: setup_shell (setup_shell.c:70)
+==437==    by 0x10C496: main (minishell.c:97)
+==437== 
+==437== LEAK SUMMARY:
+==437==    definitely lost: 419 bytes in 23 blocks
+==437==    indirectly lost: 0 bytes in 0 blocks
+==437==      possibly lost: 0 bytes in 0 blocks
+==437==    still reachable: 2,781 bytes in 64 blocks
+==437==         suppressed: 212,717 bytes in 311 blocks
+==437== 
+==437== For lists of detected and suppressed errors, rerun with: -s
+==437== ERROR SUMMARY: 22 errors from 3 contexts (suppressed: 0 from 0)
+minishell: syntax error near unexpected token `}'
+minishell: syntax error near unexpected token `*'
+/Y: No such file or directory
+==438== 
+==438== FILE DESCRIPTORS: 3 open at exit.
+==438== Open file descriptor 2: /home/vscode/src/explode
+==438==    <inherited from parent>
+==438== 
+==438== Open file descriptor 1: /dev/pts/0
+==438==    <inherited from parent>
+==438== 
+==438== Open file descriptor 0:
+==438==    <inherited from parent>
+==438== 
+==438== 
+==438== HEAP SUMMARY:
+==438==     in use at exit: 215,972 bytes in 403 blocks
+==438==   total heap usage: 2,237 allocs, 1,834 frees, 1,836,717 bytes allocated
+==438== 
+==438== 3 bytes in 1 blocks are still reachable in loss record 3 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10B55E: expander (expand.c:128)
+==438==    by 0x10C4D8: main (minishell.c:104)
+==438== 
+==438== 3 bytes in 1 blocks are still reachable in loss record 4 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x109757: remove_quotes (parser_utils.c:84)
+==438==    by 0x10C90D: parser (parser.c:23)
+==438==    by 0x10C501: main (minishell.c:110)
+==438== 
+==438== 6 bytes in 1 blocks are still reachable in loss record 5 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==438==    by 0x10D196: split_envp (setup_shell.c:32)
+==438==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==438==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==438==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==438==    by 0x10D306: setup_shell (setup_shell.c:70)
+==438==    by 0x10C496: main (minishell.c:97)
+==438== 
+==438== 7 bytes in 1 blocks are still reachable in loss record 8 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==438==    by 0x10D15C: split_envp (setup_shell.c:29)
+==438==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==438==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==438==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==438==    by 0x10D306: setup_shell (setup_shell.c:70)
+==438==    by 0x10C496: main (minishell.c:97)
+==438== 
+==438== 9 bytes in 1 blocks are still reachable in loss record 11 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==438==    by 0x10D196: split_envp (setup_shell.c:32)
+==438==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==438==    by 0x10D306: setup_shell (setup_shell.c:70)
+==438==    by 0x10C496: main (minishell.c:97)
+==438== 
+==438== 16 bytes in 1 blocks are still reachable in loss record 16 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10CA6F: p_new_node (parser.c:44)
+==438==    by 0x10C8A8: parser (parser.c:15)
+==438==    by 0x10C501: main (minishell.c:110)
+==438== 
+==438== 32 bytes in 1 blocks are still reachable in loss record 20 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==438==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==438==    by 0x10D306: setup_shell (setup_shell.c:70)
+==438==    by 0x10C496: main (minishell.c:97)
+==438== 
+==438== 32 bytes in 1 blocks are still reachable in loss record 21 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==438==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==438==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==438==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==438==    by 0x10D306: setup_shell (setup_shell.c:70)
+==438==    by 0x10C496: main (minishell.c:97)
+==438== 
+==438== 32 bytes in 1 blocks are still reachable in loss record 23 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10CA4E: p_new_node (parser.c:42)
+==438==    by 0x10C8A8: parser (parser.c:15)
+==438==    by 0x10C501: main (minishell.c:110)
+==438== 
+==438== 37 bytes in 1 blocks are still reachable in loss record 24 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==438==    by 0x10D15C: split_envp (setup_shell.c:29)
+==438==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==438==    by 0x10D306: setup_shell (setup_shell.c:70)
+==438==    by 0x10C496: main (minishell.c:97)
+==438== 
+==438== 167 bytes in 18 blocks are still reachable in loss record 37 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==438==    by 0x10D15C: split_envp (setup_shell.c:29)
+==438==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==438==    by 0x10D306: setup_shell (setup_shell.c:70)
+==438==    by 0x10C496: main (minishell.c:97)
+==438== 
+==438== 209 bytes in 12 blocks are definitely lost in loss record 38 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10B55E: expander (expand.c:128)
+==438==    by 0x10C4D8: main (minishell.c:104)
+==438== 
+==438== 232 bytes in 13 blocks are definitely lost in loss record 40 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==438==    by 0x10C891: parser (parser.c:13)
+==438==    by 0x10C501: main (minishell.c:110)
+==438== 
+==438== 576 bytes in 18 blocks are still reachable in loss record 47 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==438==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==438==    by 0x10D306: setup_shell (setup_shell.c:70)
+==438==    by 0x10C496: main (minishell.c:97)
+==438== 
+==438== 1,855 bytes in 18 blocks are still reachable in loss record 59 of 87
+==438==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==438==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==438==    by 0x10D196: split_envp (setup_shell.c:32)
+==438==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==438==    by 0x10D306: setup_shell (setup_shell.c:70)
+==438==    by 0x10C496: main (minishell.c:97)
+==438== 
+==438== LEAK SUMMARY:
+==438==    definitely lost: 441 bytes in 25 blocks
+==438==    indirectly lost: 0 bytes in 0 blocks
+==438==      possibly lost: 0 bytes in 0 blocks
+==438==    still reachable: 2,775 bytes in 64 blocks
+==438==         suppressed: 212,756 bytes in 314 blocks
+==438== 
+==438== For lists of detected and suppressed errors, rerun with: -s
+==438== ERROR SUMMARY: 22 errors from 3 contexts (suppressed: 0 from 0)
+minishell: unclosed quotes
+minishell: unclosed quotes
+minishell: unclosed quotes
+Wcl/+~BU: No such file or directory
+==439== 
+==439== FILE DESCRIPTORS: 3 open at exit.
+==439== Open file descriptor 2: /home/vscode/src/explode
+==439==    <inherited from parent>
+==439== 
+==439== Open file descriptor 1: /dev/pts/0
+==439==    <inherited from parent>
+==439== 
+==439== Open file descriptor 0:
+==439==    <inherited from parent>
+==439== 
+==439== 
+==439== HEAP SUMMARY:
+==439==     in use at exit: 214,390 bytes in 364 blocks
+==439==   total heap usage: 2,347 allocs, 1,983 frees, 1,872,738 bytes allocated
+==439== 
+==439== 6 bytes in 1 blocks are still reachable in loss record 2 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==439==    by 0x10D196: split_envp (setup_shell.c:32)
+==439==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==439==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==439==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==439==    by 0x10D306: setup_shell (setup_shell.c:70)
+==439==    by 0x10C496: main (minishell.c:97)
+==439== 
+==439== 7 bytes in 1 blocks are still reachable in loss record 5 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==439==    by 0x10D15C: split_envp (setup_shell.c:29)
+==439==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==439==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==439==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==439==    by 0x10D306: setup_shell (setup_shell.c:70)
+==439==    by 0x10C496: main (minishell.c:97)
+==439== 
+==439== 9 bytes in 1 blocks are still reachable in loss record 8 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==439==    by 0x10D196: split_envp (setup_shell.c:32)
+==439==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==439==    by 0x10D306: setup_shell (setup_shell.c:70)
+==439==    by 0x10C496: main (minishell.c:97)
+==439== 
+==439== 18 bytes in 1 blocks are still reachable in loss record 14 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10B55E: expander (expand.c:128)
+==439==    by 0x10C4D8: main (minishell.c:104)
+==439== 
+==439== 18 bytes in 2 blocks are still reachable in loss record 15 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x109757: remove_quotes (parser_utils.c:84)
+==439==    by 0x10C90D: parser (parser.c:23)
+==439==    by 0x10C501: main (minishell.c:110)
+==439== 
+==439== 24 bytes in 1 blocks are still reachable in loss record 17 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10CA6F: p_new_node (parser.c:44)
+==439==    by 0x10C8A8: parser (parser.c:15)
+==439==    by 0x10C501: main (minishell.c:110)
+==439== 
+==439== 32 bytes in 1 blocks are still reachable in loss record 19 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==439==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==439==    by 0x10D306: setup_shell (setup_shell.c:70)
+==439==    by 0x10C496: main (minishell.c:97)
+==439== 
+==439== 32 bytes in 1 blocks are still reachable in loss record 20 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==439==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==439==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==439==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==439==    by 0x10D306: setup_shell (setup_shell.c:70)
+==439==    by 0x10C496: main (minishell.c:97)
+==439== 
+==439== 32 bytes in 1 blocks are still reachable in loss record 22 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10CA4E: p_new_node (parser.c:42)
+==439==    by 0x10C8A8: parser (parser.c:15)
+==439==    by 0x10C501: main (minishell.c:110)
+==439== 
+==439== 37 bytes in 1 blocks are still reachable in loss record 23 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==439==    by 0x10D15C: split_envp (setup_shell.c:29)
+==439==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==439==    by 0x10D306: setup_shell (setup_shell.c:70)
+==439==    by 0x10C496: main (minishell.c:97)
+==439== 
+==439== 167 bytes in 18 blocks are still reachable in loss record 35 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==439==    by 0x10D15C: split_envp (setup_shell.c:29)
+==439==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==439==    by 0x10D306: setup_shell (setup_shell.c:70)
+==439==    by 0x10C496: main (minishell.c:97)
+==439== 
+==439== 212 bytes in 13 blocks are definitely lost in loss record 37 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10B55E: expander (expand.c:128)
+==439==    by 0x10C4D8: main (minishell.c:104)
+==439== 
+==439== 256 bytes in 14 blocks are definitely lost in loss record 39 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==439==    by 0x10C891: parser (parser.c:13)
+==439==    by 0x10C501: main (minishell.c:110)
+==439== 
+==439== 576 bytes in 18 blocks are still reachable in loss record 44 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==439==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==439==    by 0x10D306: setup_shell (setup_shell.c:70)
+==439==    by 0x10C496: main (minishell.c:97)
+==439== 
+==439== 1,855 bytes in 18 blocks are still reachable in loss record 56 of 84
+==439==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==439==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==439==    by 0x10D196: split_envp (setup_shell.c:32)
+==439==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==439==    by 0x10D306: setup_shell (setup_shell.c:70)
+==439==    by 0x10C496: main (minishell.c:97)
+==439== 
+==439== LEAK SUMMARY:
+==439==    definitely lost: 468 bytes in 27 blocks
+==439==    indirectly lost: 0 bytes in 0 blocks
+==439==      possibly lost: 0 bytes in 0 blocks
+==439==    still reachable: 2,813 bytes in 65 blocks
+==439==         suppressed: 211,109 bytes in 272 blocks
+==439== 
+==439== For lists of detected and suppressed errors, rerun with: -s
+==439== ERROR SUMMARY: 25 errors from 3 contexts (suppressed: 0 from 0)
+minishell: unclosed quotes
+minishell: syntax error near unexpected token `;'
+minishell: unclosed quotes
+==425== Invalid write of size 8
+==425==    at 0x10D479: tokenize_input (tokenizer.c:28)
+==425==    by 0x10C891: parser (parser.c:13)
+==425==    by 0x10C501: main (minishell.c:110)
+==425==  Address 0x4cd67c0 is 0 bytes after a block of size 32 alloc'd
+==425==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==425==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==425==    by 0x10C891: parser (parser.c:13)
+==425==    by 0x10C501: main (minishell.c:110)
+==425== 
+==425== Invalid read of size 8
+==425==    at 0x1094F7: get_argc (parser_utils.c:9)
+==425==    by 0x10C8A1: parser (parser.c:15)
+==425==    by 0x10C501: main (minishell.c:110)
+==425==  Address 0x4cd67c0 is 0 bytes after a block of size 32 alloc'd
+==425==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==425==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==425==    by 0x10C891: parser (parser.c:13)
+==425==    by 0x10C501: main (minishell.c:110)
+==425== 
+==425== Invalid read of size 8
+==425==    at 0x1094F7: get_argc (parser_utils.c:9)
+==425==    by 0x10C9E1: parser (parser.c:29)
+==425==    by 0x10C501: main (minishell.c:110)
+==425==  Address 0x4cd67c0 is 0 bytes after a block of size 32 alloc'd
+==425==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==425==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==425==    by 0x10C891: parser (parser.c:13)
+==425==    by 0x10C501: main (minishell.c:110)
+==425== 
+==425== Invalid read of size 8
+==425==    at 0x10C924: parser (parser.c:22)
+==425==    by 0x10C501: main (minishell.c:110)
+==425==  Address 0x4cd67c0 is 0 bytes after a block of size 32 alloc'd
+==425==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==425==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==425==    by 0x10C891: parser (parser.c:13)
+==425==    by 0x10C501: main (minishell.c:110)
+==425== 
+==425== Invalid read of size 8
+==425==    at 0x10C98E: parser (parser.c:26)
+==425==    by 0x10C501: main (minishell.c:110)
+==425==  Address 0x4cd67c0 is 0 bytes after a block of size 32 alloc'd
+==425==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==425==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==425==    by 0x10C891: parser (parser.c:13)
+==425==    by 0x10C501: main (minishell.c:110)
+==425== 
+CFUÒZTM˝`ìÇ‚¶“Îb4ø-ãèÂ^x˚úOıÛÏ::  ccoommmamandn ndot n fotou fndo
+und
+==441== 
+==441== FILE DESCRIPTORS: 3 open at exit.
+==441== Open file descriptor 1:
+==440== 
+==440== FILE DESCRIPTORS: 3 open at exit.
+==441==    at 0x49ADABB: dup (syscall-template.S:78)
+==440== Open file descriptor 0:
+==440==    at 0x49ADABB: dup (syscall-template.S:78)
+==441==    by 0x10CACA: left_side (pipe.c:19)
+==441==    by 0x10CC40: exec_pipe (pipe.c:59)
+==440==    by 0x10CB2D: right_side (pipe.c:30)
+==440==    by 0x10CC5B: exec_pipe (pipe.c:60)
+==441==    by 0x10A810: exec_cmd (exec_type.c:78)
+==440==    by 0x10A810: exec_cmd (exec_type.c:78)
+==440==    by 0x10A4F5: exec_type (exec_type.c:20)
+==441==    by 0x10A4F5: exec_type (exec_type.c:20)
+==440==    by 0x10C520: main (minishell.c:113)
+==440== 
+==441==    by 0x10C520: main (minishell.c:113)
+==441== 
+==440== Open file descriptor 2: /home/vscode/src/explode
+==440==    <inherited from parent>
+==441== Open file descriptor 2: /home/vscode/src/explode
+==441==    <inherited from parent>
+==440== 
+==440== Open file descriptor 1: /dev/pts/0
+==441== 
+==441== Open file descriptor 0:
+==440==    <inherited from parent>
+==440== 
+==441==    <inherited from parent>
+==441== 
+==440== 
+==441== 
+==441== HEAP SUMMARY:
+==441==     in use at exit: 214,698 bytes in 373 blocks
+==441==   total heap usage: 2,471 allocs, 2,098 frees, 2,008,102 bytes allocated
+==441== 
+==440== HEAP SUMMARY:
+==440==     in use at exit: 214,698 bytes in 373 blocks
+==440==   total heap usage: 2,471 allocs, 2,098 frees, 2,008,150 bytes allocated
+==440== 
+==441== 6 bytes in 1 blocks are still reachable in loss record 2 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440== 6 bytes in 1 blocks are still reachable in loss record 2 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==441==    by 0x10D196: split_envp (setup_shell.c:32)
+==440==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==440==    by 0x10D196: split_envp (setup_shell.c:32)
+==441==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==441==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==440==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==440==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==441==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==441==    by 0x10D306: setup_shell (setup_shell.c:70)
+==440==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==440==    by 0x10D306: setup_shell (setup_shell.c:70)
+==441==    by 0x10C496: main (minishell.c:97)
+==441== 
+==440==    by 0x10C496: main (minishell.c:97)
+==440== 
+==441== 7 bytes in 1 blocks are still reachable in loss record 5 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440== 7 bytes in 1 blocks are still reachable in loss record 5 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==441==    by 0x10D15C: split_envp (setup_shell.c:29)
+==440==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==440==    by 0x10D15C: split_envp (setup_shell.c:29)
+==441==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==441==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==440==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==440==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==441==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==441==    by 0x10D306: setup_shell (setup_shell.c:70)
+==440==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==440==    by 0x10D306: setup_shell (setup_shell.c:70)
+==441==    by 0x10C496: main (minishell.c:97)
+==441== 
+==440==    by 0x10C496: main (minishell.c:97)
+==440== 
+==441== 9 bytes in 1 blocks are still reachable in loss record 8 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440== 9 bytes in 1 blocks are still reachable in loss record 8 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==441==    by 0x10D196: split_envp (setup_shell.c:32)
+==440==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==440==    by 0x10D196: split_envp (setup_shell.c:32)
+==441==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==441==    by 0x10D306: setup_shell (setup_shell.c:70)
+==440==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==440==    by 0x10D306: setup_shell (setup_shell.c:70)
+==441==    by 0x10C496: main (minishell.c:97)
+==441== 
+==440==    by 0x10C496: main (minishell.c:97)
+==440== 
+==441== 32 bytes in 1 blocks are still reachable in loss record 16 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440== 32 bytes in 1 blocks are still reachable in loss record 16 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==441==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==440==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==440==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==441==    by 0x10D306: setup_shell (setup_shell.c:70)
+==441==    by 0x10C496: main (minishell.c:97)
+==440==    by 0x10D306: setup_shell (setup_shell.c:70)
+==440==    by 0x10C496: main (minishell.c:97)
+==441== 
+==440== 
+==440== 32 bytes in 1 blocks are still reachable in loss record 17 of 87
+==441== 32 bytes in 1 blocks are still reachable in loss record 17 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==441==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==441==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==440==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==440==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==441==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==440==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==440==    by 0x10D306: setup_shell (setup_shell.c:70)
+==441==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==441==    by 0x10D306: setup_shell (setup_shell.c:70)
+==440==    by 0x10C496: main (minishell.c:97)
+==440== 
+==441==    by 0x10C496: main (minishell.c:97)
+==441== 
+==440== 32 bytes in 1 blocks are still reachable in loss record 19 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441== 32 bytes in 1 blocks are still reachable in loss record 19 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    by 0x10CA4E: p_new_node (parser.c:42)
+==440==    by 0x10C8A8: parser (parser.c:15)
+==441==    by 0x10CA4E: p_new_node (parser.c:42)
+==441==    by 0x10C8A8: parser (parser.c:15)
+==440==    by 0x10C501: main (minishell.c:110)
+==440== 
+==441==    by 0x10C501: main (minishell.c:110)
+==441== 
+==440== 32 bytes in 1 blocks are still reachable in loss record 20 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441== 32 bytes in 1 blocks are still reachable in loss record 20 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    by 0x10CA4E: p_new_node (parser.c:42)
+==440==    by 0x10C9E8: parser (parser.c:29)
+==441==    by 0x10CA4E: p_new_node (parser.c:42)
+==441==    by 0x10C9E8: parser (parser.c:29)
+==440==    by 0x10C501: main (minishell.c:110)
+==440== 
+==441==    by 0x10C501: main (minishell.c:110)
+==441== 
+==440== 32 bytes in 1 blocks are still reachable in loss record 21 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441== 32 bytes in 1 blocks are still reachable in loss record 21 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    by 0x10CA6F: p_new_node (parser.c:44)
+==440==    by 0x10C9E8: parser (parser.c:29)
+==441==    by 0x10CA6F: p_new_node (parser.c:44)
+==441==    by 0x10C9E8: parser (parser.c:29)
+==440==    by 0x10C501: main (minishell.c:110)
+==440== 
+==441==    by 0x10C501: main (minishell.c:110)
+==441== 
+==440== 37 bytes in 1 blocks are still reachable in loss record 23 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441== 37 bytes in 1 blocks are still reachable in loss record 23 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==440==    by 0x10D15C: split_envp (setup_shell.c:29)
+==441==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==441==    by 0x10D15C: split_envp (setup_shell.c:29)
+==440==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==440==    by 0x10D306: setup_shell (setup_shell.c:70)
+==441==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==441==    by 0x10D306: setup_shell (setup_shell.c:70)
+==440==    by 0x10C496: main (minishell.c:97)
+==440== 
+==441==    by 0x10C496: main (minishell.c:97)
+==441== 
+==440== 40 bytes in 1 blocks are still reachable in loss record 24 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441== 40 bytes in 1 blocks are still reachable in loss record 24 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    by 0x10CA6F: p_new_node (parser.c:44)
+==440==    by 0x10C8A8: parser (parser.c:15)
+==441==    by 0x10CA6F: p_new_node (parser.c:44)
+==441==    by 0x10C8A8: parser (parser.c:15)
+==440==    by 0x10C501: main (minishell.c:110)
+==440== 
+==441==    by 0x10C501: main (minishell.c:110)
+==441== 
+==440== 46 bytes in 3 blocks are still reachable in loss record 27 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441== 46 bytes in 3 blocks are still reachable in loss record 27 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    by 0x109757: remove_quotes (parser_utils.c:84)
+==440==    by 0x10C90D: parser (parser.c:23)
+==441==    by 0x109757: remove_quotes (parser_utils.c:84)
+==441==    by 0x10C90D: parser (parser.c:23)
+==440==    by 0x10C501: main (minishell.c:110)
+==440== 
+==441==    by 0x10C501: main (minishell.c:110)
+==441== 
+==440== 47 bytes in 1 blocks are still reachable in loss record 28 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441== 47 bytes in 1 blocks are still reachable in loss record 28 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    by 0x10B55E: expander (expand.c:128)
+==440==    by 0x10C4D8: main (minishell.c:104)
+==441==    by 0x10B55E: expander (expand.c:128)
+==441==    by 0x10C4D8: main (minishell.c:104)
+==440== 
+==441== 
+==440== 167 bytes in 18 blocks are still reachable in loss record 38 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441== 167 bytes in 18 blocks are still reachable in loss record 38 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==440==    by 0x10D15C: split_envp (setup_shell.c:29)
+==441==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==441==    by 0x10D15C: split_envp (setup_shell.c:29)
+==440==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==440==    by 0x10D306: setup_shell (setup_shell.c:70)
+==441==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==441==    by 0x10D306: setup_shell (setup_shell.c:70)
+==440==    by 0x10C496: main (minishell.c:97)
+==440== 
+==441==    by 0x10C496: main (minishell.c:97)
+==441== 
+==440== 230 bytes in 14 blocks are definitely lost in loss record 40 of 87
+==441== 230 bytes in 14 blocks are definitely lost in loss record 40 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    by 0x10B55E: expander (expand.c:128)
+==441==    by 0x10B55E: expander (expand.c:128)
+==441==    by 0x10C4D8: main (minishell.c:104)
+==440==    by 0x10C4D8: main (minishell.c:104)
+==440== 
+==441== 
+==440== 288 bytes in 15 blocks are definitely lost in loss record 43 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441== 288 bytes in 15 blocks are definitely lost in loss record 43 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==440==    by 0x10C891: parser (parser.c:13)
+==441==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==441==    by 0x10C891: parser (parser.c:13)
+==440==    by 0x10C501: main (minishell.c:110)
+==440== 
+==441==    by 0x10C501: main (minishell.c:110)
+==441== 
+==440== 576 bytes in 18 blocks are still reachable in loss record 47 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441== 576 bytes in 18 blocks are still reachable in loss record 47 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==440==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==441==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==441==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==440==    by 0x10D306: setup_shell (setup_shell.c:70)
+==440==    by 0x10C496: main (minishell.c:97)
+==441==    by 0x10D306: setup_shell (setup_shell.c:70)
+==441==    by 0x10C496: main (minishell.c:97)
+==440== 
+==441== 
+==440== 1,855 bytes in 18 blocks are still reachable in loss record 59 of 87
+==440==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==441== 1,855 bytes in 18 blocks are still reachable in loss record 59 of 87
+==441==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==440==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==440==    by 0x10D196: split_envp (setup_shell.c:32)
+==441==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==441==    by 0x10D196: split_envp (setup_shell.c:32)
+==440==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==440==    by 0x10D306: setup_shell (setup_shell.c:70)
+==441==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==441==    by 0x10D306: setup_shell (setup_shell.c:70)
+==440==    by 0x10C496: main (minishell.c:97)
+==440== 
+==441==    by 0x10C496: main (minishell.c:97)
+==441== 
+==440== LEAK SUMMARY:
+==440==    definitely lost: 518 bytes in 29 blocks
+==441== LEAK SUMMARY:
+==441==    definitely lost: 518 bytes in 29 blocks
+==440==    indirectly lost: 0 bytes in 0 blocks
+==440==      possibly lost: 0 bytes in 0 blocks
+==441==    indirectly lost: 0 bytes in 0 blocks
+==441==      possibly lost: 0 bytes in 0 blocks
+==440==    still reachable: 2,950 bytes in 68 blocks
+==440==         suppressed: 211,230 bytes in 276 blocks
+==441==    still reachable: 2,950 bytes in 68 blocks
+==441==         suppressed: 211,230 bytes in 276 blocks
+==440== 
+==440== For lists of detected and suppressed errors, rerun with: -s
+==441== 
+==441== For lists of detected and suppressed errors, rerun with: -s
+==440== ERROR SUMMARY: 30 errors from 8 contexts (suppressed: 1 from 1)
+==441== ERROR SUMMARY: 30 errors from 8 contexts (suppressed: 1 from 1)
+minishell: unclosed quotes
+TN–h: command not found
+==442== 
+==442== FILE DESCRIPTORS: 3 open at exit.
+==442== Open file descriptor 2: /home/vscode/src/explode
+==442==    <inherited from parent>
+==442== 
+==442== Open file descriptor 1: /dev/pts/0
+==442==    <inherited from parent>
+==442== 
+==442== Open file descriptor 0:
+==442==    <inherited from parent>
+==442== 
+==442== 
+==442== HEAP SUMMARY:
+==442==     in use at exit: 214,237 bytes in 375 blocks
+==442==   total heap usage: 2,638 allocs, 2,263 frees, 2,144,894 bytes allocated
+==442== 
+==442== 5 bytes in 1 blocks are still reachable in loss record 5 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10B55E: expander (expand.c:128)
+==442==    by 0x10C4D8: main (minishell.c:104)
+==442== 
+==442== 5 bytes in 1 blocks are still reachable in loss record 6 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x109757: remove_quotes (parser_utils.c:84)
+==442==    by 0x10C90D: parser (parser.c:23)
+==442==    by 0x10C501: main (minishell.c:110)
+==442== 
+==442== 6 bytes in 1 blocks are still reachable in loss record 7 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==442==    by 0x10D196: split_envp (setup_shell.c:32)
+==442==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==442==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==442==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==442==    by 0x10D306: setup_shell (setup_shell.c:70)
+==442==    by 0x10C496: main (minishell.c:97)
+==442== 
+==442== 7 bytes in 1 blocks are still reachable in loss record 11 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==442==    by 0x10D15C: split_envp (setup_shell.c:29)
+==442==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==442==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==442==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==442==    by 0x10D306: setup_shell (setup_shell.c:70)
+==442==    by 0x10C496: main (minishell.c:97)
+==442== 
+==442== 9 bytes in 1 blocks are still reachable in loss record 14 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==442==    by 0x10D196: split_envp (setup_shell.c:32)
+==442==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==442==    by 0x10D306: setup_shell (setup_shell.c:70)
+==442==    by 0x10C496: main (minishell.c:97)
+==442== 
+==442== 16 bytes in 1 blocks are still reachable in loss record 19 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10CA6F: p_new_node (parser.c:44)
+==442==    by 0x10C8A8: parser (parser.c:15)
+==442==    by 0x10C501: main (minishell.c:110)
+==442== 
+==442== 32 bytes in 1 blocks are still reachable in loss record 23 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==442==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==442==    by 0x10D306: setup_shell (setup_shell.c:70)
+==442==    by 0x10C496: main (minishell.c:97)
+==442== 
+==442== 32 bytes in 1 blocks are still reachable in loss record 24 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==442==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==442==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==442==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==442==    by 0x10D306: setup_shell (setup_shell.c:70)
+==442==    by 0x10C496: main (minishell.c:97)
+==442== 
+==442== 32 bytes in 1 blocks are still reachable in loss record 26 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10CA4E: p_new_node (parser.c:42)
+==442==    by 0x10C8A8: parser (parser.c:15)
+==442==    by 0x10C501: main (minishell.c:110)
+==442== 
+==442== 37 bytes in 1 blocks are still reachable in loss record 28 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==442==    by 0x10D15C: split_envp (setup_shell.c:29)
+==442==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==442==    by 0x10D306: setup_shell (setup_shell.c:70)
+==442==    by 0x10C496: main (minishell.c:97)
+==442== 
+==442== 167 bytes in 18 blocks are still reachable in loss record 42 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==442==    by 0x10D15C: split_envp (setup_shell.c:29)
+==442==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==442==    by 0x10D306: setup_shell (setup_shell.c:70)
+==442==    by 0x10C496: main (minishell.c:97)
+==442== 
+==442== 277 bytes in 15 blocks are definitely lost in loss record 45 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10B55E: expander (expand.c:128)
+==442==    by 0x10C4D8: main (minishell.c:104)
+==442== 
+==442== 304 bytes in 16 blocks are definitely lost in loss record 47 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==442==    by 0x10C891: parser (parser.c:13)
+==442==    by 0x10C501: main (minishell.c:110)
+==442== 
+==442== 576 bytes in 18 blocks are still reachable in loss record 52 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==442==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==442==    by 0x10D306: setup_shell (setup_shell.c:70)
+==442==    by 0x10C496: main (minishell.c:97)
+==442== 
+==442== 1,855 bytes in 18 blocks are still reachable in loss record 63 of 91
+==442==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==442==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==442==    by 0x10D196: split_envp (setup_shell.c:32)
+==442==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==442==    by 0x10D306: setup_shell (setup_shell.c:70)
+==442==    by 0x10C496: main (minishell.c:97)
+==442== 
+==442== LEAK SUMMARY:
+==442==    definitely lost: 581 bytes in 31 blocks
+==442==    indirectly lost: 0 bytes in 0 blocks
+==442==      possibly lost: 0 bytes in 0 blocks
+==442==    still reachable: 2,779 bytes in 64 blocks
+==442==         suppressed: 210,877 bytes in 280 blocks
+==442== 
+==442== For lists of detected and suppressed errors, rerun with: -s
+==442== ERROR SUMMARY: 31 errors from 8 contexts (suppressed: 1 from 1)
+minishell: syntax error near unexpected token `)'
+minishell: unclosed quotes
+minishell: àW+√ÖÏã9b˙Õ‹˙ÛŒG: Input/output error
+==443== 
+==443== FILE DESCRIPTORS: 3 open at exit.
+==443== Open file descriptor 2: /home/vscode/src/explode
+==443==    <inherited from parent>
+==443== 
+==443== Open file descriptor 1: /dev/pts/0
+==443==    <inherited from parent>
+==443== 
+==443== Open file descriptor 0:
+==443==    <inherited from parent>
+==443== 
+==443== 
+==443== HEAP SUMMARY:
+==443==     in use at exit: 214,543 bytes in 385 blocks
+==443==   total heap usage: 2,761 allocs, 2,376 frees, 2,312,738 bytes allocated
+==443== 
+==443== 6 bytes in 1 blocks are still reachable in loss record 6 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==443==    by 0x10D196: split_envp (setup_shell.c:32)
+==443==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==443==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==443==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==443==    by 0x10D306: setup_shell (setup_shell.c:70)
+==443==    by 0x10C496: main (minishell.c:97)
+==443== 
+==443== 7 bytes in 1 blocks are still reachable in loss record 9 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==443==    by 0x10D15C: split_envp (setup_shell.c:29)
+==443==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==443==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==443==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==443==    by 0x10D306: setup_shell (setup_shell.c:70)
+==443==    by 0x10C496: main (minishell.c:97)
+==443== 
+==443== 9 bytes in 1 blocks are still reachable in loss record 13 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==443==    by 0x10D196: split_envp (setup_shell.c:32)
+==443==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==443==    by 0x10D306: setup_shell (setup_shell.c:70)
+==443==    by 0x10C496: main (minishell.c:97)
+==443== 
+==443== 20 bytes in 1 blocks are still reachable in loss record 20 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10B55E: expander (expand.c:128)
+==443==    by 0x10C4D8: main (minishell.c:104)
+==443== 
+==443== 20 bytes in 2 blocks are still reachable in loss record 21 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x109757: remove_quotes (parser_utils.c:84)
+==443==    by 0x10C90D: parser (parser.c:23)
+==443==    by 0x10C501: main (minishell.c:110)
+==443== 
+==443== 24 bytes in 1 blocks are still reachable in loss record 22 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10CA6F: p_new_node (parser.c:44)
+==443==    by 0x10C9E8: parser (parser.c:29)
+==443==    by 0x10C501: main (minishell.c:110)
+==443== 
+==443== 32 bytes in 1 blocks are still reachable in loss record 24 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==443==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==443==    by 0x10D306: setup_shell (setup_shell.c:70)
+==443==    by 0x10C496: main (minishell.c:97)
+==443== 
+==443== 32 bytes in 1 blocks are still reachable in loss record 25 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==443==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==443==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==443==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==443==    by 0x10D306: setup_shell (setup_shell.c:70)
+==443==    by 0x10C496: main (minishell.c:97)
+==443== 
+==443== 32 bytes in 1 blocks are still reachable in loss record 27 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10CA4E: p_new_node (parser.c:42)
+==443==    by 0x10C8A8: parser (parser.c:15)
+==443==    by 0x10C501: main (minishell.c:110)
+==443== 
+==443== 32 bytes in 1 blocks are still reachable in loss record 28 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10CA6F: p_new_node (parser.c:44)
+==443==    by 0x10C8A8: parser (parser.c:15)
+==443==    by 0x10C501: main (minishell.c:110)
+==443== 
+==443== 32 bytes in 1 blocks are still reachable in loss record 29 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10CA4E: p_new_node (parser.c:42)
+==443==    by 0x10C9E8: parser (parser.c:29)
+==443==    by 0x10C501: main (minishell.c:110)
+==443== 
+==443== 37 bytes in 1 blocks are still reachable in loss record 32 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==443==    by 0x10D15C: split_envp (setup_shell.c:29)
+==443==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==443==    by 0x10D306: setup_shell (setup_shell.c:70)
+==443==    by 0x10C496: main (minishell.c:97)
+==443== 
+==443== 167 bytes in 18 blocks are still reachable in loss record 46 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==443==    by 0x10D15C: split_envp (setup_shell.c:29)
+==443==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==443==    by 0x10D306: setup_shell (setup_shell.c:70)
+==443==    by 0x10C496: main (minishell.c:97)
+==443== 
+==443== 282 bytes in 16 blocks are definitely lost in loss record 52 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10B55E: expander (expand.c:128)
+==443==    by 0x10C4D8: main (minishell.c:104)
+==443== 
+==443== 336 bytes in 17 blocks are definitely lost in loss record 53 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==443==    by 0x10C891: parser (parser.c:13)
+==443==    by 0x10C501: main (minishell.c:110)
+==443== 
+==443== 576 bytes in 18 blocks are still reachable in loss record 57 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==443==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==443==    by 0x10D306: setup_shell (setup_shell.c:70)
+==443==    by 0x10C496: main (minishell.c:97)
+==443== 
+==443== 1,855 bytes in 18 blocks are still reachable in loss record 68 of 96
+==443==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==443==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==443==    by 0x10D196: split_envp (setup_shell.c:32)
+==443==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==443==    by 0x10D306: setup_shell (setup_shell.c:70)
+==443==    by 0x10C496: main (minishell.c:97)
+==443== 
+==443== LEAK SUMMARY:
+==443==    definitely lost: 618 bytes in 33 blocks
+==443==    indirectly lost: 0 bytes in 0 blocks
+==443==      possibly lost: 0 bytes in 0 blocks
+==443==    still reachable: 2,881 bytes in 67 blocks
+==443==         suppressed: 211,044 bytes in 285 blocks
+==443== 
+==443== For lists of detected and suppressed errors, rerun with: -s
+==443== ERROR SUMMARY: 31 errors from 8 contexts (suppressed: 2 from 2)
+minishell: syntax error near unexpected token `]'
+minishell: syntax error near unexpected token `]'
+g∫sgﬁ˙: command not found
+==444== 
+==444== FILE DESCRIPTORS: 3 open at exit.
+==444== Open file descriptor 2: /home/vscode/src/explode
+==444==    <inherited from parent>
+==444== 
+==444== Open file descriptor 1: /dev/pts/0
+==444==    <inherited from parent>
+==444== 
+==444== Open file descriptor 0:
+==444==    <inherited from parent>
+==444== 
+==444== 
+==444== HEAP SUMMARY:
+==444==     in use at exit: 214,527 bytes in 387 blocks
+==444==   total heap usage: 2,833 allocs, 2,446 frees, 2,347,769 bytes allocated
+==444== 
+==444== 6 bytes in 1 blocks are still reachable in loss record 6 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==444==    by 0x10D196: split_envp (setup_shell.c:32)
+==444==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==444==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==444==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==444==    by 0x10D306: setup_shell (setup_shell.c:70)
+==444==    by 0x10C496: main (minishell.c:97)
+==444== 
+==444== 7 bytes in 1 blocks are still reachable in loss record 9 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==444==    by 0x10D15C: split_envp (setup_shell.c:29)
+==444==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==444==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==444==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==444==    by 0x10D306: setup_shell (setup_shell.c:70)
+==444==    by 0x10C496: main (minishell.c:97)
+==444== 
+==444== 8 bytes in 1 blocks are still reachable in loss record 12 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10B55E: expander (expand.c:128)
+==444==    by 0x10C4D8: main (minishell.c:104)
+==444== 
+==444== 8 bytes in 1 blocks are still reachable in loss record 13 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x109757: remove_quotes (parser_utils.c:84)
+==444==    by 0x10C90D: parser (parser.c:23)
+==444==    by 0x10C501: main (minishell.c:110)
+==444== 
+==444== 9 bytes in 1 blocks are still reachable in loss record 15 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==444==    by 0x10D196: split_envp (setup_shell.c:32)
+==444==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==444==    by 0x10D306: setup_shell (setup_shell.c:70)
+==444==    by 0x10C496: main (minishell.c:97)
+==444== 
+==444== 16 bytes in 1 blocks are still reachable in loss record 20 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10CA6F: p_new_node (parser.c:44)
+==444==    by 0x10C8A8: parser (parser.c:15)
+==444==    by 0x10C501: main (minishell.c:110)
+==444== 
+==444== 32 bytes in 1 blocks are still reachable in loss record 24 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==444==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==444==    by 0x10D306: setup_shell (setup_shell.c:70)
+==444==    by 0x10C496: main (minishell.c:97)
+==444== 
+==444== 32 bytes in 1 blocks are still reachable in loss record 25 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==444==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==444==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==444==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==444==    by 0x10D306: setup_shell (setup_shell.c:70)
+==444==    by 0x10C496: main (minishell.c:97)
+==444== 
+==444== 32 bytes in 1 blocks are still reachable in loss record 27 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10CA4E: p_new_node (parser.c:42)
+==444==    by 0x10C8A8: parser (parser.c:15)
+==444==    by 0x10C501: main (minishell.c:110)
+==444== 
+==444== 37 bytes in 1 blocks are still reachable in loss record 30 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==444==    by 0x10D15C: split_envp (setup_shell.c:29)
+==444==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==444==    by 0x10D306: setup_shell (setup_shell.c:70)
+==444==    by 0x10C496: main (minishell.c:97)
+==444== 
+==444== 167 bytes in 18 blocks are still reachable in loss record 44 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==444==    by 0x10D15C: split_envp (setup_shell.c:29)
+==444==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==444==    by 0x10D306: setup_shell (setup_shell.c:70)
+==444==    by 0x10C496: main (minishell.c:97)
+==444== 
+==444== 302 bytes in 17 blocks are definitely lost in loss record 50 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10B55E: expander (expand.c:128)
+==444==    by 0x10C4D8: main (minishell.c:104)
+==444== 
+==444== 352 bytes in 18 blocks are definitely lost in loss record 51 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==444==    by 0x10C891: parser (parser.c:13)
+==444==    by 0x10C501: main (minishell.c:110)
+==444== 
+==444== 576 bytes in 18 blocks are still reachable in loss record 55 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==444==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==444==    by 0x10D306: setup_shell (setup_shell.c:70)
+==444==    by 0x10C496: main (minishell.c:97)
+==444== 
+==444== 1,855 bytes in 18 blocks are still reachable in loss record 66 of 94
+==444==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==444==    by 0x10D196: split_envp (setup_shell.c:32)
+==444==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==444==    by 0x10D306: setup_shell (setup_shell.c:70)
+==444==    by 0x10C496: main (minishell.c:97)
+==444== 
+==444== LEAK SUMMARY:
+==444==    definitely lost: 654 bytes in 35 blocks
+==444==    indirectly lost: 0 bytes in 0 blocks
+==444==      possibly lost: 0 bytes in 0 blocks
+==444==    still reachable: 2,785 bytes in 64 blocks
+==444==         suppressed: 211,088 bytes in 288 blocks
+==444== 
+==444== For lists of detected and suppressed errors, rerun with: -s
+==444== ERROR SUMMARY: 32 errors from 8 contexts (suppressed: 2 from 2)
+minishell: syntax error near unexpected token `;'
+minishell: syntax error near unexpected token `;'
+minishell: unclosed quotes
+minishell: unclosed quotes
+@+°: command not found
+==445== 
+==445== FILE DESCRIPTORS: 3 open at exit.
+==445== Open file descriptor 2: /home/vscode/src/explode
+==445==    <inherited from parent>
+==445== 
+==445== Open file descriptor 1: /dev/pts/0
+==445==    <inherited from parent>
+==445== 
+==445== Open file descriptor 0:
+==445==    <inherited from parent>
+==445== 
+==445== 
+==445== HEAP SUMMARY:
+==445==     in use at exit: 214,567 bytes in 392 blocks
+==445==   total heap usage: 3,037 allocs, 2,645 frees, 2,519,296 bytes allocated
+==445== 
+==445== 5 bytes in 1 blocks are still reachable in loss record 5 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10B55E: expander (expand.c:128)
+==445==    by 0x10C4D8: main (minishell.c:104)
+==445== 
+==445== 5 bytes in 1 blocks are still reachable in loss record 6 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x109757: remove_quotes (parser_utils.c:84)
+==445==    by 0x10C90D: parser (parser.c:23)
+==445==    by 0x10C501: main (minishell.c:110)
+==445== 
+==445== 6 bytes in 1 blocks are still reachable in loss record 7 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==445==    by 0x10D196: split_envp (setup_shell.c:32)
+==445==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==445==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==445==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==445==    by 0x10D306: setup_shell (setup_shell.c:70)
+==445==    by 0x10C496: main (minishell.c:97)
+==445== 
+==445== 7 bytes in 1 blocks are still reachable in loss record 10 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==445==    by 0x10D15C: split_envp (setup_shell.c:29)
+==445==    by 0x10C6FF: save_user_vars (old_pwd.c:53)
+==445==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==445==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==445==    by 0x10D306: setup_shell (setup_shell.c:70)
+==445==    by 0x10C496: main (minishell.c:97)
+==445== 
+==445== 9 bytes in 1 blocks are still reachable in loss record 13 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==445==    by 0x10D196: split_envp (setup_shell.c:32)
+==445==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==445==    by 0x10D306: setup_shell (setup_shell.c:70)
+==445==    by 0x10C496: main (minishell.c:97)
+==445== 
+==445== 16 bytes in 1 blocks are still reachable in loss record 19 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10CA6F: p_new_node (parser.c:44)
+==445==    by 0x10C8A8: parser (parser.c:15)
+==445==    by 0x10C501: main (minishell.c:110)
+==445== 
+==445== 32 bytes in 1 blocks are still reachable in loss record 23 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==445==    by 0x10D207: init_envp_lst (setup_shell.c:50)
+==445==    by 0x10D306: setup_shell (setup_shell.c:70)
+==445==    by 0x10C496: main (minishell.c:97)
+==445== 
+==445== 32 bytes in 1 blocks are still reachable in loss record 24 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==445==    by 0x10C763: save_user_vars (old_pwd.c:59)
+==445==    by 0x10C598: init_oldpwd (old_pwd.c:9)
+==445==    by 0x10D2BD: init_envp_lst (setup_shell.c:62)
+==445==    by 0x10D306: setup_shell (setup_shell.c:70)
+==445==    by 0x10C496: main (minishell.c:97)
+==445== 
+==445== 32 bytes in 1 blocks are still reachable in loss record 26 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10CA4E: p_new_node (parser.c:42)
+==445==    by 0x10C8A8: parser (parser.c:15)
+==445==    by 0x10C501: main (minishell.c:110)
+==445== 
+==445== 37 bytes in 1 blocks are still reachable in loss record 29 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==445==    by 0x10D15C: split_envp (setup_shell.c:29)
+==445==    by 0x10D1E1: init_envp_lst (setup_shell.c:48)
+==445==    by 0x10D306: setup_shell (setup_shell.c:70)
+==445==    by 0x10C496: main (minishell.c:97)
+==445== 
+==445== 167 bytes in 18 blocks are still reachable in loss record 42 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==445==    by 0x10D15C: split_envp (setup_shell.c:29)
+==445==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==445==    by 0x10D306: setup_shell (setup_shell.c:70)
+==445==    by 0x10C496: main (minishell.c:97)
+==445== 
+==445== 310 bytes in 18 blocks are definitely lost in loss record 48 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10B55E: expander (expand.c:128)
+==445==    by 0x10C4D8: main (minishell.c:104)
+==445== 
+==445== 368 bytes in 19 blocks are definitely lost in loss record 49 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==445==    by 0x10C891: parser (parser.c:13)
+==445==    by 0x10C501: main (minishell.c:110)
+==445== 
+==445== 576 bytes in 18 blocks are still reachable in loss record 53 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10D0C9: v_new_node (setup_shell.c:8)
+==445==    by 0x10D26D: init_envp_lst (setup_shell.c:57)
+==445==    by 0x10D306: setup_shell (setup_shell.c:70)
+==445==    by 0x10C496: main (minishell.c:97)
+==445== 
+==445== 1,855 bytes in 18 blocks are still reachable in loss record 64 of 92
+==445==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==445==    by 0x10DD36: ft_substr (in /home/vscode/src/minishell)
+==445==    by 0x10D196: split_envp (setup_shell.c:32)
+==445==    by 0x10D247: init_envp_lst (setup_shell.c:56)
+==445==    by 0x10D306: setup_shell (setup_shell.c:70)
+==445==    by 0x10C496: main (minishell.c:97)
+==445== 
+==445== LEAK SUMMARY:
+==445==    definitely lost: 678 bytes in 37 blocks
+==445==    indirectly lost: 0 bytes in 0 blocks
+==445==      possibly lost: 0 bytes in 0 blocks
+==445==    still reachable: 2,779 bytes in 64 blocks
+==445==         suppressed: 211,110 bytes in 291 blocks
+==445== 
+==445== For lists of detected and suppressed errors, rerun with: -s
+==445== ERROR SUMMARY: 33 errors from 8 contexts (suppressed: 2 from 2)
+minishell: unclosed quotes
+minishell: unclosed quotes
+==425== 
+==425== FILE DESCRIPTORS: 3 open at exit.
+==425== Open file descriptor 2: /home/vscode/src/explode
+==425==    <inherited from parent>
+==425== 
+==425== Open file descriptor 1: /dev/pts/0
+==425==    <inherited from parent>
+==425== 
+==425== Open file descriptor 0:
+==425==    <inherited from parent>
+==425== 
+==425== 
+==425== HEAP SUMMARY:
+==425==     in use at exit: 211,915 bytes in 329 blocks
+==425==   total heap usage: 3,082 allocs, 2,753 frees, 2,586,733 bytes allocated
+==425== 
+==425== 315 bytes in 19 blocks are definitely lost in loss record 35 of 78
+==425==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==425==    by 0x10B55E: expander (expand.c:128)
+==425==    by 0x10C4D8: main (minishell.c:104)
+==425== 
+==425== 368 bytes in 19 blocks are definitely lost in loss record 36 of 78
+==425==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==425==    by 0x10D36A: tokenize_input (tokenizer.c:13)
+==425==    by 0x10C891: parser (parser.c:13)
+==425==    by 0x10C501: main (minishell.c:110)
+==425== 
+==425== LEAK SUMMARY:
+==425==    definitely lost: 683 bytes in 38 blocks
+==425==    indirectly lost: 0 bytes in 0 blocks
+==425==      possibly lost: 0 bytes in 0 blocks
+==425==    still reachable: 0 bytes in 0 blocks
+==425==         suppressed: 211,232 bytes in 291 blocks
+==425== 
+==425== For lists of detected and suppressed errors, rerun with: -s
+==425== ERROR SUMMARY: 34 errors from 8 contexts (suppressed: 2 from 2)

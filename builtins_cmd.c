@@ -6,7 +6,6 @@ static int	cd_too_many_args(void)
 	return (EXIT_FAILURE);
 }
 
-
 int	call_cmd_echo(t_statement *s)
 {
 	t_statement	*temp;
@@ -21,7 +20,7 @@ int	call_cmd_echo(t_statement *s)
 	while (temp != NULL && temp->argc > 2)
 	{
 		cmd_echo(temp, false);
-		if (temp->operator == PIPE)
+		if (temp->operator== PIPE)
 			break ;
 		temp = temp->next;
 	}
