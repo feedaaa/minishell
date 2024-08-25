@@ -6,11 +6,11 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:29:50 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/25 12:18:02 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/25 21:26:30 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	MINISHELL_H
+#ifndef MINISHELL_H
 # define MINISHELL_H
 
 # include <sys/types.h>
@@ -30,7 +30,6 @@
 # include <fcntl.h>
 # include "libft/libft.h"
 
-
 # define SUCCESS 0
 # define FAILURE -1
 # define OPERATORS "|<>"
@@ -41,8 +40,7 @@
 /* ERROR MESSAGES */
 
 // MINISHELL
-
-# define NOT_FOUND NULL
+# define NOT_FOUND 0
 # define CL_ARGUMENTS_ERR "minishell: no support for command-line arguments"
 # define NO_PIPE_PROMPT "minishell: no support for pipe prompt"
 # define NO_SYTX_PROMPT "minishell: no support for syntax prompt"
@@ -68,17 +66,15 @@
 
 extern long long		g_exit_status;
 
-
 typedef enum e_operator {
-	NONE,                   //No specific operator.
-	RDR_OUT_REPLACE,        //> in shells
-	RDR_OUT_APPEND,        //>> in shells
-	RDR_INPUT,             //< in shells
-    RDR_INPUT_UNTIL,        //<< in shells
-	PIPE,                  //| in shells
-}t_operator;
+	NONE,
+	RDR_OUT_REPLACE,
+	RDR_OUT_APPEND,
+	RDR_INPUT,
+	RDR_INPUT_UNTIL,
+	PIPE,
+}			t_operator;
 
-//Lets assume NAME=VALUE so Name is saved in var_name and Value is saved in var_value
 typedef struct s_vlst {
 	char			*var_name;
 	char			*var_value;
@@ -87,20 +83,19 @@ typedef struct s_vlst {
 }				t_vlst;
 
 typedef struct s_statement {
-    int                 argc; //The number of commands
-    char              **argv; //The commnands between each operstor
-    t_operator         operator;
+	int					argc;
+	char				**argv;
+	t_operator			operator;
 	struct s_statement	*next;
-}			t_statement;
+}				t_statement;
 
 typedef struct s_data {
-	char		**envp; //  Array of environment variables as strings  
-	t_vlst		*envp_lst; //Pointer to the head of the linked list of environment variables
+	char		**envp;
+	t_vlst		*envp_lst;
 	t_statement	*head;
 }				t_data;
 
-
-void			init_oldpwd(t_vlst **head) ;
+void			init_oldpwd(t_vlst **head);
 int				unset_var(char *var_name, t_vlst **head);
 void			invalid_identifer(char *var_name);
 int				save_user_vars(char *statement, t_vlst **head, bool to_export);
@@ -113,7 +108,7 @@ void			config_signals(void);
 
 //Parsing Functions
 size_t			get_token_length(char *input_at_i);
-char			**tokenize_input(char *input) ;
+char			**tokenize_input(char *input);
 bool			is_therechar(const char *str, int ch);
 size_t			count_tokens(char *input);
 int				ft_strcmp(const char *s1, const char *s2);
@@ -135,8 +130,6 @@ void			free_matrix(char **matrix);
 void			p_lstclear(t_statement **head);
 void			v_lstclear(t_vlst **head);
 
-
-
 //expanding function
 size_t			expand_exit_status(char *expanded_input_at_i, size_t *i);
 size_t			expand_variable(char *expanded_input_at_i, char *input,
@@ -147,12 +140,14 @@ char			*expander(char *input, t_data *data);
 char			*get_fromvlst(char *var_name, t_vlst **head);
 char			*get_varvalue_fromvlst(char *var_name, t_data *data);
 size_t			exit_status_size(void);
-void			init_vars(size_t *i, size_t *size, bool *in_quotes, bool *in_dquotes);
+void			init_vars(size_t *i, size_t *size, bool *in_quotes,
+					bool *in_dquotes);
 bool			single_dollar(char *input_at_i);
 bool			streq(char *str1, char *str2);
 
 //setup functions
-void			setup_shell(char **envp, t_data *data, t_statement **statement_list);
+void			setup_shell(char **envp, t_data *data,
+					t_statement **statement_list);
 t_vlst			*init_envp_lst(char **envp);
 char			**split_envp(char *env);
 t_vlst			*v_new_node(char *var_name, char *var_value, bool is_exported);
@@ -189,12 +184,14 @@ int				call_cmd_cd(t_statement *s, t_data *data);
 int				call_cmd_echo(t_statement *s);
 int				cmd_pwd(void);
 int				cmd_echo(t_statement *statement, bool has_n);
-
+void			child_heredoc(int write_fd, char *delimiter);
 
 //clean-free function
 void			clean_parsed(t_statement **statement_list, t_data *data);
-
-//readline replace
+void			clean_expander(t_statement *command);
+int				export_bad_identifier(char *identifier);
 void			rl_replace_line(const char *s, int c);
+void            rl_clear_history(void);
+void			exit_non_numeric_arg(void);
 
 #endif

@@ -1,12 +1,4 @@
-#include "minishell.h"
-
-bool	unexpected_token(char token)
-{
-	ft_putstr_fd(UNEXPECTED_TOKEN, STDERR_FILENO);
-	ft_putchar_fd(token, STDERR_FILENO);
-	ft_putendl_fd("'", STDERR_FILENO);
-	return (true);
-}
+#include "../minishell.h"
 
 bool	has_operator(char *input)
 {
@@ -22,35 +14,39 @@ bool	has_operator(char *input)
 	return (false);
 }
 
-// when operators like >, <, | etc., are used together improperly in a command
+bool	check_operator_syntax(char *input, size_t i)
+{
+	if (input[i] == input[i + 1])
+		i += 2;
+	else
+		i++;
+	if (input[i] == ' ')
+	{
+		while (input[i] && input[i] == ' ')
+			(i)++;
+		if (is_therechar(OPERATORS, input[i]))
+			return (unexpected_token(input[i]));
+	}
+	if (is_therechar(OPERATORS, input[i]))
+		return (unexpected_token(input[i]));
+	return (false);
+}
+
 bool	invalid_syntax_on_operator(char *input)
 {
 	size_t	i;
 	bool	in_quotes;
 
-	i = 0;
 	in_quotes = false;
+	i = 0;
 	while (has_operator(&input[i]))
 	{
 		if (is_therechar(QUOTES, input[i]))
 			in_quotes = !in_quotes;
 		if (is_therechar(OPERATORS, input[i]) && !in_quotes)
-		{
-			if (input[i] == input[i + 1])
-				i += 2;
-			else
-				i += 1;
-			if (input[i] == ' ')
-			{
-				while (input[i] && input[i] == ' ')
-					i += 1;
-				if (is_therechar(OPERATORS, input[i]))
-					return (unexpected_token(input[i]));
-			}
-			if (is_therechar(OPERATORS, input[i]))
-				return (unexpected_token(input[i]));
-		}
-		i += 1;
+			if (check_operator_syntax(input, i))
+				return (true);
+		i++;
 	}
 	return (false);
 }
@@ -67,8 +63,8 @@ bool	invalid_syntax2(char *input)
 		if (is_therechar(QUOTES, input[i]))
 			in_quotes = !in_quotes;
 		if (((input[i] == '>' && input[i + 1] == '<') || (input[i] == '<'
-					&& input[i + 1] == '>') || (input[i] == '|' && input[i
-					+ 1] == '|')) && !in_quotes)
+					&& input[i + 1] == '>') || (input[i] == '|'
+					&& input[i + 1] == '|')) && !in_quotes)
 			return (unexpected_token(input[i + 1]));
 		else if ((input[i] == '{' || input[i] == '}' || input[i] == '('
 				|| input[i] == ')' || input[i] == '[' || input[i] == ']'

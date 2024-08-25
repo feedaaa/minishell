@@ -1,8 +1,8 @@
-#include "minishell.h"
+#include "../minishell.h"
 
 void	destroy(t_data *data)
 {
-	// rl_clear_history();
+	rl_clear_history();
 	if (data->envp_lst)
 		v_lstclear(&data->envp_lst);
 	if (data->head)
@@ -23,15 +23,14 @@ bool	valid_input(char *input, t_data *data)
 	bool	valid;
 
 	valid = true;
-	if (input == NULL) // when the pointer  itself is NULL
+	if (input == NULL)
 	{
 		free(input);
 		exit_shell(EXIT_SUCCESS, data);
 	}
-	if (input[0] == '\0') // when the string or the command line is empty
+	if (input[0] == '\0')
 		valid = false;
 	else if (unclosed_quotes(input))
-		// when there is an open quote ina command line
 	{
 		ft_putendl_fd(UNCLOSED_QUOTES, STDERR_FILENO);
 		valid = false;

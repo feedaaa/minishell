@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "../minishell.h"
 
 static int	cd_too_many_args(void)
 {
@@ -10,17 +10,19 @@ int	call_cmd_echo(t_statement *s)
 {
 	t_statement	*temp;
 	bool		has_n;
+	size_t		j;
 
+	j = 0;
 	temp = s;
 	has_n = false;
 	if (s->argc >= 2)
-		has_n = streq(s->argv[1], "-n");
+		has_n = is_therechar(s->argv[1], '-') && is_therechar(s->argv[1], 'n');
 	cmd_echo(temp, has_n);
 	temp = temp->next;
 	while (temp != NULL && temp->argc > 2)
 	{
 		cmd_echo(temp, false);
-		if (temp->operator== PIPE)
+		if (temp->operator == PIPE)
 			break ;
 		temp = temp->next;
 	}

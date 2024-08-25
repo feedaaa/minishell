@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "../minishell.h"
 
 char	**tokenize_input(char *input)
 {
@@ -29,7 +29,6 @@ char	**tokenize_input(char *input)
 	return (parsed);
 }
 
-// Counts how many tokens do we have
 size_t	count_tokens(char *input)
 {
 	size_t	count;
@@ -41,9 +40,9 @@ size_t	count_tokens(char *input)
 	quotes = false;
 	while (*input)
 	{
-		if (is_therechar(OPERATORS, *input)) // Counts the operators
+		if (is_therechar(OPERATORS, *input))
 			count += 1;
-		if (is_therechar(QUOTES, *input) && *input == *(input + 1)) // In case there is a double quotation just move 2 steps to skip them
+		if (is_therechar(QUOTES, *input) && *input == *(input + 1))
 			input += 2;
 		else if (is_therechar(QUOTES, *input))
 			quotes = !quotes;
@@ -53,14 +52,13 @@ size_t	count_tokens(char *input)
 			flag = true;
 			count += 1;
 		}
-		else if (*input == ' ' || is_therechar(OPERATORS, *input)) // Counts nthe tokens that are seperated by spaces and operators
+		else if (*input == ' ' || is_therechar(OPERATORS, *input))
 			flag = false;
 		input += 1;
 	}
 	return (count);
 }
 
-// check if there str == c return true if not return false
 bool	is_therechar(const char *str, int ch)
 {
 	size_t	i;
@@ -85,33 +83,24 @@ bool	is_spaces(char c)
 	return (false);
 }
 
-// The length of each token
 size_t	get_token_length(char *input_at_i)
 {
 	size_t	i;
 	char	quotes;
 
 	i = 0;
-	// Check if the current character is an operator
 	if (is_therechar(OPERATORS, input_at_i[i]))
 	{
-		// If the current character is an operator,
-		// check if it's a double-character operator example: && || >>
 		if (input_at_i[i] == input_at_i[i + 1])
-			// If it's a double-character operator, return a length of 2
 			return (2);
-		// If it's a single-character operator, return a length of 1
 		return (1);
 	}
-	// Loop through the input string until we reach the end of the token
-	while (input_at_i[i] && !is_spaces(input_at_i[i])  // skip spaces
-			&& !is_therechar(OPERATORS, input_at_i[i])) // skip operators
+	while (input_at_i[i] && !is_spaces(input_at_i[i])
+		&& !is_therechar(OPERATORS, input_at_i[i]))
 	{
-		// Check if the current character is a quote
 		if (is_therechar(QUOTES, input_at_i[i]))
 		{
 			quotes = input_at_i[i++];
-			// Skip over the quoted string
 			while (input_at_i[i] && input_at_i[i] != quotes)
 				i++;
 			break ;

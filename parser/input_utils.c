@@ -1,6 +1,5 @@
-#include "minishell.h"
+#include "../minishell.h"
 
-// check if there are any unclosed quotes
 int	unclosed_quotes(char *str)
 {
 	char	last_opened;
@@ -8,23 +7,22 @@ int	unclosed_quotes(char *str)
 	last_opened = 0;
 	while (*str && !last_opened)
 	{
-		if (*str == '\'' || *str == '"') // checks if there is an open quote
+		if (*str == '\'' || *str == '"')
 			last_opened = *str;
 		str++;
 	}
 	while (*str && last_opened)
 	{
 		if (*str && *str == last_opened)
-			// checks if there is the closed quote in the string
 			last_opened = 0;
 		str++;
 	}
 	if (*str)
 		return (unclosed_quotes(str));
 	else if (!last_opened)
-		return (0); // that means it is quoted properly
+		return (0);
 	else
-		return (1); // that means there is an open quote
+		return (1);
 }
 
 void	free_matrix(char **matrix)

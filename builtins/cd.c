@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "../minishell.h"
 
 static int	print_perror_msg(char *path)
 {
@@ -54,17 +54,15 @@ int	cmd_cd(char *path, t_data *data)
 {
 	char	temp[PATH_MAX];
 
-	getcwd(temp, PATH_MAX);               // takes you to the current directory
+	getcwd(temp, PATH_MAX);
 	if (path == NULL || streq(path, "~"))
-		// Changes the directory to your home directory
 	{
 		update_oldpwd(&temp[0], data);
 		chdir(getenv("HOME"));
-			// switch from the current directory to the home directory
 		update_pwd(data);
 		return (EXIT_SUCCESS);
 	}
-	if (streq(path, "-")) // Switches to the previous directory you were in.
+	if (streq(path, "-"))
 		return (cd_oldpwd(&temp[0], data));
 	if (chdir(path) == SUCCESS)
 	{
@@ -72,5 +70,5 @@ int	cmd_cd(char *path, t_data *data)
 		update_pwd(data);
 		return (EXIT_SUCCESS);
 	}
-	return (print_perror_msg(path)); // If chdir failed
+	return (print_perror_msg(path));
 }

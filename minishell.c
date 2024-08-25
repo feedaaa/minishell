@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:08:36 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/25 14:38:13 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/25 20:51:14 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,19 +79,16 @@ int	main(int ac, char **av, char **env)
 	while (true)
 	{
 		command = get_input();
-		if (!valid_input(command, &data)) // checks if there are any syntax errors
+		if (!valid_input(command, &data))
 			continue ;
 		add_history(command);
 		command = expander(command, &data);
-		if (!command[0])
-		{
+		if (!command)
 			free(command);
-			continue ;
-		}
 		parsed_commands = parser(command);
+		free(command);
 		data.head = parsed_commands;
 		exec_type(parsed_commands, &data);
-		clean_parsed(&parsed_commands, &data);// to clear everything and handle the next command
+		clean_parsed(&parsed_commands, &data);
 	}
-	return (0);
 }

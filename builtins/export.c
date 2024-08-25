@@ -1,5 +1,4 @@
-
-#include "minishell.h"
+#include "../minishell.h"
 
 bool	is_onid(char *str, char c)
 {
@@ -27,14 +26,6 @@ static int	single_export(t_data *data)
 		temp = temp->next;
 	}
 	return (EXIT_SUCCESS);
-}
-
-static int	export_bad_identifier(char *identifier)
-{
-	ft_putstr_fd("minishell: export: `", STDERR_FILENO);
-	ft_putstr_fd(identifier, STDERR_FILENO);
-	ft_putendl_fd("': not a valid identifier", STDERR_FILENO);
-	return (EXIT_FAILURE);
 }
 
 bool	is_valid_id(char *str)
@@ -75,24 +66,21 @@ int	cmd_export(t_statement *statement, t_data *data)
 	int		exit_status;
 	size_t	i;
 
-	if (statement->argc == 1) //"export" as a command line
+	if (statement->argc == 1)
 		return (single_export(data));
 	exit_status = EXIT_SUCCESS;
 	i = 0;
 	while (statement->argv[++i])
 	{
 		if (!is_valid_id(statement->argv[i]))
-			// check if its a valid env variable
 			exit_status = export_bad_identifier(statement->argv[i]);
 		else if (is_therechar(statement->argv[i], '='))
 		{
 			save_user_vars(statement->argv[i], &data->envp_lst, true);
-				// save the variable inside the environment
 			continue ;
 		}
 		else
 			loop_and_export(statement->argv[i], data);
-				// exporting the variable without assigning a value.
 	}
 	return (exit_status);
 }

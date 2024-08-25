@@ -14,38 +14,38 @@ RLINC		=	-I/opt/vagrant/embedded/include/readline/readline.h
 # RLFLAGS = -lreadline -lhistory
 
 LIBFT		=	libft/libft.a
-# BUILT		=	$(SRCSPATH)/builtins
-# EXEC		=	$(SRCSPATH)/execution
-# LEX			=	$(SRCSPATH)/lex
-# SIG			=	$(SRCSPATH)/signals
-# UTILS		=	$(SRCSPATH)/utils
-# ENV			=	$(SRCSPATH)/environ
+BUILT		=	builtins
+PARSE		=	parser
+EXEC		=	execution
 
-SRCS	=		parser_utils.c \
-				binaries.c \
-				builtins_cmd.c \
-				cd.c \
-				clean_parsed.c \
-				config_signals.c \
-				echo.c \
-				env.c \
-				exec_type.c \
-				exit.c \
-				exp_utils.c \
-				expand.c \
-				export.c \
-				input_utils.c \
-				invalid_syntax.c\
+SRCS	=		$(EXEC)/binaries.c \
+				$(BUILT)/builtins_cmd.c \
+				$(BUILT)/cd.c \
+				$(EXEC)/config_signals.c \
+				$(BUILT)/echo.c \
+				$(BUILT)/env.c \
+				$(PARSE)/error_msg.c \
+				$(EXEC)/exec_type.c \
+				$(BUILT)/exit.c \
+				$(PARSE)/exp_utils.c \
+				$(PARSE)/exp_utils2.c \
+				$(PARSE)/expand.c \
+				$(BUILT)/export.c \
+				$(PARSE)/free_clean.c \
+				$(EXEC)/heredoc.c \
+				$(PARSE)/input_utils.c \
+				$(PARSE)/invalid_syntax.c\
+				$(EXEC)/old_pwd.c \
+				$(PARSE)/parser_utils.c \
+				$(PARSE)/parser.c \
+				$(EXEC)/pipe.c \
+				$(BUILT)/pwd.c \
+				$(EXEC)/redirects.c \
+				$(PARSE)/setup_shell.c \
+				$(PARSE)/tokenizer.c \
+				$(BUILT)/unset.c \
+				$(PARSE)/valid_input.c \
 				minishell.c \
-				old_pwd.c \
-				parser.c \
-				pipe.c \
-				pwd.c \
-				redirects.c \
-				setup_shell.c \
-				tokenizer.c \
-				unset.c \
-				valid_input.c \
 
 
 OBJS		=	$(SRCS:.c=.o)

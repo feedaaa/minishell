@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "../minishell.h"
 
 static void	print(char *str)
 {
@@ -19,18 +19,24 @@ static void	print(char *str)
 
 int	cmd_echo(t_statement *statement, bool has_n)
 {
-	int	i;
+	int		i;
+	int		j;
 
 	i = 1;
+	j = 0;
 	if (has_n)
+		i += 1;
+	if (statement->argv[i][j] == '-' && statement->argv[i][j + 1] == 'n'
+			&& statement->argv[i])
 	{
-		statement->argv[i+1];
+		while (statement->argv[i][j] == 'n')
+			j++;
+		i++;
 	}
-	i += 1;
 	while (statement->argv[i] && i != statement->argc)
 	{
 		print(statement->argv[i]);
-		if (!statement->argv[i + 1] && statement->operator!= RDR_INPUT)
+		if (!statement->argv[i + 1] && statement->operator != RDR_INPUT)
 			break ;
 		ft_putchar_fd(' ', STDOUT_FILENO);
 		i += 1;

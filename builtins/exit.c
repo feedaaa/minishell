@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "../minishell.h"
 
 extern long long	g_exit_status;
 
@@ -66,12 +66,6 @@ bool	fits_in_longlong(char *str)
 	return (true);
 }
 
-static void	exit_non_numeric_arg(void)
-{
-	g_exit_status = 2;
-	ft_putendl_fd(EXIT_NON_NUMERIC_ARG, STDERR_FILENO);
-}
-
 void	cmd_exit(t_statement *s, t_data *data)
 {
 	ft_putendl_fd("exit", STDOUT_FILENO);
@@ -80,13 +74,12 @@ void	cmd_exit(t_statement *s, t_data *data)
 		if (is_all_digits_or_signals(s->argv[1]))
 		{
 			if (!fits_in_longlong(s->argv[1]))
-				// if it is in the range of long long int
 				exit_non_numeric_arg();
 			else
 				g_exit_status = ft_atoll(s->argv[1]);
 		}
 		else
-			exit_non_numeric_arg(); // if its not a number
+			exit_non_numeric_arg();
 	}
 	else if (s->argc > 2)
 	{
@@ -98,4 +91,15 @@ void	cmd_exit(t_statement *s, t_data *data)
 	if (data)
 		destroy(data);
 	exit(g_exit_status);
+}
+
+size_t	exit_status_size(void)
+{
+	char	*exit_status;
+	size_t	size;
+
+	exit_status = ft_lltoa(g_exit_status);
+	size = ft_strlen(exit_status);
+	free(exit_status);
+	return (size);
 }
