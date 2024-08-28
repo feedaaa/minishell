@@ -51,7 +51,7 @@ bool	builtin(t_statement *s, t_data *data)
 		g_exit_status = call_cmd_echo(s);
 	else if (streq(s->argv[0], "pwd"))
 		g_exit_status = cmd_pwd();
-	else if (streq(s->argv[0], "env"))
+	else if (streq(s->argv[0], "env") || streq(s->argv[0], "ENV"))
 		g_exit_status = cmd_env(data);
 	else
 		return (false);
