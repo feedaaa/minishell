@@ -14,23 +14,23 @@ bool	has_operator(char *input)
 	return (false);
 }
 
-// bool	check_operator_syntax(char *input, size_t i)
-// {
-// 	if (input[i] == input[i + 1])
-// 		i += 2;
-// 	else
-// 		i++;
-// 	if (input[i] == ' ')
-// 	{
-// 		while (input[i] && input[i] == ' ')
-// 			(i)++;
-// 		if (is_therechar(OPERATORS, input[i]))
-// 			return (unexpected_token(input[i]));
-// 	}
-// 	if (is_therechar(OPERATORS, input[i]))
-// 		return (unexpected_token(input[i]));
-// 	return (false);
-// }
+bool	check_operator_syntax(char *input, size_t i)
+{
+	if (input[i] == input[i + 1])
+		i += 2;
+	else
+		i++;
+	if (input[i] == ' ')
+	{
+		while (input[i] && input[i] == ' ')
+			(i)++;
+		if (is_therechar(OPERATORS, input[i]))
+			return (unexpected_token(input[i]));
+	}
+	if (is_therechar(OPERATORS, input[i]))
+		return (unexpected_token(input[i]));
+	return (false);
+}
 
 static bool	handle_pipe_and_spaces(char *input, size_t *i)
 {
@@ -80,26 +80,6 @@ bool	invalid_syntax_on_operator(char *input)
 				return (true);
 		}
 		i += 1;
-	}
-	return (false);
-}
-
-
-bool	invalid_syntax_on_operator(char *input)
-{
-	size_t	i;
-	bool	in_quotes;
-
-	in_quotes = false;
-	i = 0;
-	while (has_operator(&input[i]))
-	{
-		if (is_therechar(QUOTES, input[i]))
-			in_quotes = !in_quotes;
-		if (is_therechar(OPERATORS, input[i]) && !in_quotes)
-			if (check_operator_syntax(input, i))
-				return (true);
-		i++;
 	}
 	return (false);
 }

@@ -15,7 +15,7 @@ int	call_cmd_echo(t_statement *s)
 	j = 0;
 	temp = s;
 	has_n = false;
-	if (s->argc >= 2)
+	if (s->argc > 2)
 		has_n = is_therechar(s->argv[1], '-') && is_therechar(s->argv[1], 'n');
 	cmd_echo(temp, has_n);
 	temp = temp->next;

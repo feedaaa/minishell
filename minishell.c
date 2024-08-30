@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:08:36 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/25 20:51:14 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/30 21:59:40 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static char	*get_input(void)
 	char	*raw_input;
 	char	*input;
 
-	raw_input = readline("minishell$ ");
+	raw_input = readline("OURSHELL -> ");
 	input = trim_free(raw_input, " \t");
 	return (input);
 }
