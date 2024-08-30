@@ -12,24 +12,40 @@
 
 #include "../minishell.h"
 
-static void	redirect_input_until(t_statement *node)
-{
-	char	*buff;
-	int		fd[2];
 
-	pipe(fd);
-	while (1)
-	{
-		buff = readline("> ");
-		if (streq(buff, node->next->argv[0]))
-			break ;
-		ft_putendl_fd(buff, fd[1]);
-	}
-	close(fd[1]);
-	dup2(fd[0], STDIN_FILENO);
-	close(fd[0]);
-	free(buff);
+static void process_heredoc_delimiter(int fd[2], char *delimiter) {
+    char *buff;
+    bool done = false;
+
+    while (!done) {
+        buff = readline("> ");
+        if (!buff) {
+            perror("readline");
+            exit(EXIT_FAILURE);
+        }
+        if (streq(buff, delimiter)) {
+            free(buff);
+            done = true;
+        } else {
+            ft_putendl_fd(buff, fd[1]);
+            free(buff);
+        }
+    }
 }
+
+static void redirect_input_until(t_statement *node) {
+    int fd[2];
+
+    pipe(fd);
+    while (node && node->operator == RDR_INPUT_UNTIL) {
+        process_heredoc_delimiter(fd, node->next->argv[0]);
+        node = node->next;
+    }
+    close(fd[1]);
+    dup2(fd[0], STDIN_FILENO);
+    close(fd[0]);
+}
+
 
 static void	redirect_input(t_statement *node)
 {
