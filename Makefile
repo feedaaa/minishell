@@ -35,6 +35,7 @@ SRCS	=		$(EXEC)/binaries.c \
 				$(EXEC)/heredoc.c \
 				$(PARSE)/input_utils.c \
 				$(PARSE)/invalid_syntax.c\
+				$(PARSE)/invalid_syntax2.c\
 				$(EXEC)/old_pwd.c \
 				$(PARSE)/parser_utils.c \
 				$(PARSE)/parser.c \
