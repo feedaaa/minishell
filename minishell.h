@@ -6,7 +6,7 @@
 /*   By: ffidha <ffidha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 15:29:50 by ffidha            #+#    #+#             */
-/*   Updated: 2024/08/25 21:26:30 by ffidha           ###   ########.fr       */
+/*   Updated: 2024/08/30 22:16:53 by ffidha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,14 +184,14 @@ int				call_cmd_cd(t_statement *s, t_data *data);
 int				call_cmd_echo(t_statement *s);
 int				cmd_pwd(void);
 int				cmd_echo(t_statement *statement, bool has_n);
-void			child_heredoc(int write_fd, char *delimiter);
 
 //clean-free function
 void			clean_parsed(t_statement **statement_list, t_data *data);
-void			clean_expander(t_statement *command);
 int				export_bad_identifier(char *identifier);
+void			exit_non_numeric_arg(void);
+
+// readline functions
 void			rl_replace_line(const char *s, int c);
 void            rl_clear_history(void);
-void			exit_non_numeric_arg(void);
 
 #endif

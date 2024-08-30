@@ -97,3 +97,11 @@ char	*remove_quotes(char *parsed)
 	free(parsed);
 	return (unquoted_parsed);
 }
+
+bool	is_spaces(char c)
+{
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ')
+		return (true);
+	return (false);
+}

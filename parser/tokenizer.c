@@ -29,6 +29,15 @@ char	**tokenize_input(char *input)
 	return (parsed);
 }
 
+bool	check_quotes(char *input, bool quotes)
+{
+	if (is_therechar(QUOTES, *input) && *input == *(input + 1))
+		input += 2;
+	else if (is_therechar(QUOTES, *input))
+		quotes = !quotes;
+	return (quotes);
+}
+
 size_t	count_tokens(char *input)
 {
 	size_t	count;
@@ -42,12 +51,9 @@ size_t	count_tokens(char *input)
 	{
 		if (is_therechar(OPERATORS, *input))
 			count += 1;
-		if (is_therechar(QUOTES, *input) && *input == *(input + 1))
-			input += 2;
-		else if (is_therechar(QUOTES, *input))
-			quotes = !quotes;
-		if (*input != ' ' && !is_therechar(OPERATORS, *input) && !flag
-			&& !quotes)
+		quotes = check_quotes(input, quotes);
+		if (*input != ' ' && !is_therechar(OPERATORS, *input)
+			&& !flag && !quotes)
 		{
 			flag = true;
 			count += 1;
@@ -72,14 +78,6 @@ bool	is_therechar(const char *str, int ch)
 			return (true);
 		i++;
 	}
-	return (false);
-}
-
-bool	is_spaces(char c)
-{
-	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
-		|| c == ' ')
-		return (true);
 	return (false);
 }
 

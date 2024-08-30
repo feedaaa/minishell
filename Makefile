@@ -32,7 +32,6 @@ SRCS	=		$(EXEC)/binaries.c \
 				$(PARSE)/expand.c \
 				$(BUILT)/export.c \
 				$(PARSE)/free_clean.c \
-				$(EXEC)/heredoc.c \
 				$(PARSE)/input_utils.c \
 				$(PARSE)/invalid_syntax.c\
 				$(PARSE)/invalid_syntax2.c\
